@@ -1,0 +1,130 @@
+{{ 'wf-home.css' | asset_url | stylesheet_tag }}
+
+<div class="wf-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="wf-content wf-story-panel wf-story-panel--{{ section.settings.image_position }}">
+    <div class="wf-story-panel__grid">
+      <div class="wf-story-panel__media">
+        {%- render 'wf-media',
+          image: section.settings.image,
+          alt: section.settings.image.alt | default: section.settings.heading,
+          sizes_attr: '(min-width: 990px) 50vw, 100vw'
+        -%}
+      </div>
+      <div class="wf-story-panel__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.stat_value != blank -%}
+          <div class="wf-story-panel__stat" data-wf-reveal>
+            <span class="wf-story-panel__stat-value">{{ section.settings.stat_value | escape }}</span>
+            <span class="wf-story-panel__stat-label">{{ section.settings.stat_label | escape }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div data-wf-reveal>
+            <a
+              {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
+              class="button button--secondary"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Wildfolk story panel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position (desktop)",
+      "options": [
+        { "value": "image-first", "label": "Left" },
+        { "value": "image-last", "label": "Right" }
+      ],
+      "default": "image-first"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why This Honey"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "[HEADING — client copy]"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text",
+      "default": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>"
+    },
+    {
+      "type": "text",
+      "id": "stat_value",
+      "label": "Optional statistic value",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "stat_label",
+      "label": "Optional statistic label",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": ""
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why This Honey",
+      "settings": { "eyebrow": "Why This Honey", "image_position": "image-first" }
+    },
+    {
+      "name": "Quality",
+      "settings": { "eyebrow": "Quality", "image_position": "image-last" }
+    },
+    {
+      "name": "How To Use",
+      "settings": { "eyebrow": "How To Use", "image_position": "image-first" }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,324 @@
+/* Shared layout rules for the Wildfolk "Living Hive" homepage sections. */
+
+.wf-section {
+  position: relative;
+  overflow: clip;
+  padding-block: var(--wf-space-lg);
+}
+
+@media screen and (min-width: 990px) {
+  .wf-section {
+    padding-block: var(--wf-space-xl);
+  }
+}
+
+.wf-section--tight {
+  padding-block: var(--wf-space-md);
+}
+
+/* ---------- Hero ---------- */
+
+.wf-hero {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 78svh;
+  padding-block: var(--wf-space-md) var(--wf-space-lg);
+}
+
+@media screen and (min-width: 990px) {
+  .wf-hero {
+    min-height: 92svh;
+  }
+}
+
+.wf-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.wf-hero__media .wf-media,
+.wf-hero__media .wf-media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wf-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(var(--wf-charcoal), 0.55) 0%, rgba(var(--wf-charcoal), 0.15) 45%, rgba(var(--wf-charcoal), 0.55) 100%);
+  z-index: -1;
+}
+
+.wf-hero__body {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-sm);
+  padding-inline: var(--wf-space-xs);
+  padding-bottom: var(--wf-space-md);
+  color: rgb(var(--wf-ivory));
+}
+
+@media screen and (min-width: 990px) {
+  .wf-hero__body {
+    max-width: 56rem;
+    padding-inline: var(--wf-space-md);
+  }
+}
+
+.wf-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wf-space-xs);
+  align-items: center;
+}
+
+/* ---------- Story panel (Why This Honey / Quality / How To Use) ---------- */
+
+.wf-story-panel__grid {
+  display: grid;
+  gap: var(--wf-space-md);
+  align-items: center;
+}
+
+@media screen and (min-width: 990px) {
+  .wf-story-panel__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--wf-space-lg);
+  }
+
+  .wf-story-panel--image-first .wf-story-panel__media { order: 1; }
+  .wf-story-panel--image-first .wf-story-panel__copy { order: 2; }
+  .wf-story-panel--image-last .wf-story-panel__media { order: 2; }
+  .wf-story-panel--image-last .wf-story-panel__copy { order: 1; }
+}
+
+.wf-story-panel__media {
+  aspect-ratio: 4 / 5;
+}
+
+.wf-story-panel__media .wf-media,
+.wf-story-panel__media .wf-media__img,
+.wf-story-panel__media.wf-media--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wf-story-panel__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-xs);
+}
+
+.wf-story-panel__stat {
+  display: flex;
+  gap: var(--wf-space-sm);
+  margin-top: var(--wf-space-xs);
+  padding-top: var(--wf-space-xs);
+  border-top: var(--wf-rule);
+}
+
+.wf-story-panel__stat-value {
+  font-family: var(--font-heading-family);
+  font-size: var(--wf-size-h3);
+  line-height: 1;
+}
+
+.wf-story-panel__stat-label {
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  max-width: 16rem;
+}
+
+/* ---------- Origin ---------- */
+
+.wf-origin__layout {
+  display: grid;
+  gap: var(--wf-space-md);
+}
+
+@media screen and (min-width: 990px) {
+  .wf-origin__layout {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: end;
+    gap: var(--wf-space-lg);
+  }
+}
+
+.wf-origin__media {
+  aspect-ratio: 3 / 4;
+}
+
+.wf-origin__media .wf-media,
+.wf-origin__media .wf-media__img,
+.wf-origin__media.wf-media--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wf-origin__meta {
+  display: flex;
+  gap: var(--wf-space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--wf-space-sm);
+  padding-top: var(--wf-space-sm);
+  border-top: var(--wf-rule);
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+}
+
+.wf-origin__meta dt {
+  text-transform: uppercase;
+  opacity: 0.6;
+  font-size: 1.15rem;
+  margin-bottom: 0.3em;
+}
+
+.wf-origin__meta dd {
+  margin: 0;
+}
+
+/* ---------- Hive ---------- */
+
+.wf-hive {
+  color: rgb(var(--wf-ivory));
+}
+
+.wf-hive__layout {
+  display: grid;
+  gap: var(--wf-space-lg);
+  text-align: center;
+  justify-items: center;
+}
+
+.wf-hive__comb {
+  width: min(70vw, 46rem);
+  aspect-ratio: 1;
+  opacity: 0.5;
+}
+
+.wf-hive__body {
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-sm);
+  align-items: center;
+}
+
+/* ---------- Process (Hive to Bottle) ---------- */
+
+.wf-process__steps {
+  display: grid;
+  gap: var(--wf-space-md);
+  margin-top: var(--wf-space-lg);
+}
+
+@media screen and (min-width: 750px) {
+  .wf-process__steps {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--wf-space-sm);
+  }
+}
+
+.wf-process__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-2xs);
+  padding-top: var(--wf-space-xs);
+  border-top: var(--wf-rule);
+}
+
+.wf-process__step-index {
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  opacity: 0.5;
+}
+
+.wf-process__step-media {
+  aspect-ratio: 4 / 3;
+  margin-top: var(--wf-space-2xs);
+}
+
+.wf-process__step-media .wf-media,
+.wf-process__step-media .wf-media__img,
+.wf-process__step-media.wf-media--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Journal feature ---------- */
+
+.wf-journal__layout {
+  display: grid;
+  gap: var(--wf-space-md);
+}
+
+@media screen and (min-width: 990px) {
+  .wf-journal__layout {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--wf-space-lg);
+  }
+}
+
+.wf-journal__featured-media {
+  aspect-ratio: 4 / 3;
+}
+
+.wf-journal__featured-media .wf-media,
+.wf-journal__featured-media .wf-media__img,
+.wf-journal__featured-media.wf-media--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wf-journal__secondary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-sm);
+}
+
+.wf-journal__secondary-item {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--wf-space-xs);
+  padding-block: var(--wf-space-xs);
+  border-top: var(--wf-rule);
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wf-journal__secondary-media {
+  aspect-ratio: 1;
+}
+
+.wf-journal__secondary-media .wf-media,
+.wf-journal__secondary-media .wf-media__img,
+.wf-journal__secondary-media.wf-media--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Final CTA ---------- */
+
+.wf-final-cta {
+  text-align: center;
+}
+
+.wf-final-cta__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--wf-space-sm);
+  max-width: 52rem;
+  margin-inline: auto;
+}

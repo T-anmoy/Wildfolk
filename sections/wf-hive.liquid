@@ -1,0 +1,71 @@
+{{ 'wf-home.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="wf-section wf-hive wf-scene color-{{ section.settings.color_scheme }} gradient"
+  data-wf-scene="hive"
+  data-wf-bee-x="50"
+  data-wf-bee-y="18"
+>
+  <div class="wf-content wf-hive__layout">
+    <svg class="wf-hive__comb" data-wf-drift viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        {%- for row in (0..4) -%}
+          {%- for col in (0..4) -%}
+            <polygon points="{{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 10 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 18 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 42 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 18 }}" />
+          {%- endfor -%}
+        {%- endfor -%}
+      </g>
+    </svg>
+
+    <div class="wf-hive__body">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Wildfolk hive",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Hive"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "[HIVE HEADING — client copy]"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text",
+      "default": "<p>[HIVE STORY — replace with confirmed client copy]</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wildfolk hive"
+    }
+  ]
+}
+{% endschema %}

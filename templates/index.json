@@ -1,91 +1,199 @@
 {
   "sections": {
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading"
-      ],
+    "wf-bee-guide": {
+      "type": "wf-bee-guide",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 28,
-        "padding_bottom": 12
+        "enabled": true
       }
     },
-    "collage-0": {
-      "type": "collage",
+    "wf-hero": {
+      "type": "wf-hero",
+      "settings": {
+        "eyebrow": "Wildfolk Honey",
+        "heading": "A living journey from hive to table.",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "button_label": "Shop Honey",
+        "button_label_secondary": "Our Story",
+        "button_link_secondary": "\/pages\/our-story",
+        "color_scheme": "scheme-4"
+      }
+    },
+    "wf-why": {
+      "type": "wf-story-panel",
+      "settings": {
+        "image_position": "image-first",
+        "eyebrow": "Why This Honey",
+        "heading": "[HEADING — client copy]",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "wf-origin": {
+      "type": "wf-origin",
+      "settings": {}
+    },
+    "wf-hive": {
+      "type": "wf-hive",
+      "settings": {}
+    },
+    "wf-process": {
+      "type": "wf-process",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "harvest": {
+          "type": "step",
           "settings": {
-            "collection": ""
+            "title": "Harvest",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "process": {
+          "type": "step",
           "settings": {
-            "collection": ""
+            "title": "Process",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+          }
+        },
+        "bottle": {
+          "type": "step",
+          "settings": {
+            "title": "Bottle",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+          }
+        },
+        "table": {
+          "type": "step",
+          "settings": {
+            "title": "Table",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
           }
         }
       },
-      "block_order": [
-        "collection-0",
-        "collection-1"
-      ],
+      "block_order": ["harvest", "process", "bottle", "table"],
+      "settings": {}
+    },
+    "wf-quality": {
+      "type": "wf-story-panel",
       "settings": {
-        "heading": "",
-        "heading_size": "h2",
-        "desktop_layout": "right",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 0
+        "image_position": "image-last",
+        "eyebrow": "Quality",
+        "heading": "[HEADING — client copy]",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]<\/p>",
+        "color_scheme": "scheme-3"
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
+    "wf-how-to-use": {
+      "type": "wf-story-panel",
       "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 68
+        "image_position": "image-first",
+        "eyebrow": "How To Use",
+        "heading": "[HEADING — client copy]",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]<\/p>",
+        "color_scheme": "scheme-1"
       }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": { "heading_size": "h1" }
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": ["title", "price", "variant_picker", "quantity_selector", "buy_buttons"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "secondary_background": true,
+        "media_size": "medium",
+        "media_position": "left",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "wf-reviews": {
+      "type": "wf-reviews",
+      "settings": {}
+    },
+    "wf-journal": {
+      "type": "wf-journal-feature",
+      "settings": {}
+    },
+    "wf-faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "[FAQ QUESTION — client-confirmed]",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
+            "icon": "none"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "[FAQ QUESTION — client-confirmed]",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
+            "icon": "none"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "[FAQ QUESTION — client-confirmed]",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3"],
+      "settings": {
+        "caption": "FAQ",
+        "heading": "Questions, answered",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "wf-final-cta": {
+      "type": "wf-final-cta",
+      "settings": {}
     }
   },
   "order": [
-    "rich_text",
-    "collage-0",
-    "featured-collection"
+    "wf-bee-guide",
+    "wf-hero",
+    "wf-why",
+    "wf-origin",
+    "wf-hive",
+    "wf-process",
+    "wf-quality",
+    "wf-how-to-use",
+    "featured-product",
+    "wf-reviews",
+    "wf-journal",
+    "wf-faq",
+    "wf-final-cta"
   ]
 }

@@ -1,0 +1,102 @@
+{{ 'wf-home.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="wf-section wf-scene color-{{ section.settings.color_scheme }} gradient"
+  data-wf-scene="origin"
+  data-wf-bee-x="65"
+  data-wf-bee-y="20"
+>
+  <div class="wf-content wf-origin__layout">
+    <div class="wf-origin__media" data-wf-drift data-wf-reveal>
+      {%- render 'wf-media',
+        image: section.settings.image,
+        alt: section.settings.image.alt | default: section.settings.origin_name,
+        sizes_attr: '(min-width: 990px) 40vw, 100vw'
+      -%}
+    </div>
+    <div class="wf-origin__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.origin_name != blank or section.settings.location_label != blank -%}
+        <dl class="wf-origin__meta" data-wf-reveal>
+          {%- if section.settings.origin_name != blank -%}
+            <div>
+              <dt>{{ 'sections.wf_origin.origin' | t }}</dt>
+              <dd>{{ section.settings.origin_name | escape }}</dd>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.location_label != blank -%}
+            <div>
+              <dt>{{ 'sections.wf_origin.location' | t }}</dt>
+              <dd>{{ section.settings.location_label | escape }}</dd>
+            </div>
+          {%- endif -%}
+        </dl>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Wildfolk origin",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Landscape image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Origin"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "[ORIGIN HEADING — client copy]"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text",
+      "default": "<p>[ORIGIN STORY — replace with confirmed client copy]</p>"
+    },
+    {
+      "type": "text",
+      "id": "origin_name",
+      "label": "Origin name",
+      "default": "[CLIENT ORIGIN]"
+    },
+    {
+      "type": "text",
+      "id": "location_label",
+      "label": "Location label",
+      "default": ""
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wildfolk origin"
+    }
+  ]
+}
+{% endschema %}
