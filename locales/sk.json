@@ -399,6 +399,20 @@
       "min_error": "Minimálne množstvo tejto položky je {{ min }}",
       "max_error": "Maximálne množstvo tejto položky je {{ max }}",
       "step_error": "Túto položku môžete pridať iba v prírastkoch po {{ step }}"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

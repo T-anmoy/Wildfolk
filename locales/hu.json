@@ -375,6 +375,20 @@
       "min_error": "A termék minimális mennyisége {{ min }}",
       "max_error": "A termék maximális mennyisége {{ max }}",
       "step_error": "A termék mennyisége csak {{ step }} darabos lépésekben növelhető"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

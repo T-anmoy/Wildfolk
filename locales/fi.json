@@ -375,6 +375,20 @@
       "min_error": "Tämän tuotteen vähimmäisarvo on {{ min }}",
       "max_error": "Tämän tuotteen enimmäisarvo on {{ max }}",
       "step_error": "Voit lisätä tätä tuotetta vain {{ step }}:n lisäyksinä"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

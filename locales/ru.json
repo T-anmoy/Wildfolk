@@ -399,6 +399,20 @@
       "min_error": "Минимальное количество этого товара — {{ min }}",
       "max_error": "Максимальное количество этого товара — {{ max }}",
       "step_error": "Вы можете добавить этот товар только в количестве, кратном {{ step }}"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

@@ -399,6 +399,20 @@
       "min_error": "Pozycja ma minimalny limit {{ min }}",
       "max_error": "Pozycja ma maksymalny limit {{ max }}",
       "step_error": "Możesz dodać tę pozycję tylko z przyrostem o {{ step }}"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

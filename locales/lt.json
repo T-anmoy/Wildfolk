@@ -399,6 +399,20 @@
       "min_error": "Nustatytas mažiausias šios prekės kiekis: {{ min }}",
       "max_error": "Nustatytas didžiausias šios prekės kiekis: {{ max }}",
       "step_error": "Galima pridėti tik po {{ step }} vnt. šios prekės"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

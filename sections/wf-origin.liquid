@@ -1,5 +1,9 @@
 {{ 'wf-home.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign origin_alt = section.settings.image.alt | default: section.settings.origin_name
+-%}
+
 <div
   class="wf-section wf-scene color-{{ section.settings.color_scheme }} gradient"
   data-wf-scene="origin"
@@ -10,7 +14,7 @@
     <div class="wf-origin__media" data-wf-drift data-wf-reveal>
       {%- render 'wf-media',
         image: section.settings.image,
-        alt: section.settings.image.alt | default: section.settings.origin_name,
+        alt: origin_alt,
         sizes_attr: '(min-width: 990px) 40vw, 100vw'
       -%}
     </div>

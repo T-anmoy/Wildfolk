@@ -375,6 +375,20 @@
       "min_error": "此品項下限為 {{ min }}",
       "max_error": "此品項上限為 {{ max }}",
       "step_error": "只能以 {{ step }} 為增量新增此品項"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

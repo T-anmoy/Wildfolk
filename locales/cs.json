@@ -399,6 +399,20 @@
       "min_error": "Tato položka vyžaduje minimum: {{ min }}",
       "max_error": "Tato položka vyžaduje maximum: {{ max }}",
       "step_error": "Tuto položku můžete přidat jen v přírůstcích hodnoty: {{ step }}"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

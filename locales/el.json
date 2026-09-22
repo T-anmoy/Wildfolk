@@ -375,6 +375,20 @@
       "min_error": "Αυτό το προϊόν έχει ελάχιστο όριο {{ min }}",
       "max_error": "Αυτό το προϊόν έχει μέγιστο όριο {{ max }}",
       "step_error": "Μπορείτε να προσθέσετε αυτό το προϊόν μόνο κατά βήματα των {{ step }}"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

@@ -11,6 +11,7 @@
     assign loading_attr = 'eager'
     assign fetchpriority_attr = 'high'
   endif
+  assign hero_alt = section.settings.image.alt | default: section.settings.heading
 -%}
 
 <div
@@ -23,7 +24,7 @@
     {%- render 'wf-media',
       image: section.settings.image,
       image_mobile: section.settings.image_mobile,
-      alt: section.settings.image.alt | default: section.settings.heading,
+      alt: hero_alt,
       sizes_attr: '100vw',
       loading: loading_attr,
       fetchpriority: fetchpriority_attr

@@ -375,6 +375,20 @@
       "min_error": "สินค้านี้มีจำนวนขั้นต่ำที่ {{ min }} รายการ",
       "max_error": "สินค้านี้มีจำนวนสูงสุดที่ {{ max }} รายการ",
       "step_error": "คุณสามารถเพิ่มสินค้านี้ได้ทีละ {{ step }} รายการในแต่ละครั้งเท่านั้น"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

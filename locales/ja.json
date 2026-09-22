@@ -375,6 +375,20 @@
       "min_error": "このアイテムの最小値は{{ min }}です",
       "max_error": "このアイテムの最大値は{{ max }}です",
       "step_error": "このアイテムは、{{ step }}の増分でのみ追加できます"
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {

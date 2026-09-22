@@ -375,6 +375,20 @@
       "min_error": "이 품목의 최소 개수는 {{ min }}개입니다.",
       "max_error": "이 품목은 최대 개수는 {{ max }}개입니다.",
       "step_error": "이 품목은 {{ step }}개 단위로만 추가할 수 있습니다."
+    },
+    "wf_origin": {
+      "origin": "Origin",
+      "location": "Location"
+    },
+    "wf_process": {
+      "heading": "From Hive to Bottle"
+    },
+    "wf_journal": {
+      "view_all": "View all articles",
+      "no_articles": "New stories are on their way."
+    },
+    "wf_reviews": {
+      "empty": "Reviews are on their way — check back soon."
     }
   },
   "localization": {
