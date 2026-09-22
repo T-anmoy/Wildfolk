@@ -228,6 +228,23 @@
         "default": "default",
         "label": "t:settings_schema.animations.settings.animations_hover_elements.label",
         "info": "t:settings_schema.animations.settings.animations_hover_elements.info"
+      },
+      {
+        "type": "select",
+        "id": "wf_motion_intensity",
+        "options": [
+          {
+            "value": "immersive",
+            "label": "Immersive (bee guide, reveals, drift)"
+          },
+          {
+            "value": "minimal",
+            "label": "Minimal (static, no bee, no motion)"
+          }
+        ],
+        "default": "immersive",
+        "label": "Wildfolk motion intensity",
+        "info": "Minimal disables the bee guide and all scroll-driven motion sitewide, independent of the visitor's reduced-motion preference."
       }
     ]
   },

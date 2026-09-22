@@ -1,0 +1,173 @@
+/**
+ * WILDFOLK design tokens — "The Living Hive"
+ * Layered on top of Craft's native color-scheme/font/spacing variables.
+ * New tokens only; never redeclares Craft's own custom properties.
+ */
+
+:root {
+  /* Brand palette (also mirrored into Theme Editor color schemes 1-6) */
+  --wf-ivory: 245, 240, 230;
+  --wf-charcoal: 25, 23, 19;
+  --wf-amber: 184, 120, 36;
+  --wf-taupe: 201, 189, 170;
+  --wf-olive: 74, 75, 58;
+
+  /* Editorial type scale — fluid, restrained */
+  --wf-size-eyebrow: clamp(1.1rem, 0.95rem + 0.3vw, 1.3rem);
+  --wf-size-body: clamp(1.5rem, 1.4rem + 0.2vw, 1.7rem);
+  --wf-size-h3: clamp(2.4rem, 2rem + 1.2vw, 3.2rem);
+  --wf-size-h2: clamp(3.2rem, 2.4rem + 2.4vw, 5rem);
+  --wf-size-h1: clamp(4.2rem, 2.8rem + 4.5vw, 8.4rem);
+  --wf-tracking-eyebrow: 0.14em;
+  --wf-tracking-heading: -0.01em;
+  --wf-line-heading: 1.04;
+  --wf-line-body: 1.55;
+
+  /* Spacing rhythm for the narrative sections (distinct from Craft's section spacing) */
+  --wf-space-3xs: 0.4rem;
+  --wf-space-2xs: 0.8rem;
+  --wf-space-xs: 1.6rem;
+  --wf-space-sm: 2.4rem;
+  --wf-space-md: 4rem;
+  --wf-space-lg: 7.2rem;
+  --wf-space-xl: 11rem;
+  --wf-space-2xl: 16rem;
+
+  /* Editorial container widths — narrower reading column than page-width */
+  --wf-content-width: 62rem;
+  --wf-story-width: 46rem;
+
+  /* Restrained surfaces — thin rules, near-zero radius, no drop shadows */
+  --wf-radius: 2px;
+  --wf-rule: 1px solid rgba(var(--wf-charcoal), 0.14);
+  --wf-rule-inverse: 1px solid rgba(var(--wf-ivory), 0.18);
+
+  /* Motion system */
+  --wf-ease-flow: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --wf-ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --wf-duration-reveal: 900ms;
+  --wf-duration-drift: 6000ms;
+  --wf-motion-scale: 1; /* set to 0 by [data-wf-motion="minimal"] and reduced-motion */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --wf-motion-scale: 0;
+  }
+}
+
+[data-wf-motion="minimal"] {
+  --wf-motion-scale: 0;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.wf-scene {
+  position: relative;
+  isolation: isolate;
+}
+
+.wf-content {
+  width: 100%;
+  max-width: var(--wf-content-width);
+  margin-inline: auto;
+  padding-inline: var(--wf-space-xs);
+}
+
+.wf-story {
+  max-width: var(--wf-story-width);
+}
+
+.wf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+  font-family: var(--font-body-family);
+  font-size: var(--wf-size-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--wf-tracking-eyebrow);
+  text-transform: uppercase;
+  color: currentColor;
+  opacity: 0.72;
+}
+
+.wf-eyebrow::before {
+  content: "";
+  display: block;
+  width: 1.6em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.wf-heading {
+  font-family: var(--font-heading-family);
+  letter-spacing: var(--wf-tracking-heading);
+  line-height: var(--wf-line-heading);
+  margin: 0;
+}
+
+.wf-heading--display {
+  font-size: var(--wf-size-h1);
+}
+
+.wf-heading--xl {
+  font-size: var(--wf-size-h2);
+}
+
+.wf-heading--lg {
+  font-size: var(--wf-size-h3);
+}
+
+.wf-body {
+  font-family: var(--font-body-family);
+  font-size: var(--wf-size-body);
+  line-height: var(--wf-line-body);
+  max-width: 42em;
+}
+
+.wf-rule {
+  border: none;
+  border-top: var(--wf-rule);
+  margin: 0;
+}
+
+/* ---------- Reveal motion (masked type / fade) ---------- */
+
+[data-wf-reveal] {
+  opacity: 0;
+  transform: translateY(clamp(0px, 2vw, 24px));
+  transition:
+    opacity calc(var(--wf-duration-reveal) * 1ms * var(--wf-motion-scale)) var(--wf-ease-settle),
+    transform calc(var(--wf-duration-reveal) * 1ms * var(--wf-motion-scale)) var(--wf-ease-settle);
+  transition-delay: var(--wf-reveal-delay, 0ms);
+}
+
+[data-wf-reveal].is-visible,
+[data-wf-motion="minimal"] [data-wf-reveal],
+.shopify-design-mode [data-wf-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Drift (very subtle ambient movement) ---------- */
+
+[data-wf-drift] {
+  animation: wf-drift calc(var(--wf-duration-drift) * 1ms) ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.wf-scene.is-in-view [data-wf-drift] {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-wf-drift] {
+    animation: none;
+  }
+}
+
+@keyframes wf-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, calc(-1% * var(--wf-motion-scale)), 0) scale(1.015); }
+}
