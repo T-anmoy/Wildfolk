@@ -1,0 +1,23 @@
+{% comment %}
+  Renders the WILDFOLK bee guide overlay once per page.
+  Include this snippet from exactly one section (sections/wf-bee-guide.liquid)
+  so the character exists a single time regardless of how many [data-wf-scene]
+  markers appear elsewhere on the page.
+{% endcomment %}
+{{ 'wf-bee.css' | asset_url | stylesheet_tag }}
+
+<div class="wf-bee-scene" data-wf-bee-root>
+  <div data-wf-bee aria-hidden="true">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <ellipse class="wf-bee__wing" cx="24" cy="20" rx="13" ry="9" transform="rotate(-18 24 20)" />
+      <ellipse class="wf-bee__wing" cx="40" cy="20" rx="13" ry="9" transform="rotate(18 40 20)" />
+      <ellipse class="wf-bee__body" cx="32" cy="34" rx="15" ry="18" />
+      <path class="wf-bee__stripe" d="M17.2 28.5c9.8 3.6 19.8 3.6 29.6 0" />
+      <path class="wf-bee__stripe" d="M16 38c10.7 3.8 21.3 3.8 32 0" />
+      <path class="wf-bee__stripe" d="M18.5 47.2c8.6 3 17.4 3 26 0" />
+      <circle class="wf-bee__head" cx="32" cy="15" r="6.5" />
+    </svg>
+  </div>
+</div>
+
+<script src="{{ 'wf-bee.js' | asset_url }}" defer="defer"></script>

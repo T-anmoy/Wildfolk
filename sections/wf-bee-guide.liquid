@@ -1,0 +1,29 @@
+{% comment %}
+  Invisible utility section: renders the single page-wide bee guide.
+  Add once per template (homepage by default). Safe to disable, move,
+  or remove — every other Wildfolk section works without it.
+{% endcomment %}
+{%- if section.settings.enabled -%}
+  {%- render 'wf-bee-scene' -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bee guide",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable the bee guide",
+      "default": true,
+      "info": "The bee travels between every section marked as a story scene on this page. Automatically hidden when a visitor prefers reduced motion."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bee guide"
+    }
+  ]
+}
+{% endschema %}
