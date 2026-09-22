@@ -24,7 +24,7 @@
           <div class="wf-journal__featured-media">
             {%- render 'wf-media', image: featured.image, alt: featured.title, sizes_attr: '(min-width: 990px) 55vw, 100vw' -%}
           </div>
-          <p class="wf-eyebrow" style="margin-top: var(--wf-space-xs);">{{ featured.published_at | time_tag: format: 'month_day_year' }}</p>
+          <p class="wf-eyebrow" style="margin-top: var(--wf-space-xs);">{{ featured.published_at | time_tag: format: 'date' }}</p>
           <h3 class="wf-heading wf-heading--lg">{{ featured.title }}</h3>
           <p class="wf-body">{{ featured.excerpt_or_content | strip_html | truncatewords: 28 }}</p>
         </a>
@@ -36,7 +36,7 @@
                 {%- render 'wf-media', image: article.image, alt: article.title, sizes_attr: '8rem' -%}
               </div>
               <span>
-                <span class="wf-eyebrow" style="display:block;">{{ article.published_at | time_tag: format: 'month_day_year' }}</span>
+                <span class="wf-eyebrow" style="display:block;">{{ article.published_at | time_tag: format: 'date' }}</span>
                 <span class="wf-heading" style="font-size: 1.9rem; display:block;">{{ article.title }}</span>
               </span>
             </a>
