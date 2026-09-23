@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -16,10 +25,94 @@
         "padding_top": 0,
         "padding_bottom": 88
       }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's talk.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Questions about the honey? Need help with an order? Want to work with Wildfolk?</p><p>Send us a note and we'll point you in the right direction.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "categories": {
+      "type": "multicolumn",
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "title": "PRODUCT",
+            "text": "<p>Questions about the honey, origin or product details.</p>"
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "title": "ORDERS",
+            "text": "<p>Help with an existing order or delivery.</p>"
+          }
+        },
+        "col3": {
+          "type": "column",
+          "settings": {
+            "title": "COLLABORATIONS",
+            "text": "<p>Press, editorial, partnerships or brand collaborations.</p>"
+          }
+        },
+        "col4": {
+          "type": "column",
+          "settings": {
+            "title": "GENERAL",
+            "text": "<p>Something else? We're listening.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "col1",
+        "col2",
+        "col3",
+        "col4"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "none",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
     }
   },
   "order": [
     "main",
+    "intro",
+    "categories",
     "form"
   ]
 }
