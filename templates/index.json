@@ -19,10 +19,10 @@
       "type": "wf-hero",
       "settings": {
         "eyebrow": "Wildfolk Honey",
-        "heading": "A living journey from hive to tabl.",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "heading": "A living journey from hive to table.",
+        "text": "<p>Honey begins long before the jar.</p><p>It begins in the landscape, in the bloom, and in the living world around the hive.</p><p>Wildfolk brings that journey closer — from where it begins to how it finds its place at the table.</p>",
         "button_label": "Shop Honey",
-        "button_label_secondary": "Our Story",
+        "button_label_secondary": "Meet the Story",
         "button_link_secondary": "/pages/our-story",
         "color_scheme": "scheme-4"
       }
@@ -32,18 +32,28 @@
       "settings": {
         "image_position": "image-first",
         "eyebrow": "Why This Honey",
-        "heading": "[HEADING — client copy]",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "heading": "The jar is only part of the story.",
+        "text": "<p>Every honey carries something of where it begins.</p><p>The landscape around the hive. The flowers in bloom. The season. The work happening quietly beyond the bottle.</p><p>Wildfolk is built to keep that story visible — so the honey feels connected to its origin, its journey and the table it eventually reaches.</p>",
+        "button_label": "Discover Our Story",
+        "button_link": "/pages/our-story",
         "color_scheme": "scheme-1"
       }
     },
     "wf-origin": {
       "type": "wf-origin",
-      "settings": {}
+      "settings": {
+        "heading": "Every jar begins somewhere.",
+        "text": "<p>Before honey reaches the table, it belongs to a place.</p><p>A landscape. A season. A living environment shaped by what grows, blooms and moves through it.</p><p>This is where the Wildfolk story begins.</p>",
+        "origin_name": "[CLIENT-CONFIRM: HONEY ORIGIN]",
+        "location_label": "[CLIENT-CONFIRM: EXACT LOCATION]"
+      }
     },
     "wf-hive": {
       "type": "wf-hive",
-      "settings": {}
+      "settings": {
+        "heading": "A living rhythm, built together.",
+        "text": "<p>A hive is more than a place where honey is kept.</p><p>It is a living system shaped by countless small movements — leaving, returning, gathering, tending, storing.</p><p>The work is quiet. The rhythm is constant.</p><p>And somewhere within that rhythm, the story of the honey begins.</p>"
+      }
     },
     "wf-process": {
       "type": "wf-process",
@@ -52,28 +62,28 @@
           "type": "step",
           "settings": {
             "title": "Harvest",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "text": "<p>The journey begins when honey is gathered from the hive.</p><p>[CLIENT-CONFIRM: EXACT HARVEST METHOD]</p>"
           }
         },
         "process": {
           "type": "step",
           "settings": {
             "title": "Process",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "text": "<p>From the hive to the next stage, the honey is handled according to the process behind the finished product.</p><p>[CLIENT-CONFIRM: EXACT PROCESS DETAILS]</p>"
           }
         },
         "bottle": {
           "type": "step",
           "settings": {
             "title": "Bottle",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "text": "<p>The journey becomes something you can finally hold.</p><p>[CLIENT-CONFIRM: BOTTLING / PACKAGING DETAILS IF RELEVANT]</p>"
           }
         },
         "table": {
           "type": "step",
           "settings": {
             "title": "Table",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "text": "<p>And then the journey becomes yours.</p><p>Spoon it. Drizzle it. Stir it. Share it.</p><p>However you reach for it, the story continues at the table.</p>"
           }
         }
       },
@@ -83,15 +93,17 @@
         "bottle",
         "table"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Follow the journey."
+      }
     },
     "wf-quality": {
       "type": "wf-story-panel",
       "settings": {
         "image_position": "image-last",
         "eyebrow": "Quality",
-        "heading": "[HEADING — client copy]",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "heading": "Clarity is part of quality.",
+        "text": "<p>We believe good product information should be easy to find and easy to understand.</p><p>Where it comes from. What it is. How it is handled. How to store it. How to use it.</p><p>No unnecessary mystery. No inflated language.</p><p>Just the details that help you know what you are bringing home.</p>",
         "color_scheme": "scheme-3"
       }
     },
@@ -100,8 +112,8 @@
       "settings": {
         "image_position": "image-first",
         "eyebrow": "How To Use",
-        "heading": "[HEADING — client copy]",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
+        "heading": "Bring it to the table.",
+        "text": "<p>Honey doesn't need much introduction.</p><p>Spoon it over toast. Stir it into oats or yogurt. Drizzle it over fruit. Use it to finish a warm dish or round a dressing.</p><p>Or keep it simple. A spoonful on its own is sometimes enough.</p>",
         "color_scheme": "scheme-1"
       }
     },
@@ -151,11 +163,15 @@
     },
     "wf-reviews": {
       "type": "wf-reviews",
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-6"
+      }
     },
     "wf-journal": {
       "type": "wf-journal-feature",
-      "settings": {}
+      "settings": {
+        "heading": "Notes from the world around the hive."
+      }
     },
     "wf-faq": {
       "type": "collapsible-content",
@@ -163,25 +179,25 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "[FAQ QUESTION — client-confirmed]",
+            "heading": "What is Wildfolk?",
             "icon": "none",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
+            "row_content": "<p>Wildfolk is built around the journey behind honey — from the place where it begins to the table where it eventually arrives.</p>"
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "[FAQ QUESTION — client-confirmed]",
+            "heading": "Where does the honey come from?",
             "icon": "none",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
+            "row_content": "<p>The origin of the honey is shown with the product information and on the product packaging.</p><p>[CLIENT-CONFIRM: HONEY ORIGIN]</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "[FAQ QUESTION — client-confirmed]",
+            "heading": "How should I store my honey?",
             "icon": "none",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
+            "row_content": "<p>Keep the jar properly closed and store it in a cool, dry place away from direct heat and sunlight. Follow any storage guidance supplied with the product.</p>"
           }
         }
       },
@@ -206,7 +222,12 @@
     },
     "wf-final-cta": {
       "type": "wf-final-cta",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Bring It to the Table",
+        "heading": "The story continues with you.",
+        "text": "<p>Explore the honey, discover where it begins, and bring a little of that world home.</p>",
+        "button_label": "Shop Honey"
+      }
     }
   },
   "order": [
