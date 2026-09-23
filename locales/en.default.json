@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -28,7 +37,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continue shopping",
+        "continue_shopping": "Explore the Honey",
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -262,8 +271,8 @@
       }
     },
     "404": {
-      "title": "Page not found",
-      "subtext": "404"
+            "title": "You wandered off the path.",
+            "subtext": "The page you're looking for isn't here."
     }
   },
   "sections": {
@@ -290,7 +299,7 @@
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
       "checkout": "Check out",
-      "empty": "Your cart is empty",
+            "empty": "Nothing here yet.",
       "product_disclosure": "Product disclosure",
       "product_disclosures": "Product disclosures",
       "cart_error": "There was an error while updating your cart. Please try again.",
