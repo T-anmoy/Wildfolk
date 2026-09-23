@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "wf-bee-guide": {
@@ -10,11 +19,11 @@
       "type": "wf-hero",
       "settings": {
         "eyebrow": "Wildfolk Honey",
-        "heading": "A living journey from hive to table.",
+        "heading": "A living journey from hive to tabl.",
         "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
         "button_label": "Shop Honey",
         "button_label_secondary": "Our Story",
-        "button_link_secondary": "\/pages\/our-story",
+        "button_link_secondary": "/pages/our-story",
         "color_scheme": "scheme-4"
       }
     },
@@ -43,32 +52,37 @@
           "type": "step",
           "settings": {
             "title": "Harvest",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
           }
         },
         "process": {
           "type": "step",
           "settings": {
             "title": "Process",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
           }
         },
         "bottle": {
           "type": "step",
           "settings": {
             "title": "Bottle",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
           }
         },
         "table": {
           "type": "step",
           "settings": {
             "title": "Table",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]<\/p>"
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
           }
         }
       },
-      "block_order": ["harvest", "process", "bottle", "table"],
+      "block_order": [
+        "harvest",
+        "process",
+        "bottle",
+        "table"
+      ],
       "settings": {}
     },
     "wf-quality": {
@@ -77,7 +91,7 @@
         "image_position": "image-last",
         "eyebrow": "Quality",
         "heading": "[HEADING — client copy]",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]<\/p>",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
         "color_scheme": "scheme-3"
       }
     },
@@ -87,7 +101,7 @@
         "image_position": "image-first",
         "eyebrow": "How To Use",
         "heading": "[HEADING — client copy]",
-        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]<\/p>",
+        "text": "<p>[PRODUCT DESCRIPTION — replace with confirmed client copy]</p>",
         "color_scheme": "scheme-1"
       }
     },
@@ -96,17 +110,21 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": { "heading_size": "h1" }
+          "settings": {
+            "heading_size": "h1"
+          }
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {}
         },
         "quantity_selector": {
-          "type": "quantity_selector"
+          "type": "quantity_selector",
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -115,7 +133,13 @@
           }
         }
       },
-      "block_order": ["title", "price", "variant_picker", "quantity_selector", "buy_buttons"],
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
       "settings": {
         "color_scheme": "scheme-2",
         "secondary_background": true,
@@ -140,35 +164,39 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "[FAQ QUESTION — client-confirmed]",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
-            "icon": "none"
+            "icon": "none",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
             "heading": "[FAQ QUESTION — client-confirmed]",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
-            "icon": "none"
+            "icon": "none",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
             "heading": "[FAQ QUESTION — client-confirmed]",
-            "row_content": "<p>[FAQ ANSWER — client-confirmed]<\/p>",
-            "icon": "none"
+            "icon": "none",
+            "row_content": "<p>[FAQ ANSWER — client-confirmed]</p>"
           }
         }
       },
-      "block_order": ["q1", "q2", "q3"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
       "settings": {
         "caption": "FAQ",
         "heading": "Questions, answered",
         "heading_alignment": "left",
         "layout": "none",
-        "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
         "open_first_collapsible_row": true,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
