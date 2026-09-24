@@ -110,3 +110,13 @@ To resume Phase C, the owner must:
 5. Create the pages Our Story (template `page.our-story`) and FAQ (template `page.faq`).
 6. Add `docs/prompts/C2_PHASE_C_PUSH.md` (push protocol), or confirm the Phase B push protocol applies.
 Then rerun the Phase C prompt; it resumes at C0 (re-verify) → C1.
+
+### Phase C — resume attempt 2 (2026-09-24)
+
+- Re-verified C0: `/products/honey.js` (cache-busted) still reports `available: false` on the product and its only variant; the PDP renders "Sold out". `/pages/our-story` and `/pages/faq` are still 404. INPUTS are unchanged (all blank except `RETURNS_SUMMARY`). `docs/prompts/C2_PHASE_C_PUSH.md` is still missing. **The hard stop stands: C1–C6 and PUSH-C were not run.**
+- Owner-requested before-phase-c fixes (local commits, not pushed):
+  1. ✅ Hero CTA above the fold at 844×390: two-column landscape hero (CTA bottom 346px < 390).
+  2. ✅ Craft `product__media-toggle`: **kept focusable** (it's the only keyboard route to the lightbox; making it unfocusable would be an a11y regression). It now has a real box and a visible outline, via `wf-product.css`. No stock file touched.
+  3. ✅ The tap-target classifier ignores `<body>`/`<html>` classes.
+  4. ⛔ Commerce + sticky-bar specs now perform a **real** add to cart and **fail** when the product isn't purchasable (3 failing, correctly). They'll pass once Shopify reports the product available.
+- Targeted run: above-fold, keyboard, tap-targets pass (19); commerce ×2 + sticky real-add fail on `available: false`.
