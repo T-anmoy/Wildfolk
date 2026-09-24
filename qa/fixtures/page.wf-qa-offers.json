@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "viscous": {
+      "type": "wf-offer-band",
+      "blocks": {
+        "a": { "type": "offer", "settings": { "message": "QA fixture active one", "link": "/pages/contact", "start_date": "2020-01-01", "end_date": "2099-12-31" } },
+        "b": { "type": "offer", "settings": { "message": "QA fixture active two", "discount_code": "QA TEST%", "start_date": "", "end_date": "" } },
+        "x": { "type": "offer", "settings": { "message": "QA fixture expired", "start_date": "2020-01-01", "end_date": "2020-01-02" } },
+        "f": { "type": "offer", "settings": { "message": "QA fixture future", "start_date": "2099-01-01", "end_date": "" } },
+        "i": { "type": "offer", "settings": { "message": "QA fixture invalid date", "start_date": "01/02/2024", "end_date": "" } }
+      },
+      "block_order": ["a", "b", "x", "f", "i"],
+      "settings": { "style": "viscous", "color_scheme": "scheme-4" }
+    },
+    "letterpress": {
+      "type": "wf-offer-band",
+      "blocks": {
+        "a": { "type": "offer", "settings": { "message": "QA fixture letterpress one", "discount_code": "QATEST", "link": "/pages/contact" } },
+        "b": { "type": "offer", "settings": { "message": "QA fixture letterpress two" } },
+        "t": { "type": "offer", "settings": { "message": "QA fixture ends 2030-06-30", "end_date": "2030-06-30" } }
+      },
+      "block_order": ["a", "b", "t"],
+      "settings": { "style": "letterpress", "color_scheme": "scheme-6" }
+    },
+    "static": {
+      "type": "wf-offer-band",
+      "blocks": {
+        "a": { "type": "offer", "settings": { "message": "QA fixture static" } }
+      },
+      "block_order": ["a"],
+      "settings": { "style": "static", "color_scheme": "scheme-3" }
+    },
+    "empty": {
+      "type": "wf-offer-band",
+      "blocks": {
+        "x": { "type": "offer", "settings": { "message": "QA fixture only expired", "end_date": "2020-01-01" } }
+      },
+      "block_order": ["x"],
+      "settings": { "style": "letterpress", "color_scheme": "scheme-1" }
+    },
+    "main": { "type": "main-page", "settings": {} }
+  },
+  "order": ["viscous", "letterpress", "static", "empty", "main"]
+}

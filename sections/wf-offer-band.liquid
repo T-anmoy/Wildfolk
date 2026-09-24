@@ -1,0 +1,224 @@
+{%- comment -%}
+  Wildfolk offer band. Offers come only from blocks the merchant adds (real offers,
+  real discount codes). Blocks outside their start/end dates are filtered here with
+  'now' (shop timezone) and re-checked in JS (Asia/Kolkata) because pages are cached.
+  With no active offer the section renders nothing on the storefront.
+  Styles: viscous (drifting ticker) · letterpress (one message at a time) · static.
+{%- endcomment -%}
+{%- liquid
+  assign today = 'now' | date: '%Y-%m-%d'
+  assign style = section.settings.style
+  assign fallback_url = routes.root_url
+  if section.settings.product != blank
+    assign fallback_url = section.settings.product.url
+  endif
+  assign active_count = 0
+  assign invalid_count = 0
+  capture active_ids
+    for block in section.blocks
+      assign ok = true
+      if block.settings.message == blank
+        assign ok = false
+      endif
+      for key in (1..2)
+        if key == 1
+          assign d = block.settings.start_date | strip
+        else
+          assign d = block.settings.end_date | strip
+        endif
+        if d != blank
+          assign parts = d | split: '-'
+          assign y = parts[0] | plus: 0
+          assign m = parts[1] | plus: 0
+          assign dd = parts[2] | plus: 0
+          if d.size != 10 or parts.size != 3 or y < 2000 or m < 1 or m > 12 or dd < 1 or dd > 31
+            assign ok = false
+            assign invalid_count = invalid_count | plus: 1
+          endif
+        endif
+      endfor
+      assign start = block.settings.start_date | strip
+      assign finish = block.settings.end_date | strip
+      if ok and start != blank and start > today
+        assign ok = false
+      endif
+      if ok and finish != blank and finish < today
+        assign ok = false
+      endif
+      if ok
+        assign active_count = active_count | plus: 1
+        echo block.id | append: ','
+      endif
+    endfor
+  endcapture
+-%}
+
+{%- capture items -%}
+  {%- for block in section.blocks -%}
+    {%- assign marker = block.id | append: ',' -%}
+    {%- if active_ids contains marker -%}
+      {%- liquid
+        assign code = block.settings.discount_code | strip
+        assign redirect = block.settings.link | default: fallback_url
+        # Shopify's redirect expects a root-relative path.
+        assign first_char = redirect | slice: 0
+        if first_char != '/'
+          assign redirect = fallback_url
+        endif
+        # Shopify double-encodes special characters in discount-link codes.
+        assign code_path = code | url_encode | replace: '+', '%20' | url_encode
+      -%}
+      <li class="wf-offer-band__item" data-start="{{ block.settings.start_date | strip | escape }}" data-end="{{ block.settings.end_date | strip | escape }}" {{ block.shopify_attributes }}>
+        <span class="wf-offer-band__message">
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="wf-offer-band__link" data-wf-focusable>{{ block.settings.message | escape }}</a>
+          {%- else -%}
+            <span class="wf-offer-band__text">{{ block.settings.message | escape }}</span>
+          {%- endif -%}
+        </span>
+        {%- if code != blank -%}
+          <a
+            class="wf-offer-band__chip"
+            href="/discount/{{ code_path }}?redirect={{ redirect | url_encode }}"
+            data-wf-focusable
+          >
+            Apply {{ code | escape }}
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if active_count > 0 -%}
+  {{ 'wf-offer-band.css' | asset_url | stylesheet_tag }}
+  <wf-offer-band
+    class="wf-offer-band wf-offer-band--{{ style }} color-{{ section.settings.color_scheme }} gradient"
+    data-style="{{ style }}"
+    data-count="{{ active_count }}"
+  >
+    <div class="wf-offer-band__inner">
+      <div class="wf-offer-band__viewport">
+        <div class="wf-offer-band__drift">
+          <ul class="wf-offer-band__track" role="list" aria-label="Offers">
+            {{ items }}
+          </ul>
+          {%- if style == 'viscous' -%}
+            {%- comment -%} Seamless-loop copy: hidden from assistive tech, never focusable. {%- endcomment -%}
+            <ul class="wf-offer-band__track wf-offer-band__track--clone" role="list" aria-hidden="true">
+              {{ items | replace: 'data-wf-focusable', 'tabindex="-1"' }}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+      {%- if style == 'viscous' or active_count > 1 -%}
+        <div class="wf-offer-band__controls">
+          {%- if active_count > 1 -%}
+            <button type="button" class="wf-offer-band__control" data-wf-prev aria-label="Previous offer">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button type="button" class="wf-offer-band__control" data-wf-next aria-label="Next offer">
+              <span aria-hidden="true">›</span>
+            </button>
+          {%- endif -%}
+          <button type="button" class="wf-offer-band__control" data-wf-pause aria-pressed="false" aria-label="Pause offers">
+            <span class="wf-offer-band__icon-pause" aria-hidden="true"></span>
+            <span class="wf-offer-band__icon-play" aria-hidden="true"></span>
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+  </wf-offer-band>
+  <script src="{{ 'wf-offer-band.js' | asset_url }}" defer="defer"></script>
+{%- elsif request.design_mode -%}
+  <div class="wf-offer-band-notice color-{{ section.settings.color_scheme }} gradient">
+    <p class="wf-editor-notice">
+      Offer band: no active offers, so nothing shows on the storefront.
+      {%- if invalid_count > 0 %} {{ invalid_count }} date value(s) are not in YYYY-MM-DD format and were ignored.{% endif %}
+      (Only visible in the theme editor.)
+    </p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Wildfolk offer band",
+  "tag": "section",
+  "class": "wf-offer-band-section",
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Real offers only. Discount codes must exist in Discounts. Hidden when no offer is active."
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "letterpress", "label": "Letterpress (one at a time)" },
+        { "value": "viscous", "label": "Viscous ticker (slow drift)" },
+        { "value": "static", "label": "Static (single line)" }
+      ],
+      "default": "letterpress"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Default product for Apply links",
+      "info": "Where an Apply link lands when the offer has no link of its own."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "offer",
+      "name": "Offer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "message",
+          "label": "Message",
+          "info": "Exact, confirmed offer wording."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "discount_code",
+          "label": "Discount code",
+          "info": "Optional. Adds an 'Apply CODE' link (/discount/CODE). The code must exist in Discounts."
+        },
+        {
+          "type": "text",
+          "id": "start_date",
+          "label": "Start date",
+          "info": "YYYY-MM-DD. Blank = already active."
+        },
+        {
+          "type": "text",
+          "id": "end_date",
+          "label": "End date",
+          "info": "YYYY-MM-DD, inclusive. Blank = no end."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wildfolk offer band"
+    }
+  ]
+}
+{% endschema %}

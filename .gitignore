@@ -6,3 +6,4 @@ qa/output/
 test-results/
 playwright-report/
 qa/.*.tmp.mjs
+templates/page.wf-qa-*.json
