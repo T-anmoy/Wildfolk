@@ -35,3 +35,6 @@ Output: `qa/output/<label>/<route>/<viewport>.png`, `a11y/*.json`, `tap-targets/
 - `above-fold` — hero h1 + primary CTA visible without scrolling at 1280×720 and 1366×768.
 
 Routes are discovered from the preview (`qa/discover.mjs`); the product handle is never hard-coded.
+
+Notes: the harness hides the `shopify theme dev` Polaris overlay (dev tooling, never on the storefront) and
+aborts `shop.app` requests (Shopify's Shop Pay iframe, which can hang the load event). Neither is theme code.

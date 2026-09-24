@@ -1,13 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { matrix } from '../viewports.mjs';
 import { routes } from '../routes.mjs';
-import { openPage, scrollThrough } from '../lib.mjs';
+import { openPage, scrollThrough, hideDevOverlay } from '../lib.mjs';
 
 for (const r of routes) {
   for (const vp of matrix) {
     test(`overflow ${r.key} @ ${vp.label}`, async ({ browser }) => {
       const { context, page } = await openPage(browser, vp, r.path);
       await scrollThrough(page, { pause: 30 });
+      await hideDevOverlay(page);
       const result = await page.evaluate((vw) => {
         const scrollWidth = document.documentElement.scrollWidth;
         const clips = (el) => {

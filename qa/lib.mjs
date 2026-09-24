@@ -20,9 +20,14 @@ export async function openPage(browser, vp, url, { reducedMotion = 'reduce', onP
     hasTouch: vp.hasTouch,
     reducedMotion,
   });
+  // shop.app (Shop Pay sign-in iframe injected by Shopify) can hang for minutes; it isn't theme code.
+  await context.route(/^https:\/\/shop\.app\//, (route) => route.abort());
   const page = await context.newPage();
   if (onPage) onPage(page);
-  const response = await page.goto(url, { waitUntil: 'load' });
+  // Third-party iframes Shopify injects (e.g. shop.app) can hang the load event;
+  // wait for the DOM, then give 'load' a bounded chance.
+  const response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
   await settle(page);
   return { context, page, response };
 }
@@ -30,6 +35,21 @@ export async function openPage(browser, vp, url, { reducedMotion = 'reduce', onP
 export async function settle(page) {
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
   await page.evaluate(() => document.fonts.ready.then(() => true));
+  await hideDevOverlay(page);
+}
+
+// `shopify theme dev` occasionally injects a Polaris banner overlay (dev tooling only,
+// never on the storefront). Hide it so it can't pollute overflow/screenshots.
+export async function hideDevOverlay(page) {
+  await page.evaluate(() => {
+    for (const el of document.querySelectorAll('[class*="Polaris-"]')) {
+      let top = el;
+      while (top.parentElement && top.parentElement !== document.body) top = top.parentElement;
+      if (top.parentElement === document.body && !top.matches('main, header, footer, .shopify-section, [id^="shopify-section"]')) {
+        top.style.setProperty('display', 'none', 'important');
+      }
+    }
+  });
 }
 
 export async function scrollThrough(page, { pause = 60 } = {}) {
