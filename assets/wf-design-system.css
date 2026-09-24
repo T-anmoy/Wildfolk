@@ -1694,3 +1694,47 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
   color: rgb(var(--color-foreground));
   text-underline-offset: 0.2em;
 }
+
+/* ---------- Seller details (footer small print + contact page) ---------- */
+
+.wf-seller-details__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  margin: 0;
+}
+
+.wf-seller-details__list > div {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.wf-seller-details__list dt::after {
+  content: ":";
+}
+
+.wf-seller-details__list dd {
+  margin: 0;
+}
+
+.wf-seller-details--footer {
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.wf-seller-details--footer a,
+.wf-seller-details--page a {
+  color: inherit;
+}
+
+.wf-seller-details--page .wf-seller-details__heading {
+  margin-bottom: var(--wf-space-sm);
+  font-size: var(--wf-size-lg);
+}
+
+.wf-seller-details--page .wf-seller-details__list {
+  display: grid;
+  gap: 1rem;
+  font-size: 1.5rem;
+}

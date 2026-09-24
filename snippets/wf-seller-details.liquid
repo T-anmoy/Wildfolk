@@ -1,0 +1,40 @@
+{%- comment -%}
+  Seller details from Theme settings → Wildfolk commerce (legal name, address,
+  contact, grievance officer, FSSAI licence). Every field hides when blank; with
+  nothing set, nothing renders. context: 'footer' (small print) | 'page'.
+{%- endcomment -%}
+{%- liquid
+  assign s_name = settings.wf_seller_legal_name
+  assign s_address = settings.wf_seller_address
+  assign s_phone = settings.wf_seller_phone
+  assign s_email = settings.wf_seller_email
+  assign g_name = settings.wf_grievance_name
+  assign g_email = settings.wf_grievance_email
+  assign fssai = settings.wf_fssai_licence
+-%}
+{%- if s_name != blank or s_address != blank or s_phone != blank or s_email != blank or g_name != blank or g_email != blank or fssai != blank -%}
+  <div class="wf-seller-details wf-seller-details--{{ context | default: 'footer' }}">
+    {%- if context == 'page' -%}
+      <h2 class="wf-heading wf-seller-details__heading">Seller details</h2>
+    {%- else -%}
+      <h2 class="visually-hidden">Seller details</h2>
+    {%- endif -%}
+    <dl class="wf-seller-details__list">
+      {%- if s_name != blank -%}<div><dt>Seller</dt><dd>{{ s_name | escape }}</dd></div>{%- endif -%}
+      {%- if s_address != blank -%}<div><dt>Address</dt><dd>{{ s_address | escape | newline_to_br }}</dd></div>{%- endif -%}
+      {%- if s_phone != blank -%}<div><dt>Phone</dt><dd><a href="tel:{{ s_phone | remove: ' ' | escape }}">{{ s_phone | escape }}</a></dd></div>{%- endif -%}
+      {%- if s_email != blank -%}<div><dt>Email</dt><dd><a href="mailto:{{ s_email | escape }}">{{ s_email | escape }}</a></dd></div>{%- endif -%}
+      {%- if g_name != blank or g_email != blank -%}
+        <div>
+          <dt>Grievance officer</dt>
+          <dd>
+            {{- g_name | escape -}}
+            {%- if g_name != blank and g_email != blank %} · {% endif -%}
+            {%- if g_email != blank -%}<a href="mailto:{{ g_email | escape }}">{{ g_email | escape }}</a>{%- endif -%}
+          </dd>
+        </div>
+      {%- endif -%}
+      {%- if fssai != blank -%}<div><dt>FSSAI licence</dt><dd>{{ fssai | escape }}</dd></div>{%- endif -%}
+    </dl>
+  </div>
+{%- endif -%}

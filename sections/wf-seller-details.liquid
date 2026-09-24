@@ -1,0 +1,39 @@
+{%- capture details -%}{%- render 'wf-seller-details', context: 'page' -%}{%- endcapture -%}
+{%- if details != blank -%}
+  <div class="wf-section wf-section--tight color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      {{ details }}
+    </div>
+  </div>
+{%- elsif request.design_mode -%}
+  <div class="wf-section wf-section--tight color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      <p class="wf-editor-notice">Seller details are hidden until they're filled in Theme settings → Wildfolk commerce. (Only visible in the theme editor.)</p>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Wildfolk seller details",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows the seller, grievance officer and FSSAI details from Theme settings → Wildfolk commerce."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wildfolk seller details"
+    }
+  ]
+}
+{% endschema %}
