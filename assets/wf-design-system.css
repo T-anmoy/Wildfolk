@@ -417,7 +417,7 @@
 /* Without an image the hero is a type moment: shorter, never pushing the CTA
    below the first screen (Craft rem = 10px). */
 .wf-hero:not(.wf-hero--has-image) {
-  min-height: clamp(28rem, min(64svh, 100svh - 18rem), 80rem);
+  min-height: clamp(28rem, min(48svh, 100svh - 18rem), 64rem);
 }
 
 /* Short screens (laptops at 720–820px tall, tablets in landscape): tighten the
@@ -535,12 +535,8 @@
   }
 
   .wf-story-panel--split.wf-story-panel--no-media .wf-story-panel__copy {
-    grid-column: 2 / span 8;
+    grid-column: 1 / span 8;
     max-width: none;
-  }
-
-  .wf-story-panel--split.wf-story-panel--no-media.wf-story-panel--image-last .wf-story-panel__copy {
-    grid-column: 4 / span 8;
   }
 }
 
@@ -605,6 +601,10 @@
   gap: 0;
 }
 
+.wf-story-panel--inset.wf-story-panel--no-media .wf-story-panel__grid {
+  grid-column: content;
+}
+
 .wf-story-panel--inset .wf-story-panel__media {
   --wf-ratio: 4 / 5;
 }
@@ -645,10 +645,8 @@
 
   /* Text-led inset: copy on the wide track, offset, opened by a hairline */
   .wf-story-panel--inset.wf-story-panel--no-media .wf-story-panel__copy {
-    grid-column: 3 / span 8;
+    grid-column: 1 / span 8;
     grid-row: auto;
-    padding-top: var(--wf-space-md);
-    border-top: var(--wf-rule);
   }
 }
 
@@ -815,11 +813,29 @@
 }
 
 .wf-hive__word {
+  display: block;
   white-space: nowrap;
 }
 
 .wf-hive__sep {
-  opacity: 0.55;
+  display: none;
+}
+
+/* Wide containers: one line, sized to fit the content track, dots between words */
+@container wf-section (min-width: 900px) {
+  .wf-hive__statement {
+    font-size: clamp(3rem, 3.05cqi, 4.8rem);
+    white-space: nowrap;
+  }
+
+  .wf-hive__word {
+    display: inline;
+  }
+
+  .wf-hive__sep {
+    display: inline;
+    opacity: 0.55;
+  }
 }
 
 /* ==========================================================================
@@ -1213,26 +1229,26 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
   color: rgba(var(--color-foreground), 0.8);
 }
 
-/* Two neighbouring sections on the same scheme are separated by a hairline
-   (also across hidden, empty section wrappers). */
-.shopify-section:has(> .color-scheme-1) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
-.shopify-section:has(> .color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
-.shopify-section:has(> .color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
-.shopify-section:has(> .color-scheme-2) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
-.shopify-section:has(> .color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
-.shopify-section:has(> .color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
-.shopify-section:has(> .color-scheme-3) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
-.shopify-section:has(> .color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
-.shopify-section:has(> .color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
-.shopify-section:has(> .color-scheme-4) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
-.shopify-section:has(> .color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
-.shopify-section:has(> .color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
-.shopify-section:has(> .color-scheme-5) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
-.shopify-section:has(> .color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
-.shopify-section:has(> .color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
-.shopify-section:has(> .color-scheme-6) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
-.shopify-section:has(> .color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
-.shopify-section:has(> .color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6 {
+/* Two neighbouring sections on the same scheme are separated by a hairline when
+   the first is a Wildfolk section (also across hidden, empty section wrappers). */
+.shopify-section:has(> .wf-section.color-scheme-1) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .wf-section.color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .wf-section.color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .wf-section.color-scheme-2) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .wf-section.color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .wf-section.color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .wf-section.color-scheme-3) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .wf-section.color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .wf-section.color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .wf-section.color-scheme-4) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .wf-section.color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .wf-section.color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .wf-section.color-scheme-5) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .wf-section.color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .wf-section.color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .wf-section.color-scheme-6) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
+.shopify-section:has(> .wf-section.color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
+.shopify-section:has(> .wf-section.color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6 {
   border-top: 1px solid rgba(var(--color-foreground), 0.14);
 }
 
@@ -1489,4 +1505,42 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
 .wf-footer-brand.page-width {
   padding-inline: var(--wf-gutter);
   max-width: calc(var(--wf-content) + 2 * var(--wf-gutter));
+}
+
+/* FAQ: shared eyebrow treatment, untracked questions, answers flush with questions */
+.collapsible-content .collapsible-content__header .caption-with-letter-spacing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+  font-size: var(--wf-size-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--wf-tracking-eyebrow);
+  color: rgb(var(--color-foreground));
+}
+
+.collapsible-content .collapsible-content__header .caption-with-letter-spacing::before {
+  content: "";
+  width: 1.6em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.collapsible-content .accordion__title {
+  letter-spacing: 0;
+}
+
+.collapsible-content .accordion__content {
+  padding-inline-start: 0;
+}
+
+/* Final-CTA newsletter: label centred with the heading */
+.wf-newsletter__label {
+  text-align: center;
+}
+
+/* Footer bottom row aligns with the wordmark */
+.footer .footer__content-bottom-wrapper.page-width {
+  max-width: calc(var(--wf-content) + 2 * var(--wf-gutter));
+  padding-inline: var(--wf-gutter);
 }
