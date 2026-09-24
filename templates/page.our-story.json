@@ -42,16 +42,18 @@
     "values": {
       "type": "wf-story-panel",
       "settings": {
+        "layout": "statement",
         "image_position": "image-last",
         "eyebrow": "Values",
         "heading": "Keep it close to what matters.",
         "text": "<p><strong>Respect the ingredient.</strong><br>Let the honey remain the focus.</p><p><strong>Let place matter.</strong><br>Where something begins is part of what makes it interesting.</p><p><strong>Clarity over clutter.</strong><br>Important details should be easy to find and easy to understand.</p><p><strong>Keep the story honest.</strong><br>No inflated claims. No borrowed credibility. Just what we can stand behind.</p>",
-        "color_scheme": "scheme-3"
+        "color_scheme": "scheme-6"
       }
     },
     "philosophy": {
       "type": "wf-story-panel",
       "settings": {
+        "layout": "inset",
         "image_position": "image-first",
         "eyebrow": "Product Philosophy",
         "heading": "Make the honey the hero.",
@@ -66,8 +68,19 @@
         "heading": "Meet the honey. Follow the story.",
         "button_label": "Shop Honey",
         "button_link": "shopify://collections/all",
-        "color_scheme": "scheme-5"
-      }
+        "color_scheme": "scheme-4"
+      },
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Notes from the world around the hive."
+          }
+        }
+      },
+      "block_order": [
+        "newsletter"
+      ]
     }
   },
   "order": [

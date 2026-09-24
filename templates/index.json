@@ -52,6 +52,8 @@
     "wf-hive": {
       "type": "wf-hive",
       "settings": {
+        "statement": "Leaving · Returning · Gathering · Tending · Storing",
+        "color_scheme": "scheme-6",
         "heading": "A living rhythm, built together.",
         "text": "<p>A hive is more than a place where honey is kept.</p><p>It is a living system shaped by countless small movements — leaving, returning, gathering, tending, storing.</p><p>The work is quiet. The rhythm is constant.</p><p>And somewhere within that rhythm, the story of the honey begins.</p>"
       }
@@ -101,21 +103,23 @@
     "wf-quality": {
       "type": "wf-story-panel",
       "settings": {
+        "layout": "statement",
         "image_position": "image-last",
         "eyebrow": "Quality",
         "heading": "Clarity is part of quality.",
         "text": "<p>We believe good product information should be easy to find and easy to understand.</p><p>Where it comes from. What it is. How it is handled. How to store it. How to use it.</p><p>No unnecessary mystery. No inflated language.</p><p>Just the details that help you know what you are bringing home.</p>",
-        "color_scheme": "scheme-3"
+        "color_scheme": "scheme-4"
       }
     },
     "wf-how-to-use": {
       "type": "wf-story-panel",
       "settings": {
+        "layout": "inset",
         "image_position": "image-first",
         "eyebrow": "How To Use",
         "heading": "Bring it to the table.",
         "text": "<p>Honey doesn't need much introduction.</p><p>Spoon it over toast. Stir it into oats or yogurt. Drizzle it over fruit. Use it to finish a warm dish or round a dressing.</p><p>Or keep it simple. A spoonful on its own is sometimes enough.</p>",
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-3"
       }
     },
     "featured-product": {
@@ -155,8 +159,8 @@
       ],
       "settings": {
         "color_scheme": "scheme-2",
-        "secondary_background": true,
-        "media_size": "medium",
+        "secondary_background": false,
+        "media_size": "large",
         "media_position": "left",
         "padding_top": 72,
         "padding_bottom": 72
@@ -229,8 +233,20 @@
         "heading": "The story continues with you.",
         "text": "<p>Explore the honey, discover where it begins, and bring a little of that world home.</p>",
         "button_label": "Shop Honey",
-        "button_link": "shopify://collections/all"
-      }
+        "button_link": "shopify://collections/all",
+        "color_scheme": "scheme-4"
+      },
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Notes from the world around the hive."
+          }
+        }
+      },
+      "block_order": [
+        "newsletter"
+      ]
     }
   },
   "order": [
@@ -240,8 +256,8 @@
     "wf-hive",
     "wf-process",
     "wf-quality",
-    "wf-how-to-use",
     "featured-product",
+    "wf-how-to-use",
     "wf-reviews",
     "wf-journal",
     "wf-faq",
