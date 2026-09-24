@@ -29,12 +29,12 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | B5 | DONE | 9c8984a config, bff5a3f qa, review fixes + config follow-up | after-phase-b-final: 337 passed / 0 failed / 6 skipped (product-dependent). Theme Check 0 err / 9 warn (= baseline). Screenshot review by subagent (home all 10 viewports; our-story/blog/contact at 5) → 2 blockers + 7 majors fixed, re-verified |
 | PUSH-B | DONE | pushed dbc1c8d..438dfcd | origin/main == HEAD (438dfcd). No bot commit after 95s. Live theme wf-design-system.css + templates/index.json pulled read-only = local. Gate: Theme Check 0 err/no new; after-phase-b-final 337 pass/0 fail/6 skip; qa:quick 129 pass/6 skip; launch gate OK (password on) |
 | C0 | DONE | (log) | Attempt 3: `honey` now **available** (₹999, 1 variant, 1 image). Real add-to-cart via main button + sticky bar pass (5/5). Metafields `wildfolk.*` empty; description empty; our-story/faq 404; no gift-wrap product; INPUTS blank except RETURNS_SUMMARY. before-phase-c baseline = earlier run (379/4) + the 4 owner fixes (see resume attempt 2) |
-| C1 | IN PROGRESS | | |
-| C2 | TODO | | |
-| C3 | TODO | | |
-| C4 | TODO | | |
-| C5 | TODO | | |
-| C6 | TODO | | |
+| C1 | DONE | 3f344fe | CTAs (hero, final ×2, header) → shopify://products/honey; featured product = honey; cart_type drawer; cart note on |
+| C2 | DONE | 4e1d73d | Unit price, label info, trust row (1 item: RETURNS_SUMMARY sentence → refund policy), purchase notes (returns line live; dispatch/pincode hidden), help link (hidden: /pages/faq 404). Block name >25 chars rejected by Shopify upload (Theme Check misses it) — fixed |
+| C3 | DONE | e339ec5 | Drawer + /cart hooks; Filling Jar / nudge / gift wrap built, hidden (INPUTS blank); returns line live; note relabelled 'Gift message (optional)'; sticky bar hides while drawer open |
+| C4 | DONE | aba9fe6 | wf-offer-band (viscous / letterpress / static); discount link pattern verified on shopify.dev (double-encoded codes, root-relative redirect); header announcement bar replaced; no offers → renders nothing |
+| C5 | DONE | 23794a3 | Seller details (footer + contact section, hidden while blank); Craft footer already lists all 4 policies (no duplicate); contact 'Let's talk.' removed |
+| C6 | IN PROGRESS | dbeb26f specs | |
 | PUSH-C | TODO | | |
 
 ## Decisions
@@ -124,3 +124,10 @@ Then rerun the Phase C prompt; it resumes at C0 (re-verify) → C1.
 ### Phase C — resume attempt 3 (2026-09-24)
 - C0 passes: the product is purchasable. Decision D-C1: `docs/prompts/C2_PHASE_C_PUSH.md` does not exist, so PUSH-C follows `docs/prompts/02_PHASE_B_PUSH.md` steps plus the autopilot gates (live-theme safety, remote check, no force, no theme push/publish).
 - Decision D-C2: before-phase-c baseline is not re-run in full. The earlier run (379 pass / 4 fail, same theme code apart from the 4 owner-requested fixes) stands, and the fixes are verified by targeted runs. The after-phase-c full matrix is the regression gate.
+
+- Decision D-C3: Label info renders only when at least one labelling fact exists (metafields / FSSAI / consumer care). The price-derived MRP alone never makes the block appear.
+- Decision D-C4: Label metafield keys (none were specified): product `wildfolk.ingredients`, `shelf_life`, `storage`, `country_of_origin`, `manufacturer`, `safety_note`; variant `wildfolk.net_weight_g` (integer, grams).
+- Decision D-C5: Blank-INPUT features (jar, nudge, gift wrap, pincode) are tested with QA fixture elements / a QA-only fixture template (gitignored in templates/, synced only to the dev theme). The live storefront never shows fixture content.
+- Decision D-C6: The media lightbox toggle stays focusable (the keyboard route to zoom) with a real box and a visible ring (global CSS) — owner-confirmed.
+- Decision D-C7: Craft's footer already renders every existing policy (shop.policies), so no second Wildfolk policy list was added.
+- Search / seo.hidden (C3.5): no Wildfolk code lists products except the featured product (a single chosen product). Craft search / predictive search use Shopify's search, which excludes products whose `seo.hidden` metafield = 1; the `wf-hidden` tag alone does NOT hide a product from search or /collections/all. HUMAN: when creating a gift-wrap product, also set its `seo.hidden` metafield and keep it out of collections.
