@@ -11,12 +11,15 @@
   data-wf-bee-y="20"
 >
   <div class="wf-content wf-origin__layout">
-    <div class="wf-origin__media" data-wf-drift data-wf-reveal>
-      {%- render 'wf-media',
-        image: section.settings.image,
-        alt: origin_alt,
-        sizes_attr: '(min-width: 990px) 40vw, 100vw'
-      -%}
+    {%- comment -%} Reveal on the frame, drift on an inner layer: never both on one element. {%- endcomment -%}
+    <div class="wf-origin__media" data-wf-reveal>
+      <div class="wf-drift-layer" data-wf-drift>
+        {%- render 'wf-media',
+          image: section.settings.image,
+          alt: origin_alt,
+          sizes_attr: '(min-width: 990px) 40vw, 100vw'
+        -%}
+      </div>
     </div>
     <div class="wf-origin__copy">
       {%- if section.settings.eyebrow != blank -%}

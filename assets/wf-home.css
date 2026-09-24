@@ -164,6 +164,12 @@
 
 .wf-origin__media {
   aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.wf-origin__media .wf-drift-layer {
+  width: 100%;
+  height: 100%;
 }
 
 .wf-origin__media .wf-media,
