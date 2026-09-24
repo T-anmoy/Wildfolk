@@ -1,0 +1,46 @@
+{%- comment -%}
+  Mobile sticky buy bar (< 990px). It submits the real product form through the
+  form attribute, so variant, quantity, selling plan and the cart notification
+  all come from Craft's native product-form. State is mirrored by wf-sticky-buy.js.
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign add_label = 'products.product.add_to_cart' | t
+  assign bar_label = product.title | escape | append: ' — ' | append: add_label
+-%}
+<wf-sticky-buy
+  class="wf-sticky-buy"
+  data-section="{{ section_id }}"
+  data-form="{{ product_form_id }}"
+  aria-hidden="true"
+  inert
+>
+  <aside class="wf-sticky-buy__inner" aria-label="{{ bar_label }}">
+    <div class="wf-sticky-buy__info">
+      <p class="wf-sticky-buy__title">{{ product.title | escape }}</p>
+      <p class="wf-sticky-buy__meta">
+        {%- unless product.has_only_default_variant -%}
+          <span class="wf-sticky-buy__variant" data-wf-variant>{{ variant.title | escape }}</span>
+        {%- endunless -%}
+        <span class="wf-sticky-buy__price" data-wf-price>{{ variant.price | money }}</span>
+      </p>
+    </div>
+    <button
+      type="submit"
+      form="{{ product_form_id }}"
+      name="add"
+      class="button button--primary wf-sticky-buy__button"
+      data-wf-submit
+      {% unless variant.available %}disabled{% endunless %}
+    >
+      <span data-wf-label>
+        {%- if variant.available -%}
+          {{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+      </span>
+    </button>
+  </aside>
+</wf-sticky-buy>
+<script src="{{ 'wf-sticky-buy.js' | asset_url }}" defer="defer"></script>

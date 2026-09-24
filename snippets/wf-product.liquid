@@ -1,5 +1,6 @@
 {%- comment -%}
   Wildfolk product layer, rendered once from main-product:
-  template-scoped styles.
+  template-scoped styles + the mobile sticky buy bar (uses the native form).
 {%- endcomment -%}
 {{ 'wf-product.css' | asset_url | stylesheet_tag }}
+{%- render 'wf-sticky-buy', product: product, section_id: section_id, product_form_id: product_form_id -%}
