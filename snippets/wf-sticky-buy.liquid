@@ -23,6 +23,7 @@
           <span class="wf-sticky-buy__variant" data-wf-variant>{{ variant.title | escape }}</span>
         {%- endunless -%}
         <span class="wf-sticky-buy__price" data-wf-price>{{ variant.price | money }}</span>
+        {%- render 'wf-unit-price', product: product, section_id: section_id, class: 'wf-sticky-buy__unit', tag: 'span' -%}
       </p>
     </div>
     <button

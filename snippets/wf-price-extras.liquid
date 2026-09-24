@@ -1,0 +1,7 @@
+{%- comment -%}
+  Rendered once after a product price block (main-product, featured-product):
+  per-variant data, the unit price line and the commerce script.
+{%- endcomment -%}
+{%- render 'wf-variant-data', product: product, section_id: section_id -%}
+{%- render 'wf-unit-price', product: product, section_id: section_id -%}
+<script src="{{ 'wf-commerce.js' | asset_url }}" defer="defer"></script>

@@ -1,0 +1,21 @@
+{%- comment -%}
+  Near the buy buttons: dispatch time, pincode delivery checker, and the
+  non-returnable disclosure (visible before purchase). Each part hides when its
+  theme setting is blank; with nothing set, the block renders nothing.
+{%- endcomment -%}
+{%- liquid
+  assign dispatch = settings.wf_dispatch_time
+  assign zones = settings.wf_pincode_zones
+  assign returns = settings.wf_returns_summary
+-%}
+{%- if dispatch != blank or zones != blank or returns != blank -%}
+  <div class="wf-purchase-notes" {{ block.shopify_attributes }}>
+    {%- if dispatch != blank -%}
+      <p class="wf-purchase-notes__dispatch">{%- render 'wf-icon', name: 'clock' -%}<span>{{ dispatch | escape }}</span></p>
+    {%- endif -%}
+    {%- if zones != blank -%}
+      {%- render 'wf-pincode', section_id: section_id -%}
+    {%- endif -%}
+    {%- render 'wf-returns-line' -%}
+  </div>
+{%- endif -%}

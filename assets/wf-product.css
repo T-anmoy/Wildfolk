@@ -207,3 +207,232 @@ body.wf-sticky-buy-open {
   outline: 2px solid rgb(var(--color-foreground));
   outline-offset: -0.4rem;
 }
+
+/* ---------- Purchase notes: dispatch, pincode, returns line ---------- */
+
+.wf-purchase-notes {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.wf-purchase-notes__dispatch {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.wf-icon {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.wf-returns-line {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.wf-returns-line__link {
+  display: inline-block;
+  margin-inline-start: 0.4rem;
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.2em;
+}
+
+/* Pincode checker */
+.wf-pincode__label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.wf-pincode__row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.wf-pincode__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 4.4rem;
+  padding: 0 1.2rem;
+  border: 1px solid rgba(var(--color-foreground), 0.55);
+  border-radius: var(--wf-radius);
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  font: inherit;
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+}
+
+.wf-pincode__input:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground));
+  outline-offset: 2px;
+}
+
+.wf-pincode__input[aria-invalid="true"] {
+  border-color: rgb(var(--color-foreground));
+  border-width: 2px;
+}
+
+.wf-pincode__submit {
+  min-height: 4.4rem;
+  min-width: 8rem;
+}
+
+.wf-pincode__error,
+.wf-pincode__result {
+  margin: 0.6rem 0 0;
+  font-size: 1.4rem;
+}
+
+.wf-pincode__error {
+  font-weight: 600;
+}
+
+.wf-pincode__result:empty {
+  display: none;
+}
+
+/* ---------- Trust row ---------- */
+
+.wf-trust-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.2rem 2rem;
+  margin: 0;
+  padding: 1.6rem 0;
+  list-style: none;
+  border-block: 1px solid rgba(var(--color-foreground), 0.16);
+}
+
+.wf-trust-row__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.wf-trust-row__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- Label information ---------- */
+
+.wf-label-info {
+  border-block: 1px solid rgba(var(--color-foreground), 0.16);
+}
+
+.wf-label-info__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.8rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.wf-label-info__summary::-webkit-details-marker {
+  display: none;
+}
+
+.wf-label-info__summary:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground));
+  outline-offset: 2px;
+}
+
+.wf-label-info__icon {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.wf-label-info__icon::before,
+.wf-label-info__icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: currentColor;
+}
+
+.wf-label-info__icon::after {
+  transform: rotate(90deg);
+  transition: transform 200ms var(--wf-ease-flow);
+}
+
+.wf-label-info[open] .wf-label-info__icon::after {
+  transform: rotate(0deg);
+}
+
+.wf-label-info__list {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 1.6rem;
+}
+
+.wf-label-info__row {
+  display: grid;
+  grid-template-columns: minmax(11rem, 1fr) 2fr;
+  gap: 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.wf-label-info__row[hidden] {
+  display: none;
+}
+
+.wf-label-info__row dt {
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wf-label-info__row dd {
+  margin: 0;
+}
+
+.wf-label-info__tax {
+  font-size: 1.3rem;
+}
+
+/* ---------- Help link ---------- */
+
+.wf-help-link {
+  margin: 0;
+}
+
+.wf-help-link a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.2em;
+}
+
+/* Sticky bar unit price: shown only when there's room */
+.wf-sticky-buy__unit {
+  margin: 0;
+  font-size: inherit;
+}
+
+@media screen and (max-width: 374px) {
+  .wf-sticky-buy__unit {
+    display: none;
+  }
+}

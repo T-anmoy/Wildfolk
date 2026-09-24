@@ -1,0 +1,13 @@
+{%- comment -%}
+  Per-variant facts for Wildfolk product UI: { variantId: { p: price (paise), w: net weight in g } }.
+  Net weight comes from the variant metafield wildfolk.net_weight_g (blank = none).
+  Consumed by wf-commerce.js (unit price, net quantity, MRP) on Craft's variant-change event.
+{%- endcomment -%}
+<script type="application/json" data-wf-variants="{{ section_id }}" data-money-format="{{ shop.money_format | escape }}">
+  {
+    {%- for variant in product.variants -%}
+      {%- assign nw = variant.metafields.wildfolk.net_weight_g.value | default: 0 | plus: 0 -%}
+      "{{ variant.id }}": { "p": {{ variant.price }}, "w": {{ nw }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  }
+</script>

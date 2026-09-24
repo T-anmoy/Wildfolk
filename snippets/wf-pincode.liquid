@@ -1,0 +1,26 @@
+{%- comment -%} Pincode delivery checker. Zones from the wf_pincode_zones theme setting; logic in wf-commerce.js. {%- endcomment -%}
+{%- liquid
+  assign input_id = 'WfPincode-' | append: section_id
+  assign error_id = 'WfPincodeError-' | append: section_id
+  assign result_id = 'WfPincodeResult-' | append: section_id
+-%}
+<wf-pincode class="wf-pincode" data-zones="{{ settings.wf_pincode_zones | escape }}">
+  <form class="wf-pincode__form" novalidate>
+    <label class="wf-pincode__label" for="{{ input_id }}">Check delivery to your pincode</label>
+    <div class="wf-pincode__row">
+      <input
+        id="{{ input_id }}"
+        class="wf-pincode__input"
+        type="text"
+        inputmode="numeric"
+        autocomplete="postal-code"
+        maxlength="6"
+        pattern="[0-9]{6}"
+        aria-describedby="{{ error_id }} {{ result_id }}"
+      >
+      <button type="submit" class="button button--secondary wf-pincode__submit">Check</button>
+    </div>
+    <p id="{{ error_id }}" class="wf-pincode__error" hidden>Enter a 6-digit pincode.</p>
+    <p id="{{ result_id }}" class="wf-pincode__result" role="status" aria-live="polite"></p>
+  </form>
+</wf-pincode>

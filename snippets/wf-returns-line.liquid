@@ -1,0 +1,8 @@
+{%- comment -%} One quiet non-returnable line from theme settings, linked to the refund policy. Hidden when blank. {%- endcomment -%}
+{%- if settings.wf_returns_summary != blank -%}
+  <p class="wf-returns-line">
+    {{ settings.wf_returns_summary | escape }}
+    {%- if settings.wf_damage_window != blank %} {{ settings.wf_damage_window | escape }}{%- endif -%}
+    {%- if shop.refund_policy %} <a href="{{ shop.refund_policy.url }}" class="wf-returns-line__link">{{ shop.refund_policy.title | escape }}</a>{%- endif -%}
+  </p>
+{%- endif -%}

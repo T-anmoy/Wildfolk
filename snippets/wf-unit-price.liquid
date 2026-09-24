@@ -1,0 +1,26 @@
+{%- comment -%}
+  "₹X / 100 g" for the current variant. Hidden when the variant has no net weight.
+  Params: product, section_id, class (optional), tag (optional, default p). Updated by wf-commerce.js on variant change.
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign nw = variant.metafields.wildfolk.net_weight_g.value | default: 0 | plus: 0
+  assign tag_name = tag | default: 'p'
+  assign any_weight = false
+  for v in product.variants
+    assign vw = v.metafields.wildfolk.net_weight_g.value | default: 0 | plus: 0
+    if vw > 0
+      assign any_weight = true
+    endif
+  endfor
+-%}
+{%- if any_weight -%}
+  <{{ tag_name }} class="wf-unit-price {{ class }}" data-wf-fact="unit" data-wf-section="{{ section_id }}"{% if nw == 0 %} hidden{% endif %}>
+    {%- if nw > 0 -%}
+      {%- assign unit = variant.price | times: 100 | divided_by: nw -%}
+      <span data-wf-fact-value>{{ unit | money }}</span> / 100 g
+    {%- else -%}
+      <span data-wf-fact-value></span> / 100 g
+    {%- endif -%}
+  </{{ tag_name }}>
+{%- endif -%}

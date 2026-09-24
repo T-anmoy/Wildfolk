@@ -1,0 +1,39 @@
+{%- comment -%}
+  Up to four quiet trust facts. Every default is blank; items without text are
+  omitted and an empty row renders nothing. Only confirmed facts belong here.
+{%- endcomment -%}
+{%- liquid
+  assign count = 0
+  for i in (1..4)
+    assign key = 'text_' | append: i
+    if block.settings[key] != blank
+      assign count = count | plus: 1
+    endif
+  endfor
+-%}
+{%- if count > 0 -%}
+  <ul class="wf-trust-row" role="list" {{ block.shopify_attributes }}>
+    {%- for i in (1..4) -%}
+      {%- liquid
+        assign text_key = 'text_' | append: i
+        assign link_key = 'link_' | append: i
+        assign icon_key = 'icon_' | append: i
+        assign text = block.settings[text_key]
+        assign link = block.settings[link_key]
+        assign icon = block.settings[icon_key]
+      -%}
+      {%- if text != blank -%}
+        <li class="wf-trust-row__item">
+          {%- if icon != 'none' -%}{%- render 'wf-icon', name: icon -%}{%- endif -%}
+          {%- if link != blank -%}
+            <a href="{{ link }}" class="wf-trust-row__link">{{ text | escape }}</a>
+          {%- else -%}
+            <span>{{ text | escape }}</span>
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- elsif request.design_mode -%}
+  <p class="wf-editor-notice" {{ block.shopify_attributes }}>Trust row: add confirmed facts only (dispatch time, payment, COD, damage replacement). (Only visible in the theme editor.)</p>
+{%- endif -%}

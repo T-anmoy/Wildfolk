@@ -1,0 +1,7 @@
+{%- comment -%} A quiet "questions?" link (e.g. to the FAQ page). Hidden while the destination doesn't exist. {%- endcomment -%}
+{%- capture help_live -%}{%- render 'wf-link-live', url: block.settings.link -%}{%- endcapture -%}
+{%- if block.settings.text != blank and help_live == 'true' -%}
+  <p class="wf-help-link" {{ block.shopify_attributes }}>
+    <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+  </p>
+{%- endif -%}

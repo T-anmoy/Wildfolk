@@ -1468,5 +1468,115 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Wildfolk commerce",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Every value here is shown to customers. Use only confirmed client facts. Blank fields keep their feature hidden."
+      },
+      {
+        "type": "header",
+        "content": "Delivery and returns"
+      },
+      {
+        "type": "text",
+        "id": "wf_dispatch_time",
+        "label": "Dispatch time",
+        "info": "Shown near Add to cart. Example: Ships within 1–2 working days."
+      },
+      {
+        "type": "textarea",
+        "id": "wf_pincode_zones",
+        "label": "Pincode delivery zones",
+        "info": "One per line: start-end | days | cod or prepaid. Example: 110001-110099 | 2–4 | cod. Blank hides the pincode checker."
+      },
+      {
+        "type": "text",
+        "id": "wf_returns_summary",
+        "label": "Returns summary",
+        "info": "Shown before purchase and in the cart, linked to the refund policy. Honey is non-returnable: never promise easy returns."
+      },
+      {
+        "type": "text",
+        "id": "wf_damage_window",
+        "label": "Damage claim window",
+        "info": "Example: Report within 48 hours of delivery with an unboxing video."
+      },
+      {
+        "type": "checkbox",
+        "id": "wf_prices_include_tax",
+        "label": "Prices include tax",
+        "default": false,
+        "info": "Must match Settings → Taxes and duties. Adds “Inclusive of all taxes” to the label information."
+      },
+      {
+        "type": "header",
+        "content": "Cart"
+      },
+      {
+        "type": "number",
+        "id": "wf_free_shipping_threshold",
+        "label": "Free-shipping threshold (₹)",
+        "info": "Must match your free-shipping rate in Settings → Shipping. Blank hides the Filling Jar."
+      },
+      {
+        "type": "text",
+        "id": "wf_multi_jar_offer_text",
+        "label": "Multi-jar offer text",
+        "info": "Exact wording of an automatic discount that exists in Discounts. Blank hides the nudge."
+      },
+      {
+        "type": "number",
+        "id": "wf_multi_jar_min_qty",
+        "label": "Multi-jar minimum quantity"
+      },
+      {
+        "type": "product",
+        "id": "wf_gift_wrap_product",
+        "label": "Gift-wrap product",
+        "info": "Tag the product wf-hidden. Blank hides the gift-wrap option."
+      },
+      {
+        "type": "header",
+        "content": "Seller details and food labelling"
+      },
+      {
+        "type": "text",
+        "id": "wf_fssai_licence",
+        "label": "FSSAI licence number"
+      },
+      {
+        "type": "text",
+        "id": "wf_seller_legal_name",
+        "label": "Seller legal name"
+      },
+      {
+        "type": "textarea",
+        "id": "wf_seller_address",
+        "label": "Seller address"
+      },
+      {
+        "type": "text",
+        "id": "wf_seller_phone",
+        "label": "Seller phone"
+      },
+      {
+        "type": "text",
+        "id": "wf_seller_email",
+        "label": "Seller email"
+      },
+      {
+        "type": "text",
+        "id": "wf_grievance_name",
+        "label": "Grievance officer name"
+      },
+      {
+        "type": "text",
+        "id": "wf_grievance_email",
+        "label": "Grievance officer email"
+      }
+    ]
   }
 ]

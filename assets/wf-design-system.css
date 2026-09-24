@@ -1577,3 +1577,18 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
   max-width: calc(var(--wf-content) + 2 * var(--wf-gutter));
   padding-inline: var(--wf-gutter);
 }
+
+/* ==========================================================================
+   16 · Commerce details (shared: product page, featured product, sticky bar)
+   ========================================================================== */
+
+.wf-unit-price {
+  margin: 0.4rem 0 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.wf-unit-price[hidden] {
+  display: none;
+}

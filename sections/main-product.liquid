@@ -115,6 +115,7 @@
                       price_class: 'price--large'
                     -%}
                   </div>
+                  {%- render 'wf-price-extras', product: product, section_id: section.id -%}
                   {%- if product.quantity_price_breaks_configured? -%}
                     <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                       <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -690,6 +691,14 @@
                   {% render 'icon-with-text', block: block %}
                 {%- when 'wf_field_notes' -%}
                   {%- render 'wf-field-notes', block: block -%}
+                {%- when 'wf_label_info' -%}
+                  {%- render 'wf-label-info', block: block, product: product, section_id: section.id -%}
+                {%- when 'wf_trust_row' -%}
+                  {%- render 'wf-trust-row', block: block -%}
+                {%- when 'wf_purchase_notes' -%}
+                  {%- render 'wf-purchase-notes', block: block, section_id: section.id -%}
+                {%- when 'wf_help_link' -%}
+                  {%- render 'wf-help-link', block: block -%}
               {%- endcase -%}
             {%- endfor -%}
             <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -2175,6 +2184,91 @@
         { "type": "text", "id": "value_5", "label": "Value 5" },
         { "type": "text", "id": "label_6", "label": "Label 6" },
         { "type": "text", "id": "value_6", "label": "Value 6" }
+      ]
+    },
+    {
+      "type": "wf_label_info",
+      "name": "Label information",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Reads product metafields wildfolk.ingredients, shelf_life, storage, country_of_origin, manufacturer, safety_note and variant wildfolk.net_weight_g, plus the FSSAI and consumer-care theme settings (Theme settings → Wildfolk commerce). Empty rows are hidden."
+        }
+      ]
+    },
+    {
+      "type": "wf_trust_row",
+      "name": "Wildfolk trust row",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Up to four confirmed facts. Never promise easy returns: honey is non-returnable."
+        },
+        { "type": "select", "id": "icon_1", "label": "Item 1 icon", "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Delivery" },
+            { "value": "shield", "label": "Protection" },
+            { "value": "lock", "label": "Secure payment" },
+            { "value": "cash", "label": "Cash" },
+            { "value": "clock", "label": "Time" },
+            { "value": "leaf", "label": "Leaf" }
+          ], "default": "none" },
+        { "type": "text", "id": "text_1", "label": "Item 1 text" },
+        { "type": "url", "id": "link_1", "label": "Item 1 link" },
+        { "type": "select", "id": "icon_2", "label": "Item 2 icon", "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Delivery" },
+            { "value": "shield", "label": "Protection" },
+            { "value": "lock", "label": "Secure payment" },
+            { "value": "cash", "label": "Cash" },
+            { "value": "clock", "label": "Time" },
+            { "value": "leaf", "label": "Leaf" }
+          ], "default": "none" },
+        { "type": "text", "id": "text_2", "label": "Item 2 text" },
+        { "type": "url", "id": "link_2", "label": "Item 2 link" },
+        { "type": "select", "id": "icon_3", "label": "Item 3 icon", "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Delivery" },
+            { "value": "shield", "label": "Protection" },
+            { "value": "lock", "label": "Secure payment" },
+            { "value": "cash", "label": "Cash" },
+            { "value": "clock", "label": "Time" },
+            { "value": "leaf", "label": "Leaf" }
+          ], "default": "none" },
+        { "type": "text", "id": "text_3", "label": "Item 3 text" },
+        { "type": "url", "id": "link_3", "label": "Item 3 link" },
+        { "type": "select", "id": "icon_4", "label": "Item 4 icon", "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Delivery" },
+            { "value": "shield", "label": "Protection" },
+            { "value": "lock", "label": "Secure payment" },
+            { "value": "cash", "label": "Cash" },
+            { "value": "clock", "label": "Time" },
+            { "value": "leaf", "label": "Leaf" }
+          ], "default": "none" },
+        { "type": "text", "id": "text_4", "label": "Item 4 text" },
+        { "type": "url", "id": "link_4", "label": "Item 4 link" }
+      ]
+    },
+    {
+      "type": "wf_purchase_notes",
+      "name": "Wildfolk purchase notes",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Dispatch time, pincode checker and the returns line, from Theme settings → Wildfolk commerce. Place it right after the buy buttons."
+        }
+      ]
+    },
+    {
+      "type": "wf_help_link",
+      "name": "Wildfolk help link",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Questions? Read the FAQ" },
+        { "type": "url", "id": "link", "label": "Link", "info": "Hidden while the destination doesn't exist." }
       ]
     }
   ],

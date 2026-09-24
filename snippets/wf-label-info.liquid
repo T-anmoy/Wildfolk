@@ -1,0 +1,81 @@
+{%- comment -%}
+  Label information for pre-packaged food, from product metafields (namespace wildfolk)
+  and Wildfolk commerce theme settings. Nothing is invented: every row renders only
+  when it has a value; with no labelling facts at all, the block renders nothing
+  (the price-derived MRP alone never makes the block appear).
+  Metafields: wildfolk.ingredients, wildfolk.shelf_life, wildfolk.storage,
+  wildfolk.country_of_origin, wildfolk.manufacturer, wildfolk.safety_note;
+  variant wildfolk.net_weight_g.
+{%- endcomment -%}
+{%- liquid
+  assign mf = product.metafields.wildfolk
+  assign variant = product.selected_or_first_available_variant
+  assign nw = variant.metafields.wildfolk.net_weight_g.value | default: 0 | plus: 0
+  assign ingredients = mf.ingredients.value
+  assign shelf_life = mf.shelf_life.value
+  assign storage = mf.storage.value
+  assign origin = mf.country_of_origin.value
+  assign manufacturer = mf.manufacturer.value
+  assign safety = mf.safety_note.value
+  assign care_phone = settings.wf_seller_phone
+  assign care_email = settings.wf_seller_email
+  assign has_info = false
+  if ingredients != blank or shelf_life != blank or storage != blank or origin != blank or manufacturer != blank or safety != blank or nw > 0 or settings.wf_fssai_licence != blank or care_phone != blank or care_email != blank
+    assign has_info = true
+  endif
+-%}
+{%- if has_info -%}
+  <details class="wf-label-info" {{ block.shopify_attributes }}>
+    <summary class="wf-label-info__summary">
+      <span>Label information</span>
+      <span class="wf-label-info__icon" aria-hidden="true"></span>
+    </summary>
+    <dl class="wf-label-info__list">
+      {%- if ingredients != blank -%}
+        <div class="wf-label-info__row"><dt>Ingredients</dt><dd>{{ ingredients | escape | newline_to_br }}</dd></div>
+      {%- endif -%}
+      {%- if nw > 0 -%}
+        <div class="wf-label-info__row"><dt>Net quantity</dt><dd data-wf-fact="net" data-wf-section="{{ section_id }}"><span data-wf-fact-value>{{ nw }} g</span></dd></div>
+      {%- endif -%}
+      <div class="wf-label-info__row">
+        <dt>MRP</dt>
+        <dd data-wf-fact="mrp" data-wf-section="{{ section_id }}">
+          <span data-wf-fact-value>{{ variant.price | money }}</span>
+          {%- if settings.wf_prices_include_tax %} <span class="wf-label-info__tax">(Inclusive of all taxes)</span>{%- endif -%}
+        </dd>
+      </div>
+      {%- if shelf_life != blank -%}
+        <div class="wf-label-info__row"><dt>Best before</dt><dd>{{ shelf_life | escape }}</dd></div>
+      {%- endif -%}
+      {%- if storage != blank -%}
+        <div class="wf-label-info__row"><dt>Storage</dt><dd>{{ storage | escape }}</dd></div>
+      {%- endif -%}
+      {%- if origin != blank -%}
+        <div class="wf-label-info__row"><dt>Country of origin</dt><dd>{{ origin | escape }}</dd></div>
+      {%- endif -%}
+      {%- if manufacturer != blank -%}
+        <div class="wf-label-info__row"><dt>Manufacturer / packer</dt><dd>{{ manufacturer | escape | newline_to_br }}</dd></div>
+      {%- endif -%}
+      {%- if settings.wf_fssai_licence != blank -%}
+        <div class="wf-label-info__row"><dt>FSSAI licence</dt><dd>{{ settings.wf_fssai_licence | escape }}</dd></div>
+      {%- endif -%}
+      {%- if care_phone != blank or care_email != blank -%}
+        <div class="wf-label-info__row">
+          <dt>Consumer care</dt>
+          <dd>
+            {%- if care_phone != blank -%}<a href="tel:{{ care_phone | remove: ' ' | escape }}">{{ care_phone | escape }}</a>{%- endif -%}
+            {%- if care_phone != blank and care_email != blank %} · {% endif -%}
+            {%- if care_email != blank -%}<a href="mailto:{{ care_email | escape }}">{{ care_email | escape }}</a>{%- endif -%}
+          </dd>
+        </div>
+      {%- endif -%}
+      {%- if safety != blank -%}
+        <div class="wf-label-info__row"><dt>Safety</dt><dd>{{ safety | escape }}</dd></div>
+      {%- endif -%}
+    </dl>
+  </details>
+{%- elsif request.design_mode -%}
+  <p class="wf-editor-notice" {{ block.shopify_attributes }}>
+    Label information is hidden until product metafields (wildfolk.ingredients, shelf_life, storage, country_of_origin, manufacturer, safety_note, variant net_weight_g) or the FSSAI / consumer-care theme settings are filled. (Only visible in the theme editor.)
+  </p>
+{%- endif -%}
