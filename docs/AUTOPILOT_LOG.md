@@ -22,11 +22,11 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | A5 | DONE | — | Theme Check 0 err / 9 warn (= baseline). after-phase-a-final: 324/326, the 2 failures = CLI dev error page on the 404 route (not theme) → harness retries; 404 overflow 72/72 on repeat. Screenshots reviewed (subagent + own spot checks) |
 | PUSH-A | DONE | pushed 2490587..dbc1c8d | origin/main == HEAD (dbc1c8d). No Shopify bot commit after 95s. Live theme's wf-design-system.css pulled read-only = local. Live storefront password-protected. Gate: Theme Check 0 err/no new; after-phase-a-final 324/326 (2 = CLI error page, fixed in harness) + qa:quick 118/118 |
 | B0 | DONE | (this commit) | before-phase-b baseline = after-phase-a-final (identical theme code). Plan v3 after 3 critique rounds: 5 CORE → 1 CORE → 0 CORE |
-| B1 | TODO | | |
-| B2 | TODO | | |
-| B3 | TODO | | |
-| B4 | TODO | | |
-| B5 | TODO | | |
+| B1 | DONE | 457e6bf | Story-panel layouts, origin landscape-led, hive typographic, process thread, reviews lead, journal, final-CTA newsletter, pre-launch integrity (wf-link-live, sample-product guard, no storefront placeholders) |
+| B2 | DONE | c0a8e81, 4d93f3e | Product layer + field notes block + sticky bar. PDP NOT renderable (no product) — built to Craft markup/events, verified in code only |
+| B3 | DONE | 2f5d572 | Header CTA (verified at 360/390/1440 via a temporary live link, reverted), drawer account link, footer brand |
+| B4 | DONE | 0f15c86 | Blog/article layer; only the empty blog is visible (0 articles) |
+| B5 | DONE | 9c8984a config, bff5a3f qa, review fixes + config follow-up | after-phase-b-final: 337 passed / 0 failed / 6 skipped (product-dependent). Theme Check 0 err / 9 warn (= baseline). Screenshot review by subagent (home all 10 viewports; our-story/blog/contact at 5) → 2 blockers + 7 majors fixed, re-verified |
 | PUSH-B | TODO | | |
 
 ## Decisions
@@ -42,11 +42,23 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 - D8 (A4): The placeholder fill is scheme-aware (`rgba(foreground, .08)`) so it reads on taupe/charcoal sections as well as ivory. `.wf-media.wf-media--placeholder` defeats Craft's `div:empty{display:none}`.
 - D9 (A3): The bee initialises at the computed position for the current scroll (equal to the first waypoint at the top of the page), so there's no fly-in even when the page reloads mid-scroll.
 
+- D10 (B0): Phase B plan went through 3 creative-director critique rounds (5 → 1 → 0 CORE). Spec-mandated items were kept over the critique where they conflicted (CLIENT-CONFIRM visible but styled, final-CTA newsletter, sticky bar, hero phone centring, process 2×2).
+- D11 (B1): Pre-launch integrity: CTAs whose destination is empty or missing are hidden on the storefront (wf-link-live). Today the hero/final/header "Shop Honey" and "Meet the Story" are therefore hidden until a product is published and the Our Story page exists. The sample featured product is hidden outside the editor.
+- D12 (B1): The above-fold spec asserts the CTA only when one is rendered (it's intentionally absent pre-launch); the headline is always asserted. Two cases were added (360×640, 844×390).
+- D13 (B3): The phone account icon moves into the drawer (a new log-in link) to make room for "Shop". Craft's drawer had no account link.
+- D14 (B5): The harness retries dev-server 502s and discovery 5xx (transient upstream render failures seen during the run). Keyboard spec follows focus into shadow roots (<shopify-account>).
+
 ## Screenshot review — after Phase A (home, our-story × 8 viewports)
 
 - Improvements: placeholders visible (no more blank gaps); hero aligned to the header container and bottom-anchored; balanced 2-line headings instead of 4–5-line squeezes; 2-column splits from tablet; no overflow, clipping or hidden content anywhere.
 - Intended: reviews/journal hidden while empty; hero secondary CTA hidden on landscape phones (spec 8.5).
 - Carried to Phase B: the stock FAQ (collapsible-content) is a narrow centred column that doesn't align with wf sections; some 2-line paragraphs look ragged under `text-wrap: pretty`; the 360px hero is filled by its content (no breathing room); the "Example product title" placeholder wraps to 3 lines at 768.
+
+## Screenshot review — after Phase B
+
+- Home reads as one restrained editorial journey: charcoal → ivory → taupe → olive → ivory → charcoal → taupe → ivory → charcoal; amber only on buttons; the olive hive statement is the strongest beat. Clearly better than Phase A (no grey boxes, no sample t-shirt).
+- Fixed after review: contact "Button label" default and "COLLABORATIO/NS" break; the phantom indent on text-led panels; the stray inset hairline; the hero void on tall phones/tablets; the hairline cutting into the contact form; the generic footer newsletter copy; hive lines ending in "·"; FAQ eyebrow/tracking; the footer bottom row alignment.
+- Remaining (content/stock, logged for HUMAN/next phase): the contact page's three widths and duplicate "Contact"/"Let's talk." headlines (stock sections, content); Our Story shares home's skeleton until photography arrives; type doesn't grow beyond ~1920px; the final-CTA eyebrow repeats "Bring it to the table" (client copy); the footer menu contains only "Search" (store data).
 
 ## Open issues
 
