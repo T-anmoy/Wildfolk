@@ -29,10 +29,11 @@ export async function openPage(browser, vp, url, { reducedMotion = 'reduce', onP
   let response;
   // `theme dev` intermittently serves its own Polaris error page instead of the theme
   // (seen on the 404 route). Retry until the theme document (#MainContent) is served.
-  for (let attempt = 0; attempt < 3; attempt++) {
+  // Also retries transient 502s from the dev server's upstream render.
+  for (let attempt = 0; attempt < 5; attempt++) {
     response = await page.goto(url, { waitUntil: 'domcontentloaded' });
     if (await page.locator('#MainContent').count()) break;
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000 * (attempt + 1));
   }
   await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
   await settle(page);

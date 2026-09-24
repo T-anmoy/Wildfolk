@@ -1404,6 +1404,9 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
 }
 
 .wf-footer-brand__wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
   justify-self: start;
   font-family: var(--font-heading-family);
   font-size: clamp(4rem, 2rem + 6vw, 9.6rem);

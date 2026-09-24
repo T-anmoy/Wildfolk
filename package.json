@@ -9,6 +9,7 @@
     "qa:quick": "WF_QA_QUICK=1 playwright test -c qa/playwright.config.mjs",
     "qa:a11y": "playwright test -c qa/playwright.config.mjs a11y",
     "qa:overflow": "playwright test -c qa/playwright.config.mjs overflow",
-    "qa:themecheck": "node qa/themecheck.mjs"
+    "qa:themecheck": "node qa/themecheck.mjs",
+    "qa:launch-gate": "node qa/launch-gate.mjs"
   }
 }

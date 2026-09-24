@@ -4,12 +4,15 @@ const base = (process.env.WF_BASE_URL || 'http://127.0.0.1:9292').replace(/\/$/,
 const notes = [];
 
 async function get(path) {
-  try {
-    const res = await fetch(base + path, { redirect: 'follow' });
-    return { status: res.status, text: await res.text() };
-  } catch (e) {
-    return { status: 0, text: '' };
+  // Retry transient dev-server failures (5xx / network) before trusting a status.
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try {
+      const res = await fetch(base + path, { redirect: 'follow' });
+      if (res.status < 500) return { status: res.status, text: await res.text() };
+    } catch (e) {}
+    await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
   }
+  return { status: 0, text: '' };
 }
 
 async function productHandle() {
