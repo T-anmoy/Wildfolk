@@ -1,61 +1,75 @@
-{{ 'wf-home.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign blog = section.settings.blog
-  assign articles = blog.articles
-  assign featured = articles.first
-  assign secondary = articles | slice: 1, 3
+  assign featured = blank
+  if blog != blank and blog.articles_count > 0
+    assign featured = blog.articles.first
+    assign secondary = blog.articles | slice: 1, 3
+  endif
 -%}
 
-<div class="wf-section color-{{ section.settings.color_scheme }} gradient">
-  <div class="wf-content">
-    <div class="wf-journal__header" data-wf-reveal>
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="wf-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+{%- if featured != blank -%}
+  <div class="wf-section wf-journal color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+        <div class="wf-journal__header wf-measure" data-wf-reveal>
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="wf-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="wf-heading wf-heading--xl">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
       {%- endif -%}
-      <h2 class="wf-heading wf-heading--xl">
-        {{ section.settings.heading }}
-      </h2>
-    </div>
 
-    {%- if featured != blank -%}
       <div class="wf-journal__layout">
-        <a href="{{ featured.url }}" class="wf-journal__featured" data-wf-reveal>
-          <div class="wf-journal__featured-media">
-            {%- render 'wf-media', image: featured.image, alt: featured.title, sizes_attr: '(min-width: 990px) 55vw, 100vw' -%}
+        <a href="{{ featured.url }}" class="wf-journal__card wf-journal__featured" data-wf-reveal>
+          <div class="wf-journal__featured-media wf-frame">
+            {%- render 'wf-media',
+              image: featured.image,
+              decorative: true,
+              sizes_attr: '(min-width: 1200px) 600px, (min-width: 900px) 55vw, 100vw'
+            -%}
           </div>
-          <p class="wf-eyebrow" style="margin-top: var(--wf-space-xs);">{{ featured.published_at | time_tag: format: 'date' }}</p>
-          <h3 class="wf-heading wf-heading--lg">{{ featured.title }}</h3>
+          <p class="wf-eyebrow">{{ featured.published_at | time_tag: format: 'date' }}</p>
+          <h3 class="wf-heading wf-heading--lg"><span class="wf-journal__title">{{ featured.title | escape }}</span></h3>
           <p class="wf-body">{{ featured.excerpt_or_content | strip_html | truncatewords: 28 }}</p>
         </a>
 
-        <div class="wf-journal__secondary">
-          {%- for article in secondary -%}
-            <a href="{{ article.url }}" class="wf-journal__secondary-item" data-wf-reveal>
-              <div class="wf-journal__secondary-media">
-                {%- render 'wf-media', image: article.image, alt: article.title, sizes_attr: '8rem' -%}
-              </div>
-              <span>
-                <span class="wf-eyebrow" style="display:block;">{{ article.published_at | time_tag: format: 'date' }}</span>
-                <span class="wf-heading" style="font-size: 1.9rem; display:block;">{{ article.title }}</span>
-              </span>
-            </a>
-          {%- endfor -%}
-        </div>
+        {%- if secondary.size > 0 -%}
+          <div class="wf-journal__secondary">
+            {%- for article in secondary -%}
+              <a href="{{ article.url }}" class="wf-journal__secondary-item" data-wf-reveal>
+                <div class="wf-journal__secondary-media wf-frame">
+                  {%- render 'wf-media', image: article.image, decorative: true, sizes_attr: '80px' -%}
+                </div>
+                <span class="wf-journal__secondary-copy">
+                  <span class="wf-eyebrow">{{ article.published_at | time_tag: format: 'date' }}</span>
+                  <span class="wf-heading wf-journal__secondary-title"><span class="wf-journal__title">{{ article.title | escape }}</span></span>
+                </span>
+              </a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
 
       {%- if section.settings.show_view_all -%}
-        <p style="margin-top: var(--wf-space-md);" data-wf-reveal>
+        <p class="wf-journal__footer" data-wf-reveal>
           <a href="{{ blog.url }}" class="button button--secondary">
             {{ 'sections.wf_journal.view_all' | t }}
           </a>
         </p>
       {%- endif -%}
-    {%- else -%}
-      <p class="wf-body" data-wf-reveal>{{ 'sections.wf_journal.no_articles' | t }}</p>
-    {%- endif -%}
+    </div>
   </div>
-</div>
+{%- elsif request.design_mode -%}
+  <div class="wf-section wf-section--tight color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      <p class="wf-editor-notice">
+        Wildfolk journal feature is hidden on the storefront until a blog with at least one published article is selected. (Only visible in the theme editor.)
+      </p>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -63,6 +77,10 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "paragraph",
+      "content": "Hidden on the storefront until the selected blog has at least one published article."
+    },
     {
       "type": "text",
       "id": "eyebrow",

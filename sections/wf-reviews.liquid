@@ -1,41 +1,60 @@
-{{ 'wf-home.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  Genuine reviews only. With no review blocks the section renders nothing on the
+  storefront; in the Theme Editor a merchant-only notice explains why.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <div class="wf-section wf-reviews color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+        <div class="wf-reviews__header wf-measure">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
-<div class="wf-section color-{{ section.settings.color_scheme }} gradient">
-  <div class="wf-content">
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
-    {%- endif -%}
-    {%- if section.settings.heading != blank -%}
-      <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
-    {%- endif -%}
-
-    {%- if section.blocks.size > 0 -%}
-      <div class="wf-process__steps" style="margin-top: var(--wf-space-lg);">
+      <div class="wf-reviews__list">
         {%- for block in section.blocks -%}
-          <blockquote class="wf-process__step" data-wf-reveal {{ block.shopify_attributes }}>
-            <p class="wf-body" style="font-family: var(--font-heading-family); font-size: var(--wf-size-h3); line-height: 1.2;">
-              &ldquo;{{ block.settings.quote | escape }}&rdquo;
-            </p>
-            <footer class="wf-eyebrow" style="margin-top: var(--wf-space-xs);">
-              {{ block.settings.author | escape }}{% if block.settings.location != blank %}, {{ block.settings.location | escape }}{% endif %}
-            </footer>
-          </blockquote>
+          {%- if block.settings.quote != blank -%}
+            <figure class="wf-reviews__item" data-wf-reveal {{ block.shopify_attributes }}>
+              <blockquote class="wf-reviews__quote">
+                <p>&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+              </blockquote>
+              {%- if block.settings.author != blank -%}
+                <figcaption class="wf-eyebrow wf-reviews__cite">
+                  {{ block.settings.author | escape }}{% if block.settings.location != blank %}, {{ block.settings.location | escape }}{% endif %}
+                </figcaption>
+              {%- endif -%}
+            </figure>
+          {%- endif -%}
         {%- endfor -%}
       </div>
-    {%- else -%}
-      <p class="wf-body" data-wf-reveal style="margin-top: var(--wf-space-sm); opacity: 0.7;">
-        {{ 'sections.wf_reviews.empty' | t }}
-      </p>
-    {%- endif -%}
+    </div>
   </div>
-</div>
+{%- elsif request.design_mode -%}
+  <div class="wf-section wf-section--tight color-{{ section.settings.color_scheme }} gradient">
+    <div class="wf-grid">
+      <p class="wf-editor-notice">
+        Wildfolk reviews is hidden on the storefront until genuine, client-confirmed reviews are added as blocks. (Only visible in the theme editor.)
+      </p>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
   "name": "Wildfolk reviews",
   "tag": "section",
   "class": "section",
+  "max_blocks": 6,
   "settings": [
+    {
+      "type": "paragraph",
+      "content": "Hidden on the storefront until at least one review is added. Only add genuine, client-confirmed customer reviews."
+    },
     {
       "type": "text",
       "id": "eyebrow",

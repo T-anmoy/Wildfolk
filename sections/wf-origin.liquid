@@ -1,5 +1,3 @@
-{{ 'wf-home.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign origin_alt = section.settings.image.alt | default: section.settings.origin_name
 -%}
