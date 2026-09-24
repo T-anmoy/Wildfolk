@@ -1,0 +1,21 @@
+{%- comment -%}
+  Brand-led footer opening: the wordmark (logo when set, else the shop name) and
+  the merchant's own brand statement from Theme settings → Brand information.
+  Nothing is invented: the statement lines are hidden while those settings are empty.
+{%- endcomment -%}
+<div class="wf-footer-brand page-width">
+  <a href="{{ routes.root_url }}" class="wf-footer-brand__wordmark">
+    {%- if settings.logo != blank -%}
+      {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+      {{ settings.logo | image_url: width: 400 | image_tag: class: 'wf-footer-brand__logo', widths: '200, 400', alt: logo_alt, loading: 'lazy' }}
+    {%- else -%}
+      {{ shop.name | escape }}
+    {%- endif -%}
+  </a>
+  {%- if settings.brand_headline != blank -%}
+    <p class="wf-footer-brand__headline">{{ settings.brand_headline }}</p>
+  {%- endif -%}
+  {%- if settings.brand_description != blank -%}
+    <div class="wf-footer-brand__description rte">{{ settings.brand_description }}</div>
+  {%- endif -%}
+</div>

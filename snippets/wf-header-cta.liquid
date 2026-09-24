@@ -1,0 +1,25 @@
+{%- comment -%}
+  "Shop Honey" call to action from the header settings (wf_cta_*).
+  placement: 'bar' (header icon row; short label on phones) or 'drawer'.
+  Hidden when the label or link is blank, or while the destination is empty (wf-link-live).
+{%- endcomment -%}
+{%- liquid
+  assign cta_label = section.settings.wf_cta_label
+  assign cta_short = section.settings.wf_cta_label_short | default: cta_label
+  assign cta_link = section.settings.wf_cta_link
+-%}
+{%- if cta_label != blank and cta_link != blank -%}
+  {%- capture cta_live -%}{%- render 'wf-link-live', url: cta_link -%}{%- endcapture -%}
+  {%- if cta_live == 'true' -%}
+    {%- if placement == 'drawer' -%}
+      <a href="{{ cta_link }}" class="button button--primary wf-header-cta wf-header-cta--drawer">
+        {{- cta_label | escape -}}
+      </a>
+    {%- else -%}
+      <a href="{{ cta_link }}" class="wf-header-cta wf-header-cta--bar" aria-label="{{ cta_label | escape }}">
+        <span class="wf-header-cta__full">{{ cta_label | escape }}</span>
+        <span class="wf-header-cta__short">{{ cta_short | escape }}</span>
+      </a>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

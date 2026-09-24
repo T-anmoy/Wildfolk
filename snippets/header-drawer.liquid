@@ -140,6 +140,12 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
+            {%- render 'wf-header-cta', section: section, placement: 'drawer' -%}
+            {%- if shop.customer_accounts_enabled -%}
+              <a href="{{ routes.account_url }}" class="menu-drawer__account wf-drawer-account link">
+                {%- if customer -%}{{ 'customer.account.title' | t }}{%- else -%}{{ 'customer.log_in' | t }}{%- endif -%}
+              </a>
+            {%- endif -%}
             {%- if show_country_selector or show_language_selector -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if show_country_selector -%}

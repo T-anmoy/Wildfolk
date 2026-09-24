@@ -298,6 +298,7 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
+      {%- render 'wf-header-cta', section: section, placement: 'bar' -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
@@ -594,6 +595,28 @@
       ],
       "default": "on-scroll-up",
       "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
+      "type": "header",
+      "content": "Wildfolk call to action"
+    },
+    {
+      "type": "text",
+      "id": "wf_cta_label",
+      "label": "Button label",
+      "default": "Shop Honey"
+    },
+    {
+      "type": "text",
+      "id": "wf_cta_label_short",
+      "label": "Short label (phones)",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "wf_cta_link",
+      "label": "Button link",
+      "info": "Leave blank to hide. Also hidden while the destination is empty (e.g. no products published)."
     },
     {
       "type": "checkbox",
