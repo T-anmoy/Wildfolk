@@ -52,9 +52,21 @@
         </div>
       {%- endif -%}
 
-      {%- if section.settings.button_label != blank or section.settings.button_label_secondary != blank -%}
+      {%- capture primary_live -%}{%- render 'wf-link-live', url: section.settings.button_link -%}{%- endcapture -%}
+      {%- capture secondary_live -%}{%- render 'wf-link-live', url: section.settings.button_link_secondary -%}{%- endcapture -%}
+      {%- liquid
+        assign show_primary = false
+        if section.settings.button_label != blank and primary_live == 'true'
+          assign show_primary = true
+        endif
+        assign show_secondary = false
+        if section.settings.button_label_secondary != blank and secondary_live == 'true'
+          assign show_secondary = true
+        endif
+      -%}
+      {%- if show_primary or show_secondary -%}
         <div class="wf-hero__actions">
-          {%- if section.settings.button_label != blank -%}
+          {%- if show_primary -%}
             <a
               {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
               class="button button--primary"
@@ -62,7 +74,7 @@
               {{ section.settings.button_label | escape }}
             </a>
           {%- endif -%}
-          {%- if section.settings.button_label_secondary != blank -%}
+          {%- if show_secondary -%}
             <a
               {% if section.settings.button_link_secondary == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link_secondary }}"{% endif %}
               class="button button--secondary"

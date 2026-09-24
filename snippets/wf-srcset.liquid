@@ -1,8 +1,8 @@
-{% comment %}
+{%- comment -%}
   Outputs a srcset for one image: standard widths up to the source width,
   plus the source width itself when it is smaller than the largest standard width.
   Usage: srcset="{% render 'wf-srcset', img: image %}"
-{% endcomment %}
+{%- endcomment -%}
 {%- liquid
   assign widths = '375,550,750,1100,1500,2000,2600' | split: ','
   assign source_width = img.width | append: ''

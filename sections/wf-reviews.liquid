@@ -19,7 +19,7 @@
       <div class="wf-reviews__list">
         {%- for block in section.blocks -%}
           {%- if block.settings.quote != blank -%}
-            <figure class="wf-reviews__item" data-wf-reveal {{ block.shopify_attributes }}>
+            <figure class="wf-reviews__item{% if forloop.first %} wf-reviews__item--lead{% endif %}" data-wf-reveal {{ block.shopify_attributes }}>
               <blockquote class="wf-reviews__quote">
                 <p>&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
               </blockquote>

@@ -1,0 +1,10 @@
+{%- comment -%}
+  Outputs an escaped plain-text value. A [CLIENT-CONFIRM: …] placeholder is wrapped
+  in .wf-pending (quiet italic) with a screen-reader prefix.
+  Usage: {% render 'wf-text', text: section.settings.origin_name %}
+{%- endcomment -%}
+{%- if text contains '[CLIENT-CONFIRM' -%}
+  <span class="wf-pending"><span class="visually-hidden">To be confirmed: </span>{{ text | escape }}</span>
+{%- else -%}
+  {{- text | escape -}}
+{%- endif -%}

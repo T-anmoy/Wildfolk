@@ -4,6 +4,8 @@
     assign placeholder = true
   endif
 -%}
+{%- comment -%} Wildfolk: never show Craft's sample product on the storefront; the placeholder stays visible in the theme editor. {%- endcomment -%}
+{%- if placeholder and request.design_mode == false -%}{%- else -%}
 
 <product-info
   data-section="{{ section.id }}"
@@ -507,6 +509,7 @@
     <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
   {% endif %}
 </product-info>
+{%- endif -%}
 
 {% schema %}
 {

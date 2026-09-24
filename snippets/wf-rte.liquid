@@ -1,0 +1,10 @@
+{%- comment -%}
+  Outputs merchant richtext. Paragraphs that start with a [CLIENT-CONFIRM: …]
+  placeholder are marked .wf-pending so they read as deliberate "to be confirmed"
+  notes (quiet italic), with a screen-reader prefix instead of raw brackets.
+  Usage: {% render 'wf-rte', html: section.settings.text %}
+{%- endcomment -%}
+{%- liquid
+  assign pending_open = '<p class="wf-pending"><span class="visually-hidden">To be confirmed: </span>[CLIENT-CONFIRM'
+  echo html | replace: '<p>[CLIENT-CONFIRM', pending_open
+-%}

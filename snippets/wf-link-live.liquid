@@ -1,0 +1,50 @@
+{%- comment -%}
+  Outputs "true" when an internal link has a live destination, so calls to action
+  never lead to an empty catalogue or a 404 before launch content exists.
+  - /collections/<handle>  → the collection has at least one product
+  - /products/<handle>     → the product exists
+  - /pages/<handle>        → the page exists
+  - /blogs/<handle>        → the blog exists
+  - anything else (external, search, cart, anchors) → live
+  - blank → not live
+  In the Theme Editor it always outputs "true" so merchants can see and edit the button.
+
+  Usage:
+    {%- capture link_live -%}{%- render 'wf-link-live', url: section.settings.button_link -%}{%- endcapture -%}
+    {%- if link_live == 'true' -%} … {%- endif -%}
+{%- endcomment -%}
+{%- liquid
+  assign live = true
+  if url == blank
+    assign live = false
+  else
+    assign path = url | split: '?' | first | split: '#' | first
+    assign parts = path | split: '/'
+    assign kind = parts[1]
+    assign handle = parts[2]
+    if handle != blank
+      case kind
+        when 'collections'
+          if collections[handle] == blank or collections[handle].products_count == 0
+            assign live = false
+          endif
+        when 'products'
+          if all_products[handle] == blank
+            assign live = false
+          endif
+        when 'pages'
+          if pages[handle] == blank
+            assign live = false
+          endif
+        when 'blogs'
+          if blogs[handle] == blank
+            assign live = false
+          endif
+      endcase
+    endif
+  endif
+  if request.design_mode
+    assign live = true
+  endif
+  echo live
+-%}

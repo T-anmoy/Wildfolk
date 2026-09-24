@@ -17,28 +17,32 @@
     </div>
 
     {%- if section.blocks.size > 0 -%}
-      <ol class="wf-process__steps">
-        {%- for block in section.blocks -%}
-          <li class="wf-process__step" data-wf-reveal {{ block.shopify_attributes }}>
-            <span class="wf-process__step-index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            {%- if block.settings.image != blank -%}
-              <div class="wf-process__step-media wf-frame">
-                {%- render 'wf-media',
-                  image: block.settings.image,
-                  alt: block.settings.title,
-                  sizes_attr: '(min-width: 1200px) 260px, (min-width: 600px) 45vw, 100vw'
-                -%}
-              </div>
-            {%- endif -%}
-            {%- if block.settings.title != blank -%}
-              <h3 class="wf-heading wf-process__title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <div class="wf-body rte wf-process__text">{{ block.settings.text }}</div>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ol>
+      <div class="wf-process__track">
+        {%- comment -%} One hairline thread joins the steps; it draws once when revealed. {%- endcomment -%}
+        <span class="wf-process__thread" data-wf-reveal aria-hidden="true"></span>
+        <ol class="wf-process__steps" style="--wf-steps: {{ section.blocks.size }};">
+          {%- for block in section.blocks -%}
+            <li class="wf-process__step" data-wf-reveal {{ block.shopify_attributes }}>
+              <span class="wf-process__step-index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              {%- if block.settings.image != blank -%}
+                <div class="wf-process__step-media wf-frame">
+                  {%- render 'wf-media',
+                    image: block.settings.image,
+                    alt: block.settings.title,
+                    sizes_attr: '(min-width: 1200px) 260px, (min-width: 600px) 45vw, 100vw'
+                  -%}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="wf-heading wf-process__title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="wf-body rte wf-process__text">{% render 'wf-rte', html: block.settings.text %}</div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+      </div>
     {%- endif -%}
   </div>
 </div>

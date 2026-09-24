@@ -414,6 +414,12 @@
   }
 }
 
+/* Without an image the hero is a type moment: shorter, never pushing the CTA
+   below the first screen (Craft rem = 10px). */
+.wf-hero:not(.wf-hero--has-image) {
+  min-height: clamp(28rem, min(64svh, 100svh - 18rem), 80rem);
+}
+
 /* Short screens (laptops at 720–820px tall, tablets in landscape): tighten the
    stack so the headline and primary CTA sit above the fold. */
 @media (min-width: 750px) and (max-height: 820px) {
@@ -481,7 +487,9 @@
 }
 
 /* ==========================================================================
-   07 · Story panel (Why This Honey / Quality / How To Use)
+   07 · Story panel — layouts: split · full-bleed · inset · statement
+   Every layout has a text-led fallback (.wf-story-panel--no-media): outside the
+   editor an empty image slot is not rendered.
    ========================================================================== */
 
 .wf-story-panel__grid {
@@ -499,17 +507,179 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--wf-space-sm);
+  max-width: var(--wf-measure);
 }
 
+.wf-story-panel__heading {
+  font-size: var(--wf-size-xl);
+}
+
+.wf-story-panel--no-media .wf-story-panel__heading {
+  font-size: clamp(3.4rem, 1.8rem + 4.2cqi, 7.2rem);
+  max-width: 16ch;
+}
+
+/* --- split --- */
 @container wf-section (min-width: 750px) {
-  .wf-story-panel__grid {
+  .wf-story-panel--split .wf-story-panel__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--wf-space-lg);
   }
 
-  .wf-story-panel--image-last .wf-story-panel__media {
-    order: 2;
+  .wf-story-panel--split.wf-story-panel--image-first .wf-story-panel__media { order: -1; }
+  .wf-story-panel--split.wf-story-panel--image-last .wf-story-panel__media { order: 1; }
+
+  /* Text-led: copy on 7 of 12 columns, offset from the start (or the end) */
+  .wf-story-panel--split.wf-story-panel--no-media .wf-story-panel__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
+
+  .wf-story-panel--split.wf-story-panel--no-media .wf-story-panel__copy {
+    grid-column: 2 / span 8;
+    max-width: none;
+  }
+
+  .wf-story-panel--split.wf-story-panel--no-media.wf-story-panel--image-last .wf-story-panel__copy {
+    grid-column: 4 / span 8;
+  }
+}
+
+/* --- full-bleed --- */
+.wf-story-panel--full-bleed.wf-story-panel--has-image {
+  padding-block: 0;
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__grid {
+  grid-column: full;
+  grid-template-areas: "stack";
+  align-items: end;
+  gap: 0;
+}
+
+.wf-story-panel--full-bleed.wf-story-panel--has-image .wf-story-panel__grid {
+  min-height: clamp(48rem, 84svh, 96rem);
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__grid > * {
+  grid-area: stack;
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__media {
+  align-self: stretch;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+/* Scheme-aware scrim: the scheme background rises behind the copy so its text
+   colour keeps contrast (≥ .85 at the text edge). */
+.wf-story-panel--full-bleed.wf-story-panel--has-image .wf-story-panel__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(var(--color-background), 0) 25%, rgba(var(--color-background), 0.88) 88%);
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__copy {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  padding-inline: max(var(--wf-gutter), (100% - var(--wf-content)) / 2);
+}
+
+.wf-story-panel--full-bleed.wf-story-panel--has-image .wf-story-panel__copy {
+  padding-block: var(--wf-space-xl) var(--wf-space-lg);
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__copy > * {
+  max-width: var(--wf-measure);
+}
+
+.wf-story-panel--full-bleed .wf-story-panel__heading {
+  font-size: var(--wf-size-display);
+  max-width: 16ch;
+}
+
+/* --- inset: large image on the wide track, copy panel offset over its lower edge --- */
+.wf-story-panel--inset .wf-story-panel__grid {
+  grid-column: wide;
+  gap: 0;
+}
+
+.wf-story-panel--inset .wf-story-panel__media {
+  --wf-ratio: 4 / 5;
+}
+
+.wf-story-panel--inset.wf-story-panel--has-image .wf-story-panel__copy {
+  position: relative;
+  z-index: 1;
+  margin: calc(-1 * var(--wf-space-lg)) var(--wf-gutter) 0;
+  padding: var(--wf-space-md) var(--wf-space-md) 0;
+  background: rgb(var(--color-background));
+}
+
+@container wf-section (min-width: 900px) {
+  .wf-story-panel--inset .wf-story-panel__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--wf-space-md);
+    align-items: end;
+  }
+
+  .wf-story-panel--inset .wf-story-panel__media {
+    --wf-ratio: 4 / 3;
+    grid-column: 1 / span 8;
+    grid-row: 1 / span 2;
+  }
+
+  .wf-story-panel--inset .wf-story-panel__copy {
+    grid-column: 7 / span 6;
+    grid-row: 2;
+  }
+
+  .wf-story-panel--inset.wf-story-panel--has-image .wf-story-panel__copy {
+    margin: 0 0 calc(-1 * var(--wf-space-lg));
+    padding: var(--wf-space-lg) var(--wf-space-lg) 0;
+  }
+
+  .wf-story-panel--inset.wf-story-panel--image-last .wf-story-panel__media { grid-column: 5 / span 8; }
+  .wf-story-panel--inset.wf-story-panel--image-last .wf-story-panel__copy { grid-column: 1 / span 6; }
+
+  /* Text-led inset: copy on the wide track, offset, opened by a hairline */
+  .wf-story-panel--inset.wf-story-panel--no-media .wf-story-panel__copy {
+    grid-column: 3 / span 8;
+    grid-row: auto;
+    padding-top: var(--wf-space-md);
+    border-top: var(--wf-rule);
+  }
+}
+
+/* --- statement: display-scale type, body offset, image small and secondary --- */
+.wf-story-panel--statement .wf-story-panel__copy {
+  max-width: none;
+}
+
+.wf-story-panel--statement .wf-story-panel__heading {
+  font-size: var(--wf-size-display);
+  max-width: 18ch;
+}
+
+.wf-story-panel--statement .wf-story-panel__media {
+  width: min(100%, 36rem);
+}
+
+@container wf-section (min-width: 750px) {
+  .wf-story-panel--statement .wf-story-panel__copy > :is(.wf-story-panel__text, .wf-story-panel__stat, .wf-story-panel__actions) {
+    align-self: flex-end;
+    width: min(100%, 52ch);
+  }
+
+  .wf-story-panel--statement:not(.wf-story-panel--no-media) .wf-story-panel__grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: var(--wf-space-lg);
+    align-items: end;
+  }
+
+  .wf-story-panel--statement.wf-story-panel--image-first .wf-story-panel__media { order: -1; }
+  .wf-story-panel--statement.wf-story-panel--image-last .wf-story-panel__media { order: 1; }
 }
 
 .wf-story-panel__stat {
@@ -534,53 +704,67 @@
 }
 
 /* ==========================================================================
-   08 · Origin
+   08 · Origin — landscape-led
    ========================================================================== */
 
-.wf-origin__layout {
-  display: grid;
-  gap: var(--wf-space-md);
+.wf-origin .wf-grid {
+  row-gap: var(--wf-space-lg);
 }
 
 .wf-origin__media {
   --wf-ratio: 4 / 5;
 }
 
+@container wf-section (min-width: 750px) {
+  .wf-origin__media { --wf-ratio: 16 / 9; }
+}
+
+@container wf-section (min-width: 1200px) {
+  .wf-origin__media { --wf-ratio: 21 / 9; }
+}
+
 .wf-origin__copy {
+  display: grid;
+  gap: var(--wf-space-sm);
+}
+
+.wf-origin__intro {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--wf-space-sm);
 }
 
-@container wf-section (min-width: 750px) {
-  .wf-origin__layout {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+@container wf-section (min-width: 900px) {
+  .wf-origin__copy {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    column-gap: var(--wf-space-lg);
     align-items: end;
-    gap: var(--wf-space-lg);
-  }
-
-  .wf-origin__media {
-    --wf-ratio: 3 / 4;
   }
 }
 
+/* Caption strip: restrained, hairline-ruled, reads like a photo credit line */
 .wf-origin__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--wf-space-xs) var(--wf-space-md);
-  width: 100%;
+  gap: var(--wf-space-xs) var(--wf-space-lg);
   margin: 0;
-  padding-top: var(--wf-space-sm);
-  border-top: var(--wf-rule);
+  padding-block: var(--wf-space-xs);
+  border-block: var(--wf-rule);
   font-size: 1.5rem;
   letter-spacing: 0.02em;
 }
 
+.wf-origin__meta > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 1.2rem;
+}
+
 .wf-origin__meta dt {
-  margin-bottom: 0.3em;
   font-size: 1.15rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -589,20 +773,23 @@
 }
 
 /* ==========================================================================
-   09 · Hive
+   09 · Hive — typographic moment (honeycomb removed); image-led when set
    ========================================================================== */
 
-.wf-hive__layout {
-  display: grid;
-  gap: var(--wf-space-lg);
-  justify-items: center;
-  text-align: center;
+.wf-hive .wf-grid {
+  row-gap: var(--wf-space-lg);
 }
 
-.wf-hive__comb {
-  width: min(70%, 46rem);
-  aspect-ratio: 1;
-  opacity: 0.5;
+.wf-hive__media {
+  --wf-ratio: 4 / 5;
+}
+
+@container wf-section (min-width: 750px) {
+  .wf-hive__media { --wf-ratio: 16 / 9; }
+}
+
+@container wf-section (min-width: 1200px) {
+  .wf-hive__media { --wf-ratio: 21 / 9; }
 }
 
 .wf-hive__body {
@@ -610,10 +797,34 @@
   flex-direction: column;
   align-items: center;
   gap: var(--wf-space-sm);
+  text-align: center;
+}
+
+.wf-hive__body > :not(.wf-hive__statement) {
+  max-width: var(--wf-measure);
+}
+
+.wf-hive__statement {
+  margin: 0 0 var(--wf-space-md);
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.8rem, 1.2rem + 4.6cqi, 8rem);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  color: rgb(var(--color-foreground));
+  text-wrap: balance;
+}
+
+.wf-hive__word {
+  white-space: nowrap;
+}
+
+.wf-hive__sep {
+  opacity: 0.55;
 }
 
 /* ==========================================================================
-   10 · Process (Hive to Bottle)
+   10 · Process — one hairline thread joins the steps
+   narrow: vertical thread down the left edge · mid: 2×2 rows · wide: horizontal
    ========================================================================== */
 
 .wf-process__header {
@@ -623,12 +834,54 @@
   gap: var(--wf-space-sm);
 }
 
+.wf-process__track {
+  position: relative;
+  margin-top: var(--wf-space-lg);
+}
+
 .wf-process__steps {
   display: grid;
   gap: var(--wf-space-md);
-  margin: var(--wf-space-lg) 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.wf-process__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-space-xs);
+  padding-left: 4.4rem;
+}
+
+.wf-process__step-index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.4rem;
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  line-height: 1.3;
+  text-align: center;
+  color: rgb(var(--color-foreground));
+  background: rgb(var(--color-background));
+  padding-block: 0.2rem;
+}
+
+.wf-process__thread {
+  position: absolute;
+  z-index: -1;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  width: 1px;
+  background: rgba(var(--color-foreground), 0.4);
+  transform-origin: top center;
+}
+
+.wf-process__track {
+  isolation: isolate;
 }
 
 @container wf-section (min-width: 600px) {
@@ -636,31 +889,70 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--wf-space-lg) var(--wf-space-md);
   }
+
+  /* 2×2: each row is opened by its own hairline */
+  .wf-process__thread {
+    display: none;
+  }
+
+  .wf-process__step {
+    padding: var(--wf-space-xs) 0 0;
+    border-top: 1px solid rgba(var(--color-foreground), 0.4);
+  }
+
+  .wf-process__step-index {
+    position: static;
+    width: auto;
+    text-align: start;
+    background: none;
+    padding: 0;
+  }
 }
 
 @container wf-section (min-width: 1000px) {
   .wf-process__steps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--wf-steps, 4), minmax(0, 1fr));
     gap: var(--wf-space-md);
+  }
+
+  .wf-process__thread {
+    display: block;
+    top: 1.2rem;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 1px;
+    transform-origin: left center;
+  }
+
+  .wf-process__step {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .wf-process__step-index {
+    align-self: flex-start;
+    padding-right: 1.2rem;
+    background: rgb(var(--color-background));
   }
 }
 
-.wf-process__step {
-  display: flex;
-  flex-direction: column;
-  gap: var(--wf-space-xs);
-  padding-top: var(--wf-space-xs);
-  border-top: var(--wf-rule);
+.wf-process__thread[data-wf-reveal] {
+  transition: transform calc(1400ms * var(--wf-motion-scale)) var(--wf-ease-flow);
 }
 
-.wf-process__step-index {
-  font-family: var(--font-heading-family);
-  font-size: 1.8rem;
-  color: rgb(var(--color-foreground));
-}
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  html:not(.shopify-design-mode) body:not([data-wf-motion="minimal"]) .wf-process__thread[data-wf-reveal]:not(.is-visible) {
+    opacity: 1;
+    transform: scaleY(0);
+  }
 
-.wf-process__step-media {
-  --wf-ratio: 4 / 3;
+  @container wf-section (min-width: 1000px) {
+    html:not(.shopify-design-mode) body:not([data-wf-motion="minimal"]) .wf-process__thread[data-wf-reveal]:not(.is-visible) {
+      transform: scaleX(0);
+    }
+  }
 }
 
 .wf-process__title {
@@ -672,7 +964,7 @@
 }
 
 /* ==========================================================================
-   11 · Reviews
+   11 · Reviews — one lead quote, then secondary quotes
    ========================================================================== */
 
 .wf-reviews__header {
@@ -709,6 +1001,11 @@
   border-top: var(--wf-rule);
 }
 
+.wf-reviews__item--lead {
+  grid-column: 1 / -1;
+  padding-bottom: var(--wf-space-md);
+}
+
 .wf-reviews__quote {
   margin: 0;
   padding: 0;
@@ -716,6 +1013,11 @@
   font-family: var(--font-heading-family);
   font-size: var(--wf-size-lg);
   line-height: 1.2;
+}
+
+.wf-reviews__item--lead .wf-reviews__quote {
+  font-size: var(--wf-size-xl);
+  max-width: 28ch;
 }
 
 .wf-reviews__quote p {
@@ -728,6 +1030,7 @@
 
 /* ==========================================================================
    12 · Journal feature
+   phone: list with compact thumbnails · tablet: 2 columns · desktop: lead + column
    ========================================================================== */
 
 .wf-journal__header {
@@ -741,6 +1044,13 @@
 .wf-journal__layout {
   display: grid;
   gap: var(--wf-space-md);
+}
+
+@container wf-section (min-width: 600px) {
+  .wf-journal__layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--wf-space-md);
+  }
 }
 
 @container wf-section (min-width: 900px) {
@@ -770,9 +1080,10 @@
 
 .wf-journal__secondary-item {
   display: grid;
-  grid-template-columns: 8rem minmax(0, 1fr);
+  grid-template-columns: 7.2rem minmax(0, 1fr);
   gap: var(--wf-space-xs);
   align-items: center;
+  min-height: 4.4rem;
   padding-block: var(--wf-space-xs);
   border-top: var(--wf-rule);
   color: inherit;
@@ -812,7 +1123,7 @@
 }
 
 /* ==========================================================================
-   13 · Final CTA
+   13 · Final CTA + newsletter — one ending
    ========================================================================== */
 
 .wf-final-cta__body {
@@ -822,4 +1133,130 @@
   gap: var(--wf-space-sm);
   justify-self: center;
   text-align: center;
+}
+
+.wf-final-cta__newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--wf-space-xs);
+  width: 100%;
+  margin-top: var(--wf-space-lg);
+  padding-top: var(--wf-space-md);
+  border-top: var(--wf-rule);
+}
+
+.wf-final-cta__newsletter-heading {
+  font-size: var(--wf-size-lg);
+}
+
+.wf-newsletter {
+  width: min(100%, 48rem);
+  text-align: start;
+}
+
+.wf-newsletter__label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wf-newsletter__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wf-space-2xs);
+}
+
+.wf-newsletter__input {
+  flex: 1 1 22rem;
+  min-width: 0;
+  min-height: 4.8rem;
+  padding: 0 1.4rem;
+  border: 1px solid rgba(var(--color-foreground), 0.55);
+  border-radius: var(--wf-radius);
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  font: inherit;
+  font-size: 1.6rem;
+}
+
+.wf-newsletter__input:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground));
+  outline-offset: 2px;
+}
+
+.wf-newsletter__submit {
+  min-height: 4.8rem;
+}
+
+.wf-newsletter__message {
+  margin: var(--wf-space-2xs) 0 0;
+  font-size: 1.4rem;
+}
+
+/* One newsletter per page: when the final CTA carries the form, the footer-group
+   newsletter section is hidden on that page. */
+body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.newsletter) {
+  display: none;
+}
+
+/* ==========================================================================
+   14 · Shared storefront details
+   ========================================================================== */
+
+/* [CLIENT-CONFIRM] notes read as deliberate "to be confirmed" text, not broken copy */
+.wf-pending {
+  font-style: italic;
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+/* Two neighbouring sections on the same scheme are separated by a hairline
+   (also across hidden, empty section wrappers). */
+.shopify-section:has(> .color-scheme-1) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .color-scheme-1) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-1) > .color-scheme-1,
+.shopify-section:has(> .color-scheme-2) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .color-scheme-2) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-2) > .color-scheme-2,
+.shopify-section:has(> .color-scheme-3) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .color-scheme-3) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-3) > .color-scheme-3,
+.shopify-section:has(> .color-scheme-4) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .color-scheme-4) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-4) > .color-scheme-4,
+.shopify-section:has(> .color-scheme-5) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .color-scheme-5) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-5) > .color-scheme-5,
+.shopify-section:has(> .color-scheme-6) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
+.shopify-section:has(> .color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6,
+.shopify-section:has(> .color-scheme-6) + .shopify-section:not(:has(*)) + .shopify-section:not(:has(*)) + .shopify-section:has(> .color-scheme-6) > .color-scheme-6 {
+  border-top: 1px solid rgba(var(--color-foreground), 0.14);
+}
+
+/* FAQ (stock collapsible-content, no image): aligned to the content track,
+   heading beside the questions on wide screens. */
+.collapsible-content .collapsible-content-wrapper-narrow {
+  max-width: calc(var(--wf-content) + 2 * var(--wf-gutter));
+  margin-inline: auto;
+  padding-inline: var(--wf-gutter);
+}
+
+@media screen and (min-width: 990px) {
+  .collapsible-content .collapsible-content-wrapper-narrow {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: var(--wf-space-lg);
+    align-items: start;
+  }
+
+  .collapsible-content .collapsible-content-wrapper-narrow > .collapsible-content__grid {
+    margin-top: 0;
+  }
+}
+
+.collapsible-content .accordion summary {
+  min-height: 4.4rem;
 }

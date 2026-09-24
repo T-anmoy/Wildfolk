@@ -1,41 +1,77 @@
+{%- liquid
+  assign has_image = false
+  if section.settings.image != blank
+    assign has_image = true
+  endif
+  assign hive_alt = section.settings.image.alt | default: section.settings.heading
+-%}
+
 <div
-  class="wf-section wf-hive wf-scene color-{{ section.settings.color_scheme }} gradient"
+  class="wf-section wf-hive wf-scene{% if has_image %} wf-hive--has-image{% endif %} color-{{ section.settings.color_scheme }} gradient"
   data-wf-scene="hive"
   data-wf-bee-x="50"
   data-wf-bee-y="18"
 >
   <div class="wf-grid">
-    <div class="wf-hive__layout">
-      <svg class="wf-hive__comb" data-wf-drift viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <g fill="none" stroke="currentColor" stroke-width="1">
-          {%- for row in (0..4) -%}
-            {%- for col in (0..4) -%}
-              <polygon points="{{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 10 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 18 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 42 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 18 }}" />
-            {%- endfor -%}
-          {%- endfor -%}
-        </g>
-      </svg>
-
-      <div class="wf-hive__body wf-measure">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.text != blank -%}
-          <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
-        {%- endif -%}
+    {%- if has_image or request.design_mode -%}
+      <div class="wf-hive__media wf-frame wf-wide" data-wf-reveal>
+        {%- render 'wf-media',
+          image: section.settings.image,
+          image_mobile: section.settings.image_mobile,
+          alt: hive_alt,
+          sizes_attr: '(min-width: 1440px) 1440px, 100vw',
+          sizes_mobile: '100vw'
+        -%}
       </div>
+    {%- endif -%}
+
+    <div class="wf-hive__body">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.statement != blank -%}
+        {%- assign words = section.settings.statement | split: '·' -%}
+        <p class="wf-hive__statement" data-wf-reveal>
+          {%- for word in words -%}
+            <span class="wf-hive__word">{{ word | strip | escape }}</span>
+            {%- unless forloop.last -%}<span class="wf-hive__sep" aria-hidden="true"> · </span>{%- endunless -%}
+          {%- endfor -%}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="wf-body rte" data-wf-reveal>{% render 'wf-rte', html: section.settings.text %}</div>
+      {%- endif -%}
     </div>
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Wildfolk hive",
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Optional. Wide image of the hive or its surroundings. Without it the section is a typographic moment."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional portrait crop (4:5) for phones (below 750px)."
+    },
+    {
+      "type": "text",
+      "id": "statement",
+      "label": "Statement line",
+      "info": "Optional oversized line. Separate words with · (middle dot). Use approved copy only."
+    },
     {
       "type": "text",
       "id": "eyebrow",

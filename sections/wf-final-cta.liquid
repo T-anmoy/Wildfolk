@@ -1,3 +1,5 @@
+{%- capture link_live -%}{%- render 'wf-link-live', url: section.settings.button_link -%}{%- endcapture -%}
+
 <div
   class="wf-section wf-final-cta wf-scene color-{{ section.settings.color_scheme }} gradient"
   data-wf-scene="final"
@@ -13,9 +15,9 @@
         <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
       {%- endif -%}
       {%- if section.settings.text != blank -%}
-        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+        <div class="wf-body rte" data-wf-reveal>{% render 'wf-rte', html: section.settings.text %}</div>
       {%- endif -%}
-      {%- if section.settings.button_label != blank -%}
+      {%- if section.settings.button_label != blank and link_live == 'true' -%}
         <div data-wf-reveal>
           <a
             {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
@@ -25,9 +27,67 @@
           </a>
         </div>
       {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'newsletter' -%}
+            {%- liquid
+              assign form_id = 'WfNewsletter-' | append: section.id
+              assign input_id = 'WfNewsletterEmail-' | append: section.id
+              assign message_id = 'WfNewsletterMessage-' | append: section.id
+            -%}
+            <div class="wf-final-cta__newsletter" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="wf-heading wf-final-cta__newsletter-heading">{{ block.settings.heading | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="wf-body rte wf-final-cta__newsletter-text">{% render 'wf-rte', html: block.settings.text %}</div>
+              {%- endif -%}
+              {%- form 'customer', id: form_id, class: 'wf-newsletter' -%}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <label class="wf-newsletter__label" for="{{ input_id }}">{{ 'newsletter.label' | t }}</label>
+                <div class="wf-newsletter__row">
+                  <input
+                    id="{{ input_id }}"
+                    class="wf-newsletter__input"
+                    type="email"
+                    name="contact[email]"
+                    value="{{ form.email }}"
+                    autocomplete="email"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    required
+                    aria-required="true"
+                    {% if form.errors %}
+                      aria-invalid="true"
+                      aria-describedby="{{ message_id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="{{ message_id }}"
+                    {% endif %}
+                  >
+                  <button type="submit" class="button button--primary wf-newsletter__submit" name="commit">
+                    {{ 'newsletter.button_label' | t }}
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <p id="{{ message_id }}" class="wf-newsletter__message wf-newsletter__message--error" role="alert">
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </p>
+                {%- elsif form.posted_successfully? -%}
+                  <p id="{{ message_id }}" class="wf-newsletter__message" role="status">
+                    {{ 'newsletter.success' | t }}
+                  </p>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Wildfolk final CTA",
@@ -60,13 +120,37 @@
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link"
+      "label": "Button link",
+      "info": "Hidden on the storefront while the destination is empty (e.g. no products published yet)."
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-5"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Uses Shopify's native customer form (Customers → email subscribers). While this block is on a page, the footer newsletter is hidden on that page so visitors see one form."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
     }
   ],
   "presets": [
