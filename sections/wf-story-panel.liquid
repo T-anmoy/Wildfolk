@@ -2,17 +2,19 @@
   assign panel_alt = section.settings.image.alt | default: section.settings.heading
 -%}
 
-<div class="wf-section color-{{ section.settings.color_scheme }} gradient">
-  <div class="wf-content wf-story-panel wf-story-panel--{{ section.settings.image_position }}">
+<div class="wf-section wf-story-panel wf-story-panel--{{ section.settings.image_position }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="wf-grid">
     <div class="wf-story-panel__grid">
-      <div class="wf-story-panel__media">
+      <div class="wf-story-panel__media wf-frame">
         {%- render 'wf-media',
           image: section.settings.image,
+          image_mobile: section.settings.image_mobile,
           alt: panel_alt,
-          sizes_attr: '(min-width: 990px) 50vw, 100vw'
+          sizes_attr: '(min-width: 1200px) 530px, (min-width: 750px) 45vw, 100vw',
+          sizes_mobile: '100vw'
         -%}
       </div>
-      <div class="wf-story-panel__copy">
+      <div class="wf-story-panel__copy wf-measure">
         {%- if section.settings.eyebrow != blank -%}
           <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
@@ -54,7 +56,14 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image",
+      "info": "Portrait (4:5) works best. Set a focal point on the image to control the crop."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional separate crop for phones (below 750px). Falls back to the image above."
     },
     {
       "type": "select",
@@ -87,7 +96,8 @@
     {
       "type": "text",
       "id": "stat_value",
-      "label": "Optional statistic value"
+      "label": "Optional statistic value",
+      "info": "Only use a figure the client has confirmed."
     },
     {
       "type": "text",

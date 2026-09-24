@@ -1,4 +1,8 @@
 {%- liquid
+  assign has_image = false
+  if section.settings.image != blank
+    assign has_image = true
+  endif
   # LCP: eager + high priority when "Prioritise image loading" is on, or when the hero is the first section.
   assign loading_attr = 'lazy'
   assign fetchpriority_attr = 'auto'
@@ -10,57 +14,63 @@
 -%}
 
 <div
-  class="wf-hero wf-scene color-{{ section.settings.color_scheme }} gradient"
+  class="wf-hero wf-scene color-{{ section.settings.color_scheme }} gradient{% if has_image %} wf-hero--has-image{% endif %}"
   data-wf-scene="hero"
   data-wf-bee-x="78"
   data-wf-bee-y="30"
 >
-  <div class="wf-hero__media">
-    {%- render 'wf-media',
-      image: section.settings.image,
-      image_mobile: section.settings.image_mobile,
-      alt: hero_alt,
-      sizes_attr: '100vw',
-      sizes_mobile: '100vw',
-      loading: loading_attr,
-      fetchpriority: fetchpriority_attr
-    -%}
-  </div>
-  <div class="wf-hero__scrim" aria-hidden="true"></div>
+  {%- if has_image -%}
+    <div class="wf-hero__media">
+      {%- render 'wf-media',
+        image: section.settings.image,
+        image_mobile: section.settings.image_mobile,
+        alt: hero_alt,
+        sizes_attr: '100vw',
+        sizes_mobile: '100vw',
+        loading: loading_attr,
+        fetchpriority: fetchpriority_attr
+      -%}
+    </div>
+    <div class="wf-hero__scrim" aria-hidden="true"></div>
+  {%- endif -%}
 
-  <div class="wf-hero__body">
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="wf-eyebrow">{{ section.settings.eyebrow | escape }}</p>
-    {%- endif -%}
-
-    {%- if section.settings.heading != blank -%}
-      <h1 class="wf-heading wf-heading--display">
-        {{ section.settings.heading }}
-      </h1>
-    {%- endif -%}
-
-    {%- if section.settings.text != blank -%}
-      <div class="wf-body rte">
-        {{ section.settings.text }}
-      </div>
-    {%- endif -%}
-
-    <div class="wf-hero__actions">
-      {%- if section.settings.button_label != blank -%}
-        <a
-          {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
-          class="button button--primary"
-        >
-          {{ section.settings.button_label | escape }}
-        </a>
+  <div class="wf-hero__body wf-grid">
+    <div class="wf-hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wf-eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
-      {%- if section.settings.button_label_secondary != blank -%}
-        <a
-          {% if section.settings.button_link_secondary == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link_secondary }}"{% endif %}
-          class="button button--secondary"
-        >
-          {{ section.settings.button_label_secondary | escape }}
-        </a>
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="wf-heading wf-heading--display">
+          {{ section.settings.heading }}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="wf-body rte">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank or section.settings.button_label_secondary != blank -%}
+        <div class="wf-hero__actions">
+          {%- if section.settings.button_label != blank -%}
+            <a
+              {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
+              class="button button--primary"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button_label_secondary != blank -%}
+            <a
+              {% if section.settings.button_link_secondary == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link_secondary }}"{% endif %}
+              class="button button--secondary"
+            >
+              {{ section.settings.button_label_secondary | escape }}
+            </a>
+          {%- endif -%}
+        </div>
       {%- endif -%}
     </div>
   </div>
@@ -75,13 +85,14 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Desktop image"
+      "label": "Desktop image",
+      "info": "Landscape, at least 2600px wide. Set a focal point on the image to control the crop."
     },
     {
       "type": "image_picker",
       "id": "image_mobile",
       "label": "Mobile image",
-      "info": "Optional. Falls back to the desktop image below 750px."
+      "info": "Optional portrait crop (4:5 or taller). Falls back to the desktop image below 750px."
     },
     {
       "type": "checkbox",
@@ -134,6 +145,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
+      "info": "Text colour and the image scrim both follow this scheme.",
       "default": "scheme-4"
     }
   ],

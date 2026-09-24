@@ -4,31 +4,32 @@
   data-wf-bee-x="50"
   data-wf-bee-y="18"
 >
-  <div class="wf-content wf-hive__layout">
-    <svg class="wf-hive__comb" data-wf-drift viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-width="1">
-        {%- for row in (0..4) -%}
-          {%- for col in (0..4) -%}
-            <polygon points="{{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 10 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 18 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 42 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 18 }}" />
+  <div class="wf-grid">
+    <div class="wf-hive__layout">
+      <svg class="wf-hive__comb" data-wf-drift viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          {%- for row in (0..4) -%}
+            {%- for col in (0..4) -%}
+              <polygon points="{{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 10 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 18 }} {{ col | times: 34 | plus: 34 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 20 }},{{ row | times: 30 | plus: 42 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 34 }} {{ col | times: 34 | plus: 6 }},{{ row | times: 30 | plus: 18 }}" />
+            {%- endfor -%}
           {%- endfor -%}
-        {%- endfor -%}
-      </g>
-    </svg>
+        </g>
+      </svg>
 
-    <div class="wf-hive__body">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.text != blank -%}
-        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
-      {%- endif -%}
+      <div class="wf-hive__body wf-measure">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </div>
-
 {% schema %}
 {
   "name": "Wildfolk hive",

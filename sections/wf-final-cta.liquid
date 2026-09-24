@@ -4,29 +4,30 @@
   data-wf-bee-x="50"
   data-wf-bee-y="45"
 >
-  <div class="wf-content wf-final-cta__body">
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
-    {%- endif -%}
-    {%- if section.settings.heading != blank -%}
-      <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
-    {%- endif -%}
-    {%- if section.settings.text != blank -%}
-      <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
-    {%- endif -%}
-    {%- if section.settings.button_label != blank -%}
-      <div data-wf-reveal>
-        <a
-          {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
-          class="button button--primary"
-        >
-          {{ section.settings.button_label | escape }}
-        </a>
-      </div>
-    {%- endif -%}
+  <div class="wf-grid">
+    <div class="wf-final-cta__body wf-measure">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <div data-wf-reveal>
+          <a
+            {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
+            class="button button--primary"
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
   </div>
 </div>
-
 {% schema %}
 {
   "name": "Wildfolk final CTA",

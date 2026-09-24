@@ -3,49 +3,53 @@
 -%}
 
 <div
-  class="wf-section wf-scene color-{{ section.settings.color_scheme }} gradient"
+  class="wf-section wf-origin wf-scene color-{{ section.settings.color_scheme }} gradient"
   data-wf-scene="origin"
   data-wf-bee-x="65"
   data-wf-bee-y="20"
 >
-  <div class="wf-content wf-origin__layout">
-    {%- comment -%} Reveal on the frame, drift on an inner layer: never both on one element. {%- endcomment -%}
-    <div class="wf-origin__media" data-wf-reveal>
-      <div class="wf-drift-layer" data-wf-drift>
-        {%- render 'wf-media',
-          image: section.settings.image,
-          alt: origin_alt,
-          sizes_attr: '(min-width: 990px) 40vw, 100vw'
-        -%}
+  <div class="wf-grid">
+    <div class="wf-origin__layout">
+      {%- comment -%} Reveal on the frame, drift on an inner layer: never both on one element. {%- endcomment -%}
+      <div class="wf-origin__media wf-frame" data-wf-reveal>
+        <div class="wf-drift-layer" data-wf-drift>
+          {%- render 'wf-media',
+            image: section.settings.image,
+            image_mobile: section.settings.image_mobile,
+            alt: origin_alt,
+            sizes_attr: '(min-width: 1200px) 470px, (min-width: 750px) 40vw, 100vw',
+            sizes_mobile: '100vw'
+          -%}
+        </div>
       </div>
-    </div>
-    <div class="wf-origin__copy">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.text != blank -%}
-        <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
-      {%- endif -%}
+      <div class="wf-origin__copy wf-measure">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="wf-heading wf-heading--xl" data-wf-reveal>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="wf-body rte" data-wf-reveal>{{ section.settings.text }}</div>
+        {%- endif -%}
 
-      {%- if section.settings.origin_name != blank or section.settings.location_label != blank -%}
-        <dl class="wf-origin__meta" data-wf-reveal>
-          {%- if section.settings.origin_name != blank -%}
-            <div>
-              <dt>{{ 'sections.wf_origin.origin' | t }}</dt>
-              <dd>{{ section.settings.origin_name | escape }}</dd>
-            </div>
-          {%- endif -%}
-          {%- if section.settings.location_label != blank -%}
-            <div>
-              <dt>{{ 'sections.wf_origin.location' | t }}</dt>
-              <dd>{{ section.settings.location_label | escape }}</dd>
-            </div>
-          {%- endif -%}
-        </dl>
-      {%- endif -%}
+        {%- if section.settings.origin_name != blank or section.settings.location_label != blank -%}
+          <dl class="wf-origin__meta" data-wf-reveal>
+            {%- if section.settings.origin_name != blank -%}
+              <div>
+                <dt>{{ 'sections.wf_origin.origin' | t }}</dt>
+                <dd>{{ section.settings.origin_name | escape }}</dd>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.location_label != blank -%}
+              <div>
+                <dt>{{ 'sections.wf_origin.location' | t }}</dt>
+                <dd>{{ section.settings.location_label | escape }}</dd>
+              </div>
+            {%- endif -%}
+          </dl>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </div>
@@ -59,7 +63,14 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Landscape image"
+      "label": "Landscape image",
+      "info": "Set a focal point on the image to control the crop."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional separate crop for phones (below 750px). Falls back to the image above."
     },
     {
       "type": "text",
