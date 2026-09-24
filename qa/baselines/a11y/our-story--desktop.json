@@ -1,0 +1,12 @@
+[
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "targets": [
+      "div:nth-child(1) > dt",
+      "div:nth-child(2) > dt",
+      ".wf-final-cta__body > .wf-eyebrow.is-visible[data-wf-reveal=\"\"]"
+    ]
+  }
+]

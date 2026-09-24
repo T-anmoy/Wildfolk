@@ -1,5 +1,14 @@
 {
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@shopify/cli": "^4.8.0"
+  },
+  "scripts": {
+    "qa": "playwright test -c qa/playwright.config.mjs",
+    "qa:quick": "WF_QA_QUICK=1 playwright test -c qa/playwright.config.mjs",
+    "qa:a11y": "playwright test -c qa/playwright.config.mjs a11y",
+    "qa:overflow": "playwright test -c qa/playwright.config.mjs overflow",
+    "qa:themecheck": "node qa/themecheck.mjs"
   }
 }

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "help": "Elements must meet minimum color contrast ratio thresholds",
+    "targets": [
+      "div:nth-child(1) > dt",
+      "div:nth-child(2) > dt",
+      ".wf-process__step:nth-child(1) > .wf-process__step-index",
+      ".wf-process__step:nth-child(2) > .wf-process__step-index",
+      ".wf-process__step:nth-child(3) > .wf-process__step-index",
+      ".wf-process__step:nth-child(4) > .wf-process__step-index",
+      ".color-scheme-6 > .wf-content > .wf-body.is-visible[data-wf-reveal=\"\"]",
+      ".wf-journal__header > .wf-eyebrow",
+      ".wf-final-cta__body > .wf-eyebrow.is-visible[data-wf-reveal=\"\"]",
+      ".wf-final-cta__body > .rte.wf-body.is-visible > p"
+    ]
+  },
+  {
+    "id": "label",
+    "impact": "critical",
+    "help": "Form elements must have labels",
+    "targets": [
+      "#Quantity-template--34552292278525__featured-product"
+    ]
+  }
+]

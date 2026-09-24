@@ -1,0 +1,56 @@
+[
+  {
+    "file": "layout/password.liquid",
+    "check": "UndefinedObject",
+    "severity": "warning",
+    "line": 39
+  },
+  {
+    "file": "layout/theme.liquid",
+    "check": "UndefinedObject",
+    "severity": "warning",
+    "line": 82
+  },
+  {
+    "file": "sections/main-article.liquid",
+    "check": "VariableName",
+    "severity": "warning",
+    "line": 101
+  },
+  {
+    "file": "sections/main-list-collections.liquid",
+    "check": "VariableName",
+    "severity": "warning",
+    "line": 19
+  },
+  {
+    "file": "sections/main-product.liquid",
+    "check": "UndefinedObject",
+    "severity": "warning",
+    "line": 600
+  },
+  {
+    "file": "sections/main-product.liquid",
+    "check": "UnusedAssign",
+    "severity": "warning",
+    "line": 744
+  },
+  {
+    "file": "sections/main-search.liquid",
+    "check": "UnusedAssign",
+    "severity": "warning",
+    "line": 273
+  },
+  {
+    "file": "snippets/facets.liquid",
+    "check": "LiquidComplexity",
+    "severity": "warning",
+    "line": 864
+  },
+  {
+    "file": "snippets/quick-order-product-row.liquid",
+    "check": "OrphanedSnippet",
+    "severity": "warning",
+    "line": 0
+  }
+]
