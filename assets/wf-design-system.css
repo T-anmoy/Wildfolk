@@ -461,6 +461,39 @@
   .wf-hero__actions .button--secondary {
     display: none;
   }
+
+  /* Two columns: the headline beside the copy and CTA, so the CTA fits the first screen */
+  .wf-hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "eyebrow body"
+      "heading body"
+      "heading actions";
+    grid-template-rows: auto auto 1fr;
+    column-gap: var(--wf-space-md);
+    row-gap: 0.8rem;
+    align-items: start;
+    text-align: start;
+  }
+
+  .wf-hero__content > .wf-eyebrow { grid-area: eyebrow; }
+  .wf-hero__content > .wf-heading { grid-area: heading; }
+
+  .wf-hero__content > .wf-body {
+    grid-area: body;
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+
+  .wf-hero__content > .wf-body p {
+    margin-block: 0 0.5em;
+  }
+
+  .wf-hero__content > .wf-hero__actions {
+    grid-area: actions;
+    justify-content: flex-start;
+  }
 }
 
 /* Ultra-wide: keep the photo from being sliced into a thin strip */
