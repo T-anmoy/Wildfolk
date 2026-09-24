@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { byLabel } from '../viewports.mjs';
 import { route } from '../routes.mjs';
 import { openPage } from '../lib.mjs';
+import { CART_UI, closeCartUi } from '../commerce-lib.mjs';
 
 // Add to cart through the native form (main button and, on phones, the sticky bar).
 // Skips until a product is published to the Online Store.
@@ -22,17 +23,17 @@ for (const vpLabel of ['iphone', 'desktop']) {
     await expect(button, 'main Add to Cart enabled').toBeEnabled();
     const before = await cartCount(page);
     await button.click();
-    await expect(page.locator('#cart-notification.active')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator(CART_UI).first()).toBeVisible({ timeout: 15000 });
     expect(await cartCount(page)).toBeGreaterThan(before);
 
     if (vpLabel === 'iphone') {
-      await page.locator('#cart-notification button[type="button"]').first().click().catch(() => {});
+      await closeCartUi(page);
       await clearCart(page);
       await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
       const bar = page.locator('wf-sticky-buy.is-visible');
       await expect(bar).toBeVisible({ timeout: 10000 });
       await bar.locator('[data-wf-submit]').click();
-      await expect(page.locator('#cart-notification.active')).toBeVisible({ timeout: 15000 });
+      await expect(page.locator(CART_UI).first()).toBeVisible({ timeout: 15000 });
       expect(await cartCount(page)).toBeGreaterThan(0);
     }
     await clearCart(page);
