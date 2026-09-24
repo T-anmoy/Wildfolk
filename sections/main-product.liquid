@@ -688,6 +688,8 @@
                   </product-recommendations>
                 {%- when 'icon-with-text' -%}
                   {% render 'icon-with-text', block: block %}
+                {%- when 'wf_field_notes' -%}
+                  {%- render 'wf-field-notes', block: block -%}
               {%- endcase -%}
             {%- endfor -%}
             <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -751,6 +753,7 @@
       </script>
     </div>
   </product-component>
+  {%- render 'wf-product', product: product, section_id: section.id, product_form_id: product_form_id -%}
 </product-info>
 
 {% schema %}
@@ -2143,6 +2146,35 @@
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
+      ]
+    },
+    {
+      "type": "wf_field_notes",
+      "name": "Wildfolk field notes",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Truthful product facts. Connect each value to a product metafield (dynamic source). Rows without a value are hidden; with no values the block is hidden."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Field notes"
+        },
+        { "type": "text", "id": "label_1", "label": "Label 1" },
+        { "type": "text", "id": "value_1", "label": "Value 1" },
+        { "type": "text", "id": "label_2", "label": "Label 2" },
+        { "type": "text", "id": "value_2", "label": "Value 2" },
+        { "type": "text", "id": "label_3", "label": "Label 3" },
+        { "type": "text", "id": "value_3", "label": "Value 3" },
+        { "type": "text", "id": "label_4", "label": "Label 4" },
+        { "type": "text", "id": "value_4", "label": "Value 4" },
+        { "type": "text", "id": "label_5", "label": "Label 5" },
+        { "type": "text", "id": "value_5", "label": "Value 5" },
+        { "type": "text", "id": "label_6", "label": "Label 6" },
+        { "type": "text", "id": "value_6", "label": "Value 6" }
       ]
     }
   ],

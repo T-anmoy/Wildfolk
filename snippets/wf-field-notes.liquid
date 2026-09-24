@@ -1,0 +1,43 @@
+{%- comment -%}
+  Truthful product facts as a restrained definition list.
+  Values are text settings the merchant connects to product metafields (dynamic
+  sources). Rows with a blank label or value are omitted; with no rows the block
+  renders nothing on the storefront (a hint shows in the theme editor).
+{%- endcomment -%}
+{%- liquid
+  assign rows = 0
+  for i in (1..6)
+    assign label_key = 'label_' | append: i
+    assign value_key = 'value_' | append: i
+    if block.settings[label_key] != blank and block.settings[value_key] != blank
+      assign rows = rows | plus: 1
+    endif
+  endfor
+-%}
+{%- if rows > 0 -%}
+  <div class="wf-field-notes" {{ block.shopify_attributes }}>
+    {%- if block.settings.heading != blank -%}
+      <p class="wf-field-notes__heading">{{ block.settings.heading | escape }}</p>
+    {%- endif -%}
+    <dl class="wf-field-notes__list">
+      {%- for i in (1..6) -%}
+        {%- liquid
+          assign label_key = 'label_' | append: i
+          assign value_key = 'value_' | append: i
+          assign label = block.settings[label_key]
+          assign value = block.settings[value_key]
+        -%}
+        {%- if label != blank and value != blank -%}
+          <div class="wf-field-notes__row">
+            <dt>{{ label | escape }}</dt>
+            <dd>{% render 'wf-text', text: value %}</dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </dl>
+  </div>
+{%- elsif request.design_mode -%}
+  <p class="wf-editor-notice" {{ block.shopify_attributes }}>
+    Field notes: add a label and connect each value to a product metafield (dynamic source). Rows without a value stay hidden. (Only visible in the theme editor.)
+  </p>
+{%- endif -%}

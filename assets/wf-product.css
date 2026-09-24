@@ -1,0 +1,193 @@
+/**
+ * WILDFOLK product layer — loaded only by main-product (snippets/wf-product.liquid).
+ * Styles the native Craft product markup; no commerce behaviour changes.
+ */
+
+/* ---------- Info column hierarchy ---------- */
+
+.product__info-container .product__title h1 {
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.2rem, 2.4rem + 2vw, 5.2rem);
+  line-height: 1.04;
+  letter-spacing: var(--wf-tracking-heading);
+  text-wrap: balance;
+}
+
+.product__info-container .price--large {
+  font-size: clamp(1.8rem, 1.6rem + 0.4vw, 2.2rem);
+  letter-spacing: 0.02em;
+}
+
+.product__info-container .product__description {
+  max-width: var(--wf-measure);
+  font-size: var(--wf-size-body);
+  line-height: var(--wf-line-body);
+  color: rgb(var(--color-foreground));
+}
+
+/* Variant pills and quantity: 44px targets, quiet 2px corners */
+.product__info-container .product-form__input--pill input[type="radio"] + label {
+  min-height: 4.4rem;
+  min-width: 4.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--wf-radius);
+  letter-spacing: 0.04em;
+}
+
+.product__info-container .quantity {
+  min-height: 4.8rem;
+}
+
+.product__info-container .product-form__submit,
+.product__info-container .shopify-payment-button__button {
+  min-height: 5.2rem;
+  border-radius: var(--wf-radius);
+  letter-spacing: 0.06em;
+}
+
+/* Sold out / unavailable: legible, clearly inactive (label ≥ 4.5:1) */
+.product-form__submit[disabled],
+.wf-sticky-buy__button[disabled] {
+  opacity: 1;
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  box-shadow: inset 0 0 0 1px rgba(var(--color-foreground), 0.45);
+  cursor: not-allowed;
+}
+
+.product-form__submit[disabled]::after,
+.wf-sticky-buy__button[disabled]::after {
+  box-shadow: none;
+}
+
+/* ---------- Field notes ---------- */
+
+.wf-field-notes {
+  padding-block: 1.6rem;
+  border-block: 1px solid rgba(var(--color-foreground), 0.16);
+}
+
+.wf-field-notes__heading {
+  margin: 0 0 1.2rem;
+  font-size: var(--wf-size-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--wf-tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.wf-field-notes__list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.wf-field-notes__row {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 2fr;
+  gap: 1.6rem;
+  align-items: baseline;
+}
+
+.wf-field-notes__row dt {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wf-field-notes__row dd {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* ---------- Mobile sticky buy bar ---------- */
+
+.wf-sticky-buy {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 3;
+  display: block;
+  padding-bottom: var(--wf-safe-bottom);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  border-top: 1px solid rgba(var(--color-foreground), 0.16);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition:
+    transform 240ms var(--wf-ease-settle),
+    visibility 0s linear 240ms;
+}
+
+.wf-sticky-buy.is-visible {
+  transform: none;
+  visibility: visible;
+  transition:
+    transform 240ms var(--wf-ease-settle),
+    visibility 0s linear 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-sticky-buy,
+  .wf-sticky-buy.is-visible {
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .wf-sticky-buy {
+    display: none;
+  }
+}
+
+.wf-sticky-buy__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  min-height: 5.6rem;
+  padding: 0.6rem var(--wf-gutter);
+}
+
+.wf-sticky-buy__info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.wf-sticky-buy__title,
+.wf-sticky-buy__meta {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wf-sticky-buy__title {
+  font-family: var(--font-heading-family);
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.wf-sticky-buy__meta {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.wf-sticky-buy__variant {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wf-sticky-buy__button {
+  flex: none;
+  min-width: 0;
+  min-height: 4.4rem;
+  padding-inline: 1.8rem;
+  border-radius: var(--wf-radius);
+}
+
+/* Space for the bar only while it is visible (no shift for content above) */
+body.wf-sticky-buy-open {
+  padding-bottom: calc(5.6rem + var(--wf-safe-bottom));
+}
