@@ -65,6 +65,7 @@
         "eyebrow": "The Journey Continues",
         "heading": "Meet the honey. Follow the story.",
         "button_label": "Shop Honey",
+        "button_link": "shopify://collections/all",
         "color_scheme": "scheme-5"
       }
     }

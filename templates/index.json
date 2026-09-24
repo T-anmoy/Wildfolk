@@ -22,6 +22,7 @@
         "heading": "A living journey from hive to table.",
         "text": "<p>Honey begins long before the jar.</p><p>It begins in the landscape, in the bloom, and in the living world around the hive.</p><p>Wildfolk brings that journey closer — from where it begins to how it finds its place at the table.</p>",
         "button_label": "Shop Honey",
+        "button_link": "shopify://collections/all",
         "button_label_secondary": "Meet the Story",
         "button_link_secondary": "/pages/our-story",
         "color_scheme": "scheme-4"
@@ -170,7 +171,8 @@
     "wf-journal": {
       "type": "wf-journal-feature",
       "settings": {
-        "heading": "Notes from the world around the hive."
+        "heading": "Notes from the world around the hive.",
+        "blog": "news"
       }
     },
     "wf-faq": {
@@ -226,12 +228,12 @@
         "eyebrow": "Bring It to the Table",
         "heading": "The story continues with you.",
         "text": "<p>Explore the honey, discover where it begins, and bring a little of that world home.</p>",
-        "button_label": "Shop Honey"
+        "button_label": "Shop Honey",
+        "button_link": "shopify://collections/all"
       }
     }
   },
   "order": [
-    "wf-bee-guide",
     "wf-hero",
     "wf-why",
     "wf-origin",
@@ -243,6 +245,7 @@
     "wf-reviews",
     "wf-journal",
     "wf-faq",
-    "wf-final-cta"
+    "wf-final-cta",
+    "wf-bee-guide"
   ]
 }

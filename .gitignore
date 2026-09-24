@@ -1,2 +1,7 @@
 node_modules/
 .DS_Store
+.claude/settings.local.json
+/settings.local.json
+qa/output/
+test-results/
+playwright-report/
