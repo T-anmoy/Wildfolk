@@ -15,11 +15,11 @@ for (const vpLabel of ['iphone', 'desktop']) {
     const { context, page } = await openPage(browser, byLabel(vpLabel), r.path, { reducedMotion: 'reduce' });
     await clearCart(page);
     const button = page.locator('[id^="ProductSubmitButton-"]').first();
-    if (await button.isDisabled()) {
-      test.info().annotations.push({ type: 'note', description: 'first variant sold out — checking disabled mirror only' });
-      await context.close();
-      return;
-    }
+    // A published product that can't be bought is a failure, not a pass: the add-to-cart
+    // path must be exercised for real.
+    const available = await page.evaluate((p) => fetch(`${p.split('?')[0]}.js`).then((r) => r.json()).then((j) => j.available), r.path);
+    expect(available, 'product is purchasable (Shopify reports available: false — sold out)').toBe(true);
+    await expect(button, 'main Add to Cart enabled').toBeEnabled();
     const before = await cartCount(page);
     await button.click();
     await expect(page.locator('#cart-notification.active')).toBeVisible({ timeout: 15000 });

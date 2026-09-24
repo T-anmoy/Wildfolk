@@ -20,7 +20,12 @@ for (const r of routes) {
         // WCAG 2.5.8 exception: inline links inside running text.
         if (el.tagName === 'A' && el.closest('p, li') && el.closest('.rte, .wf-body')) continue;
         if (rect.width >= 44 && rect.height >= 44) continue;
-        const wf = !!el.closest('[class*="wf-"]');
+        // wf-* = the element's own classes or an ancestor's, stopping before <body>/<html>
+        // (state classes such as body.wf-sticky-buy-open must not make every element "wf").
+        let wf = false;
+        for (let n = el; n && n !== document.body && n !== document.documentElement; n = n.parentElement) {
+          if ([...n.classList].some((c) => c.startsWith('wf-'))) { wf = true; break; }
+        }
         out.push({
           wf,
           tag: el.tagName.toLowerCase(),
