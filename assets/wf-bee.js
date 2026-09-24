@@ -7,92 +7,137 @@
  * resizing, orientation changes and section reordering in the Theme
  * Editor.
  *
+ * Behaviour contract:
+ * - Enabled only on wide, fine-pointer screens with motion allowed, outside
+ *   the Theme Editor and outside "minimal" motion mode. Media-query changes
+ *   init/destroy it cleanly.
+ * - The rAF loop runs only while the bee is travelling; once it converges it
+ *   idles (no frames, wings paused) until the next scroll or re-measure.
+ * - It never follows the pointer.
+ * - Quiet zones: while the viewport's central band overlaps the purchase
+ *   area (product-info) or any [data-wf-bee-quiet] element, it fades out and
+ *   stops rendering.
+ *
  * Architecture note: waypoint math (`computeState`) is kept separate
- * from rendering (`renderDom`). A future WebGL/Three.js bee can reuse
- * `computeState` and swap in its own render function without touching
- * the scene/geometry logic below.
+ * from rendering (`renderDom`). A future renderer can reuse `computeState`
+ * and swap in its own render function without touching the geometry logic.
  */
 (() => {
   if (window.wfBee) return;
 
   const SELECTOR_SCENE = '[data-wf-scene]';
+  const SELECTOR_QUIET = '[data-wf-bee-quiet], product-info';
+  const capable = window.matchMedia('(min-width: 990px) and (pointer: fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = window.matchMedia('(pointer: fine)');
-  const designMode = () => window.Shopify && window.Shopify.designMode;
+  const designMode = () => Boolean(window.Shopify && window.Shopify.designMode);
   const minimalMotion = () => document.body?.dataset.wfMotion === 'minimal';
+
+  const EASE_POS = 0.06;
+  const EASE_ANGLE = 0.04;
+  const EPS_POS = 0.5; // px
+  const EPS_ANGLE = 0.5; // deg
+  const HEADING_OFFSET = 90; // the SVG head points up (-90°); travel direction is atan2
 
   class BeeGuide {
     constructor(root) {
       this.root = root;
       this.bee = root.querySelector('[data-wf-bee]');
       this.waypoints = [];
-      this.current = { x: 0, y: 0, angle: 0 };
+      this.quietZones = [];
+      this.current = null;
       this.target = { x: 0, y: 0, angle: 0 };
-      this.pointer = null;
       this.raf = null;
-      this.running = false;
+      this.active = false;
+      this.measurePending = false;
 
-      this.onScroll = this.onScroll.bind(this);
-      this.onResize = this.onResize.bind(this);
-      this.onPointerMove = this.onPointerMove.bind(this);
-      this.onVisibility = this.onVisibility.bind(this);
       this.tick = this.tick.bind(this);
+      this.wake = this.wake.bind(this);
+      this.requestMeasure = this.requestMeasure.bind(this);
+      this.onVisibility = this.onVisibility.bind(this);
+      this.onCapabilityChange = this.onCapabilityChange.bind(this);
+    }
+
+    allowed() {
+      return capable.matches && !reducedMotion.matches && !designMode() && !minimalMotion();
     }
 
     init() {
       if (!this.bee) return;
-      this.measure();
-      if (minimalMotion()) {
-        this.bee.hidden = true;
-        return;
-      }
-
-      this.motionAllowed = !reducedMotion.matches && !designMode();
-
-      if (!this.motionAllowed) {
-        this.bee.setAttribute('data-wf-bee-static', '');
-        this.placeAtFirstScene();
-        return;
-      }
-
-      window.addEventListener('scroll', this.onScroll, { passive: true });
-      window.addEventListener('resize', this.onResize, { passive: true });
-      document.addEventListener('visibilitychange', this.onVisibility);
-      if (finePointer.matches) {
-        window.addEventListener('pointermove', this.onPointerMove, { passive: true });
-      }
-      this.start();
+      capable.addEventListener('change', this.onCapabilityChange);
+      reducedMotion.addEventListener('change', this.onCapabilityChange);
+      this.onCapabilityChange();
     }
 
     destroy() {
-      window.removeEventListener('scroll', this.onScroll);
-      window.removeEventListener('resize', this.onResize);
-      window.removeEventListener('pointermove', this.onPointerMove);
+      capable.removeEventListener('change', this.onCapabilityChange);
+      reducedMotion.removeEventListener('change', this.onCapabilityChange);
+      this.deactivate();
+    }
+
+    onCapabilityChange() {
+      if (this.allowed()) this.activate();
+      else this.deactivate();
+    }
+
+    activate() {
+      if (this.active) return;
+      this.active = true;
+      this.bee.hidden = false;
+      this.measure();
+      this.current = null; // start where the page is, never fly in
+
+      window.addEventListener('scroll', this.wake, { passive: true });
+      document.addEventListener('visibilitychange', this.onVisibility);
+      window.addEventListener('load', this.requestMeasure);
+      this.resizeObserver = new ResizeObserver(this.requestMeasure);
+      this.resizeObserver.observe(document.documentElement);
+      document.fonts?.ready.then(() => this.active && this.requestMeasure());
+
+      this.wake();
+    }
+
+    deactivate() {
+      if (this.bee) this.bee.hidden = true;
+      if (!this.active) return;
+      this.active = false;
+      window.removeEventListener('scroll', this.wake);
       document.removeEventListener('visibilitychange', this.onVisibility);
+      window.removeEventListener('load', this.requestMeasure);
+      this.resizeObserver?.disconnect();
+      this.resizeObserver = null;
       this.stop();
     }
 
+    // Coalesce layout reads to one per frame.
+    requestMeasure() {
+      if (!this.active || this.measurePending) return;
+      this.measurePending = true;
+      requestAnimationFrame(() => {
+        this.measurePending = false;
+        if (!this.active) return;
+        this.measure();
+        this.wake();
+      });
+    }
+
     measure() {
-      const nodes = Array.from(document.querySelectorAll(SELECTOR_SCENE));
-      this.waypoints = nodes.map((el) => {
+      const sx = window.scrollX;
+      const sy = window.scrollY;
+      this.waypoints = Array.from(document.querySelectorAll(SELECTOR_SCENE)).map((el) => {
         const rect = el.getBoundingClientRect();
         const xPct = parseFloat(el.dataset.wfBeeX ?? '82') / 100;
         const yPct = parseFloat(el.dataset.wfBeeY ?? '28') / 100;
         return {
-          x: rect.left + window.scrollX + rect.width * xPct,
-          y: rect.top + window.scrollY + rect.height * yPct,
-          top: rect.top + window.scrollY,
+          x: rect.left + sx + rect.width * xPct,
+          y: rect.top + sy + rect.height * yPct,
+          top: rect.top + sy,
           height: rect.height,
         };
       });
-    }
-
-    placeAtFirstScene() {
-      if (!this.waypoints.length) return;
-      const p = this.waypoints[0];
-      const vx = p.x - window.scrollX;
-      const vy = p.y - window.scrollY;
-      this.bee.style.transform = `translate3d(${vx}px, ${vy}px, 0)`;
+      this.quietZones = Array.from(document.querySelectorAll(SELECTOR_QUIET))
+        .map((el) => el.getBoundingClientRect())
+        .filter((r) => r.height > 0)
+        .map((r) => ({ top: r.top + sy, bottom: r.bottom + sy }));
     }
 
     computeState() {
@@ -111,66 +156,69 @@
       const y = a.y + (b.y - a.y) * t;
       const dx = b.x - a.x;
       const dy = b.y - a.y;
-      const angle = dx === 0 && dy === 0 ? this.current.angle : Math.atan2(dy, dx) * (180 / Math.PI);
+      const angle =
+        dx === 0 && dy === 0
+          ? this.target.angle
+          : Math.atan2(dy, dx) * (180 / Math.PI) + HEADING_OFFSET;
 
       return { x, y, angle, sceneIndex: i, progress: t };
     }
 
-    onScroll() {
-      this.dirty = true;
-    }
-
-    onResize() {
-      this.measure();
-      this.dirty = true;
-    }
-
-    onPointerMove(event) {
-      this.pointer = { x: event.clientX + window.scrollX, y: event.clientY + window.scrollY };
+    inQuietZone() {
+      const bandTop = window.scrollY + window.innerHeight * 0.3;
+      const bandBottom = window.scrollY + window.innerHeight * 0.7;
+      return this.quietZones.some((z) => z.top < bandBottom && z.bottom > bandTop);
     }
 
     onVisibility() {
       if (document.hidden) this.stop();
-      else this.start();
+      else this.wake();
     }
 
-    start() {
-      if (this.running) return;
-      this.running = true;
+    wake() {
+      if (!this.active || document.hidden) return;
+      this.bee.classList.remove('is-idle');
+      if (this.raf) return;
       this.raf = requestAnimationFrame(this.tick);
     }
 
     stop() {
-      this.running = false;
       if (this.raf) cancelAnimationFrame(this.raf);
       this.raf = null;
     }
 
     tick() {
-      if (!this.running) return;
+      this.raf = null;
+      if (!this.active) return;
+
+      if (this.inQuietZone()) {
+        this.bee.classList.add('is-quiet', 'is-idle');
+        return; // no rendering; the next scroll re-checks
+      }
+      this.bee.classList.remove('is-quiet');
 
       const state = this.computeState();
-      if (state) {
-        let { x, y, angle } = state;
+      if (!state) return;
+      this.target = state;
 
-        if (this.pointer) {
-          const dist = Math.hypot(this.pointer.x - x, this.pointer.y - y);
-          const influence = Math.max(0, 1 - dist / 260) * 0.18;
-          x += (this.pointer.x - x) * influence;
-          y += (this.pointer.y - y) * influence;
-        }
+      if (!this.current) this.current = { x: state.x, y: state.y, angle: state.angle };
 
-        this.target.x = x;
-        this.target.y = y;
-        this.target.angle = angle;
-      }
-
-      this.current.x += (this.target.x - this.current.x) * 0.06;
-      this.current.y += (this.target.y - this.current.y) * 0.06;
+      const dx = this.target.x - this.current.x;
+      const dy = this.target.y - this.current.y;
       let da = this.target.angle - this.current.angle;
       da = ((da + 180) % 360 + 360) % 360 - 180;
-      this.current.angle += da * 0.04;
 
+      const converged = Math.abs(dx) < EPS_POS && Math.abs(dy) < EPS_POS && Math.abs(da) < EPS_ANGLE;
+      if (converged) {
+        this.current = { x: this.target.x, y: this.target.y, angle: this.target.angle };
+        this.renderDom(this.current);
+        this.bee.classList.add('is-idle');
+        return;
+      }
+
+      this.current.x += dx * EASE_POS;
+      this.current.y += dy * EASE_POS;
+      this.current.angle += da * EASE_ANGLE;
       this.renderDom(this.current);
       this.raf = requestAnimationFrame(this.tick);
     }
@@ -179,7 +227,7 @@
       const vx = state.x - window.scrollX;
       const vy = state.y - window.scrollY;
       this.bee.style.transform =
-        `translate3d(${vx}px, ${vy}px, 0) rotate(${state.angle.toFixed(1)}deg)`;
+        `translate3d(${vx.toFixed(1)}px, ${vy.toFixed(1)}px, 0) rotate(${state.angle.toFixed(1)}deg)`;
     }
   }
 
@@ -187,6 +235,11 @@
 
   function initSection(section) {
     if (instances.has(section)) return;
+    // Single-instance guarantee: only the first bee root on the page is used.
+    if (instances.size) {
+      section.querySelector('[data-wf-bee]')?.setAttribute('hidden', '');
+      return;
+    }
     const guide = new BeeGuide(section);
     guide.init();
     instances.set(section, guide);
@@ -213,7 +266,7 @@
   });
 
   document.addEventListener('shopify:section:reorder', () => {
-    instances.forEach((guide) => guide.measure());
+    instances.forEach((guide) => guide.requestMeasure());
   });
 
   window.wfBee = { instances };

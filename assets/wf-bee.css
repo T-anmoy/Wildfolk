@@ -13,7 +13,18 @@
   z-index: 40;
   will-change: transform;
   transform: translate3d(-100vw, -100vh, 0);
-  transition: opacity 300ms ease;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+/* Disabled (capability gate, minimal mode, editor): not rendered at all */
+[data-wf-bee][hidden] {
+  display: none;
+}
+
+/* Quiet zone (purchase area): fade out; the engine stops rendering */
+[data-wf-bee].is-quiet {
+  opacity: 0;
 }
 
 [data-wf-bee] svg {
@@ -23,16 +34,17 @@
   filter: drop-shadow(0 2px 6px rgba(var(--wf-charcoal), 0.25));
 }
 
-[data-wf-bee][data-wf-bee-static] {
-  position: absolute;
-}
-
 .wf-bee__wing {
   fill: rgba(245, 240, 230, 0.85);
   stroke: rgba(25, 23, 19, 0.35);
   stroke-width: 0.5;
   transform-origin: 50% 50%;
   animation: wf-bee-wing 220ms ease-in-out infinite alternate;
+}
+
+/* Idle (converged): wings rest */
+[data-wf-bee].is-idle .wf-bee__wing {
+  animation-play-state: paused;
 }
 
 .wf-bee__body,
@@ -53,6 +65,13 @@
   }
   .wf-bee__wing {
     animation: none;
+  }
+}
+
+/* Mirrors the JS capability gate so the bee never flashes on phones/tablets */
+@media not all and (min-width: 990px) and (pointer: fine) {
+  [data-wf-bee] {
+    display: none;
   }
 }
 
