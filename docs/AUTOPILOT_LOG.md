@@ -20,8 +20,8 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | A3 | DONE | 5f412e9 | Verified: 0 rAF/s idle, quiet over product-info, hidden <990px |
 | A4 | DONE | bbd8040 layout, 1171350 + next qa hardening | Hero above-fold passes at 1280×720 / 1366×768 |
 | A5 | DONE | — | Theme Check 0 err / 9 warn (= baseline). after-phase-a-final: 324/326, the 2 failures = CLI dev error page on the 404 route (not theme) → harness retries; 404 overflow 72/72 on repeat. Screenshots reviewed (subagent + own spot checks) |
-| PUSH-A | TODO | | |
-| B0 | TODO | | |
+| PUSH-A | DONE | pushed 2490587..dbc1c8d | origin/main == HEAD (dbc1c8d). No Shopify bot commit after 95s. Live theme's wf-design-system.css pulled read-only = local. Live storefront password-protected. Gate: Theme Check 0 err/no new; after-phase-a-final 324/326 (2 = CLI error page, fixed in harness) + qa:quick 118/118 |
+| B0 | DONE | (this commit) | before-phase-b baseline = after-phase-a-final (identical theme code). Plan v3 after 3 critique rounds: 5 CORE → 1 CORE → 0 CORE |
 | B1 | TODO | | |
 | B2 | TODO | | |
 | B3 | TODO | | |
