@@ -26,7 +26,14 @@ export async function openPage(browser, vp, url, { reducedMotion = 'reduce', onP
   if (onPage) onPage(page);
   // Third-party iframes Shopify injects (e.g. shop.app) can hang the load event;
   // wait for the DOM, then give 'load' a bounded chance.
-  const response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+  let response;
+  // `theme dev` intermittently serves its own Polaris error page instead of the theme
+  // (seen on the 404 route). Retry until the theme document (#MainContent) is served.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+    if (await page.locator('#MainContent').count()) break;
+    await page.waitForTimeout(1500);
+  }
   await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
   await settle(page);
   return { context, page, response };
