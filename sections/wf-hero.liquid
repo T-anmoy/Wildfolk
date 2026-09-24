@@ -1,13 +1,10 @@
 {{ 'wf-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign is_first_section = false
-  if section.index == 1
-    assign is_first_section = true
-  endif
+  # LCP: eager + high priority when "Prioritise image loading" is on, or when the hero is the first section.
   assign loading_attr = 'lazy'
   assign fetchpriority_attr = 'auto'
-  if is_first_section
+  if section.settings.priority_load or section.index == 1
     assign loading_attr = 'eager'
     assign fetchpriority_attr = 'high'
   endif
@@ -26,6 +23,7 @@
       image_mobile: section.settings.image_mobile,
       alt: hero_alt,
       sizes_attr: '100vw',
+      sizes_mobile: '100vw',
       loading: loading_attr,
       fetchpriority: fetchpriority_attr
     -%}
@@ -34,22 +32,22 @@
 
   <div class="wf-hero__body">
     {%- if section.settings.eyebrow != blank -%}
-      <p class="wf-eyebrow" data-wf-reveal>{{ section.settings.eyebrow | escape }}</p>
+      <p class="wf-eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
 
     {%- if section.settings.heading != blank -%}
-      <h1 class="wf-heading wf-heading--display" data-wf-reveal>
+      <h1 class="wf-heading wf-heading--display">
         {{ section.settings.heading }}
       </h1>
     {%- endif -%}
 
     {%- if section.settings.text != blank -%}
-      <div class="wf-body rte" data-wf-reveal>
+      <div class="wf-body rte">
         {{ section.settings.text }}
       </div>
     {%- endif -%}
 
-    <div class="wf-hero__actions" data-wf-reveal>
+    <div class="wf-hero__actions">
       {%- if section.settings.button_label != blank -%}
         <a
           {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
@@ -86,6 +84,13 @@
       "id": "image_mobile",
       "label": "Mobile image",
       "info": "Optional. Falls back to the desktop image below 750px."
+    },
+    {
+      "type": "checkbox",
+      "id": "priority_load",
+      "label": "Prioritise image loading",
+      "info": "Keep on when this hero is the first visible section.",
+      "default": true
     },
     {
       "type": "text",

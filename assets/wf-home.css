@@ -68,6 +68,18 @@
   }
 }
 
+/* CSS-only entrance: transform only, the hero text is never hidden */
+@media (prefers-reduced-motion: no-preference) {
+  body:not([data-wf-motion="minimal"]) .wf-hero__body > * {
+    animation: wf-rise 1100ms var(--wf-ease-settle) both;
+  }
+}
+
+@keyframes wf-rise {
+  from { transform: translate3d(0, 1.6rem, 0); }
+  to { transform: none; }
+}
+
 .wf-hero__actions {
   display: flex;
   flex-wrap: wrap;
