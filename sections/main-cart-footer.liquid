@@ -44,6 +44,7 @@
               {% render block %}
             {%- when 'subtotal' -%}
               <div class="js-contents" {{ block.shopify_attributes }}>
+                {%- render 'wf-cart-extras', position: 'footer', context: 'page' -%}
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
                     <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -127,6 +128,7 @@
           {%- endcase -%}
         {% endfor %}
 
+        {%- render 'wf-cart-extras', position: 'end', context: 'page' -%}
         <div id="cart-errors"></div>
       </div>
     </div>

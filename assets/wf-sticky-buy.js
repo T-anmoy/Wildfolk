@@ -8,7 +8,7 @@
  * - Mirrors the main button's state (disabled / sold out / loading) with a
  *   MutationObserver, and price + variant through Craft's pub/sub
  *   PUB_SUB_EVENTS.variantChange event ({ data: { sectionId, html, variant } }).
- * - Hidden (inert + aria-hidden) while the cart notification is open or while a
+ * - Hidden (inert + aria-hidden) while the cart notification or drawer is open, or while a
  *   form field has focus; body padding only while visible.
  */
 if (!customElements.get('wf-sticky-buy')) {
@@ -48,13 +48,14 @@ if (!customElements.get('wf-sticky-buy')) {
           characterData: true,
         });
 
-        this.notification = document.getElementById('cart-notification');
-        if (this.notification) {
+        // Cart UI: Craft's notification (#cart-notification) or drawer (<cart-drawer>), both toggle .active
+        this.cartUis = [document.getElementById('cart-notification'), document.querySelector('cart-drawer')].filter(Boolean);
+        if (this.cartUis.length) {
           this.notificationObserver = new MutationObserver(() => {
-            this.cartOpen = this.notification.classList.contains('active');
+            this.cartOpen = this.cartUis.some((el) => el.classList.contains('active'));
             this.update();
           });
-          this.notificationObserver.observe(this.notification, { attributes: true, attributeFilter: ['class'] });
+          this.cartUis.forEach((el) => this.notificationObserver.observe(el, { attributes: true, attributeFilter: ['class'] }));
         }
 
         document.addEventListener('focusin', this.onFocusIn);

@@ -1592,3 +1592,105 @@ body:has(.wf-final-cta__newsletter) .shopify-section-group-footer-group:has(.new
 .wf-unit-price[hidden] {
   display: none;
 }
+
+/* ---------- Cart additions (drawer + cart page) ---------- */
+
+.wf-free-ship {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0 0 1.6rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.wf-free-ship__jar {
+  flex: none;
+  width: 3.2rem;
+  height: 4rem;
+  overflow: visible;
+}
+
+.wf-free-ship__outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+/* Fill level = cart total / threshold, drawn with a transform only */
+.wf-free-ship__fill {
+  fill: rgb(var(--wf-amber));
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transform: scaleY(var(--wf-fill, 0));
+}
+
+.wf-free-ship.is-animating .wf-free-ship__fill {
+  transition: transform 900ms var(--wf-ease-settle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-free-ship.is-animating .wf-free-ship__fill {
+    transition: none;
+  }
+}
+
+.wf-free-ship__text {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.wf-upgrade-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 1.2rem;
+  margin: 0 0 1.6rem;
+}
+
+.wf-upgrade-line__text {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.wf-upgrade-line__button {
+  min-height: 4.4rem;
+}
+
+.wf-gift-wrap {
+  margin: 0 0 1.2rem;
+}
+
+.wf-gift-wrap__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.4rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.wf-gift-wrap__input {
+  width: 2rem;
+  height: 2rem;
+  accent-color: rgb(var(--color-foreground));
+}
+
+.wf-gift-wrap__error {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.wf-returns-line {
+  margin: 1.2rem 0 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.wf-returns-line__link {
+  color: rgb(var(--color-foreground));
+  text-underline-offset: 0.2em;
+}

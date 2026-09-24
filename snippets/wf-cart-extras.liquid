@@ -1,0 +1,17 @@
+{%- comment -%}
+  Wildfolk cart additions, rendered from Craft's cart drawer and cart page with
+  one-line hooks. They live inside regions Craft re-renders through the Section
+  Rendering API, so their state always comes from the server-side cart.
+  position: 'top' (Filling Jar + multi-jar nudge) · 'footer' (gift wrap) ·
+  'end' (returns line + script; always rendered). context: 'drawer' | 'page'.
+{%- endcomment -%}
+{%- case position -%}
+  {%- when 'top' -%}
+    {%- render 'wf-free-ship', context: context -%}
+    {%- render 'wf-upgrade-line' -%}
+  {%- when 'footer' -%}
+    {%- render 'wf-gift-wrap' -%}
+  {%- when 'end' -%}
+    {%- render 'wf-returns-line' -%}
+    <script src="{{ 'wf-commerce.js' | asset_url }}" defer="defer"></script>
+{%- endcase -%}

@@ -89,6 +89,7 @@
         >
           <div id="CartDrawer-CartItems" class="drawer__contents js-contents">
             {%- if cart != empty -%}
+              {%- render 'wf-cart-extras', position: 'top', context: 'drawer' -%}
               <div class="drawer__cart-items-wrapper">
                 <table class="cart-items" role="table">
                   <thead role="rowgroup">
@@ -512,6 +513,7 @@
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
+          {%- render 'wf-cart-extras', position: 'footer', context: 'drawer' -%}
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -588,6 +590,7 @@
             {{ 'sections.cart.checkout' | t }}
           </button>
         </div>
+        {%- render 'wf-cart-extras', position: 'end', context: 'drawer' -%}
       </div>
     </div>
   </div>

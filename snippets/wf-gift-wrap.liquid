@@ -1,0 +1,27 @@
+{%- comment -%}
+  Gift wrap: a checkbox that adds/removes the gift-wrap product (theme setting)
+  through the cart API. Its state comes from the cart contents. Hidden unless the
+  product is set, available and the cart has items.
+{%- endcomment -%}
+{%- liquid
+  assign gift = settings.wf_gift_wrap_product
+  assign gift_key = ''
+  if gift != blank and gift.available and cart.item_count > 0
+    for item in cart.items
+      if item.product_id == gift.id
+        assign gift_key = item.key
+        break
+      endif
+    endfor
+  endif
+-%}
+{%- if gift != blank and gift.available and cart.item_count > 0 -%}
+  {%- assign gift_variant = gift.selected_or_first_available_variant -%}
+  <wf-gift-wrap class="wf-gift-wrap" data-variant="{{ gift_variant.id }}" data-line-key="{{ gift_key }}">
+    <label class="wf-gift-wrap__label">
+      <input type="checkbox" class="wf-gift-wrap__input"{% if gift_key != '' %} checked{% endif %}>
+      <span>{{ gift.title | escape }} · {{ gift_variant.price | money }}</span>
+    </label>
+    <p class="wf-gift-wrap__error" role="alert" hidden></p>
+  </wf-gift-wrap>
+{%- endif -%}

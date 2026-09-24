@@ -1,0 +1,31 @@
+{%- comment -%}
+  Multi-jar nudge: the exact automatic-discount wording from the theme setting,
+  shown while the honey quantity is below the minimum. The button only changes the
+  quantity through /cart/change.js; any saving is shown by Craft's native discount
+  display, never computed here.
+{%- endcomment -%}
+{%- liquid
+  assign offer = settings.wf_multi_jar_offer_text
+  assign min_qty = settings.wf_multi_jar_min_qty | default: 0
+  assign gift_id = settings.wf_gift_wrap_product.id
+  assign target_key = ''
+  if offer != blank and min_qty > 1 and cart.item_count > 0
+    for item in cart.items
+      if item.product_id == gift_id or item.product.tags contains 'wf-hidden'
+        continue
+      endif
+      if item.quantity < min_qty
+        assign target_key = item.key
+        break
+      endif
+    endfor
+  endif
+-%}
+{%- if target_key != '' -%}
+  <wf-upgrade-line class="wf-upgrade-line" data-line-key="{{ target_key }}" data-min="{{ min_qty }}">
+    <p class="wf-upgrade-line__text">{{ offer | escape }}</p>
+    <button type="button" class="button button--secondary wf-upgrade-line__button">
+      Make it {{ min_qty }}
+    </button>
+  </wf-upgrade-line>
+{%- endif -%}

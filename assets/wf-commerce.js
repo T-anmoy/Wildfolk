@@ -171,6 +171,161 @@
     );
   }
 
-  window.wfCommerce = { wfFormatMoney, updateFacts, parseZones, zoneMessage };
+
+  // ---------- Cart helpers (drawer + /cart page) ----------
+
+  const live = { 'wf-free-ship': 0, 'wf-upgrade-line': 0, 'wf-gift-wrap': 0 };
+  let lastFill = 0;
+
+  function cartContext(el) {
+    const drawer = el.closest('cart-drawer');
+    if (drawer) return { drawer, sections: ['cart-drawer', 'cart-icon-bubble'] };
+    const items = document.querySelector('cart-items');
+    if (items && typeof items.getSectionsToRender === 'function') return { page: items.getSectionsToRender() };
+    return {};
+  }
+
+  // Mutate the cart with the native AJAX API and let Craft's own rendering paths
+  // redraw the drawer / cart page from the Section Rendering API response.
+  async function cartRequest(url, body, el) {
+    const ctx = cartContext(el);
+    const sections = ctx.drawer ? ctx.sections : (ctx.page || []).map((s) => s.section);
+    const config = typeof fetchConfig === 'function' ? fetchConfig() : { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' } };
+    const response = await fetch(url, {
+      ...config,
+      body: JSON.stringify({ ...body, sections, sections_url: window.location.pathname }),
+    });
+    const state = await response.json();
+    if (!response.ok || state.status) throw new Error(state.description || state.message || 'Cart update failed');
+    if (ctx.drawer && state.sections) {
+      ctx.drawer.renderContents(state);
+    } else if (ctx.page && state.sections) {
+      ctx.page.forEach((section) => {
+        const host = document.getElementById(section.id);
+        const html = state.sections[section.section];
+        if (!host || !html) return;
+        const target = host.querySelector(section.selector) || host;
+        const source = new DOMParser().parseFromString(html, 'text/html').querySelector(section.selector);
+        if (source) target.innerHTML = source.innerHTML;
+      });
+    }
+    if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      // 'cart-items' source: Craft's cart components skip their own refetch (already rendered above).
+      publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: state });
+    }
+    return state;
+  }
+
+  const reducedMotion = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.body?.dataset.wfMotion === 'minimal';
+
+  if (!customElements.get('wf-free-ship')) {
+    customElements.define(
+      'wf-free-ship',
+      class WfFreeShip extends HTMLElement {
+        connectedCallback() {
+          live['wf-free-ship']++;
+          const target = Math.max(0, Math.min(1, parseFloat(this.dataset.fill) || 0));
+          if (reducedMotion() || lastFill === target) {
+            this.style.setProperty('--wf-fill', target);
+          } else {
+            // Re-rendered element: start from the previous level, then fill (transform only).
+            this.style.setProperty('--wf-fill', lastFill);
+            this.classList.add('is-animating');
+            requestAnimationFrame(() => requestAnimationFrame(() => this.style.setProperty('--wf-fill', target)));
+          }
+          lastFill = target;
+        }
+
+        disconnectedCallback() {
+          live['wf-free-ship']--;
+        }
+      }
+    );
+  }
+
+  if (!customElements.get('wf-upgrade-line')) {
+    customElements.define(
+      'wf-upgrade-line',
+      class WfUpgradeLine extends HTMLElement {
+        connectedCallback() {
+          live['wf-upgrade-line']++;
+          this.button = this.querySelector('button');
+          this.onClick = () => this.upgrade();
+          this.button?.addEventListener('click', this.onClick);
+        }
+
+        disconnectedCallback() {
+          live['wf-upgrade-line']--;
+          this.button?.removeEventListener('click', this.onClick);
+        }
+
+        async upgrade() {
+          this.button.disabled = true;
+          this.button.setAttribute('aria-busy', 'true');
+          try {
+            const cart = await cartRequest(
+              '/cart/change.js',
+              { id: this.dataset.lineKey, quantity: Number(this.dataset.min) },
+              this
+            );
+            const discounted =
+              (cart.total_discount || 0) > 0 ||
+              (cart.cart_level_discount_applications || []).length > 0 ||
+              (cart.items || []).some((item) => (item.line_level_discount_allocations || []).length > 0);
+            window.wfCommerce.lastUpgrade = { discounted, total_discount: cart.total_discount || 0 };
+            if (!discounted) console.warn('[wf-upgrade-line] Quantity updated but Shopify applied no discount — check the automatic discount.');
+          } catch (e) {
+            console.warn('[wf-upgrade-line]', e.message);
+            this.button.disabled = false;
+            this.button.removeAttribute('aria-busy');
+          }
+        }
+      }
+    );
+  }
+
+  if (!customElements.get('wf-gift-wrap')) {
+    customElements.define(
+      'wf-gift-wrap',
+      class WfGiftWrap extends HTMLElement {
+        connectedCallback() {
+          live['wf-gift-wrap']++;
+          this.input = this.querySelector('input[type="checkbox"]');
+          this.error = this.querySelector('.wf-gift-wrap__error');
+          this.onChange = () => this.toggle();
+          this.input?.addEventListener('change', this.onChange);
+        }
+
+        disconnectedCallback() {
+          live['wf-gift-wrap']--;
+          this.input?.removeEventListener('change', this.onChange);
+        }
+
+        async toggle() {
+          const add = this.input.checked;
+          this.input.disabled = true;
+          if (this.error) this.error.hidden = true;
+          window.wfCommerce.giftToggles = (window.wfCommerce.giftToggles || 0) + 1;
+          try {
+            if (add) {
+              await cartRequest('/cart/add.js', { items: [{ id: Number(this.dataset.variant), quantity: 1 }] }, this);
+            } else if (this.dataset.lineKey) {
+              await cartRequest('/cart/change.js', { id: this.dataset.lineKey, quantity: 0 }, this);
+            }
+          } catch (e) {
+            this.input.checked = !add;
+            this.input.disabled = false;
+            if (this.error) {
+              this.error.textContent = e.message;
+              this.error.hidden = false;
+            }
+          }
+        }
+      }
+    );
+  }
+
+  window.wfCommerce = { wfFormatMoney, updateFacts, parseZones, zoneMessage, cartRequest, live };
   window.wfFormatMoney = wfFormatMoney;
 })();
