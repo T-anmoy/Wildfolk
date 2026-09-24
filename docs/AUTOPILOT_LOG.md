@@ -28,6 +28,14 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | B4 | DONE | 0f15c86 | Blog/article layer; only the empty blog is visible (0 articles) |
 | B5 | DONE | 9c8984a config, bff5a3f qa, review fixes + config follow-up | after-phase-b-final: 337 passed / 0 failed / 6 skipped (product-dependent). Theme Check 0 err / 9 warn (= baseline). Screenshot review by subagent (home all 10 viewports; our-story/blog/contact at 5) → 2 blockers + 7 majors fixed, re-verified |
 | PUSH-B | DONE | pushed dbc1c8d..438dfcd | origin/main == HEAD (438dfcd). No bot commit after 95s. Live theme wf-design-system.css + templates/index.json pulled read-only = local. Gate: Theme Check 0 err/no new; after-phase-b-final 337 pass/0 fail/6 skip; qa:quick 129 pass/6 skip; launch gate OK (password on) |
+| C0 | DONE — **HARD STOP** | (log only) | Pre-flight run 2026-09-24. Product `honey` exists but is **not purchasable** (`available: false` on product and its only variant). Phase C stops after C0 per its rule. See "Phase C — C0 pre-flight". |
+| C1 | BLOCKED | | Needs a purchasable product |
+| C2 | BLOCKED | | |
+| C3 | BLOCKED | | |
+| C4 | BLOCKED | | |
+| C5 | BLOCKED | | |
+| C6 | BLOCKED | | |
+| PUSH-C | BLOCKED | | |
 
 ## Decisions
 
@@ -63,3 +71,42 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 ## Open issues
 
 - Commerce / add-to-cart / sticky-bar QA cannot exercise a real product. The specs skip with a note, and it's marked NOT VERIFIED.
+
+
+## Phase C — C0 pre-flight (2026-09-24)
+
+Environment: git clean, `main` = `origin/main` (ad45616), `pull --ff-only` up to date. The preview server was down; restarted with `npx shopify theme dev` (worked without `WF_STORE_PASSWORD`, which is not set in the agent environment). Theme Check 0 errors / 9 warnings (= baseline). `docs/prompts/C2_PHASE_C_PUSH.md` **does not exist** (the only Phase C file is untracked `docs/C1_PHASE_C_PROMPT.md`).
+
+| Check | Result |
+|---|---|
+| Product exists | ✅ `/products/honey` — title "HONEY", vendor Wildfolk, 1 image, 1 variant "Default Title" ₹999.00, weight 500 g |
+| Product active **and purchasable** | ❌ `available: false` (product + variant) → storefront shows *Sold out*. Likely inventory tracked at 0 without "continue selling". |
+| Has variants | ⚠️ single default variant only (no size variants) |
+| Has media | ✅ 1 image |
+| `wildfolk.*` product metafields | ❌ none readable (`product.metafields.wildfolk` = `{}`) |
+| `wildfolk.net_weight_g` variant metafield | ❌ blank |
+| Gift-wrap product tagged `wf-hidden` | ❌ not found (`/products.json` has only `honey`) |
+| `/pages/our-story` | ❌ 404 |
+| `/pages/faq` | ❌ 404 |
+| Policies | ✅ refund, shipping, privacy, terms all exist (`/policies/*`) |
+| Journal articles | ❌ 0 in `news` |
+| Money format | `Rs. {{amount}}` (store setting; consider `₹{{amount}}`) |
+
+INPUTS parsed: every value is **blank** except `RETURNS_SUMMARY` = "No returns on honey. Replacement only if the product arrives damaged." All inputs-driven features would ship hidden: Filling Jar (no threshold), multi-jar nudge, COD, tax line, dispatch time, damage window, FSSAI, seller details, grievance officer, pincode zones, offers.
+
+Decision: **STOP after C0** (the Phase C rule: "If no active, purchasable honey product exists … STOP after C0 … switching the cart to drawer mode and shipping untested cart code is not acceptable"). No theme code or configuration was changed. The temporary metafield debug output was reverted and never committed.
+
+Baseline `before-phase-c` (the product route now exists): **379 passed / 4 failed / 0 skipped**, 16.4 min. The previously skipped product specs now run. The 4 failures are pre-existing issues exposed by the product's arrival, and Phase C's C2 (on resume) must fix them:
+- `above-fold hero @ phone-landscape`: the hero CTA now renders (the catalogue has a product) and its bottom sits at 491px on an 844×390 screen. The landscape-phone hero needs a tighter stack.
+- `keyboard product @ iphone/desktop`: Craft's `product__media-toggle` ("Open media 1 in modal") receives focus while visually hidden. This is stock Craft markup; fix it with a focus-visible style or a small wf CSS reveal-on-focus.
+- `tap-targets product @ iphone`: 58 items flagged as "wf". This is a **harness misclassification**: on the PDP, `body.wf-sticky-buy-open` makes every element match `[class*="wf-"]`. The classifier must ignore `body`/`html` classes. Real wf targets must be re-checked after that fix.
+- Commerce/sticky-bar specs ran against a sold-out product, so they exercised only the disabled path. Real add-to-cart is still NOT VERIFIED.
+
+To resume Phase C, the owner must:
+1. Make the honey purchasable: Admin → Products → HONEY → Inventory → set a quantity at the location (or tick "Continue selling when out of stock"), status Active, sales channel Online Store.
+2. Fill INPUTS in `docs/C1_PHASE_C_PROMPT.md`, at least `FREE_SHIPPING_THRESHOLD_INR` (must equal Settings → Shipping), `PRICES_INCLUDE_TAX`, `COD_AVAILABLE`, `DISPATCH_TIME_TEXT`, `DAMAGE_CLAIM_WINDOW`, `FSSAI_LICENCE_NO` and the seller/grievance details.
+3. Create metafield definitions (Admin → Settings → Custom data → Products / Variants, namespace `wildfolk`, including variant `wildfolk.net_weight_g` as an integer) and fill them.
+4. Optional: create a "Gift wrap" product tagged `wf-hidden`.
+5. Create the pages Our Story (template `page.our-story`) and FAQ (template `page.faq`).
+6. Add `docs/prompts/C2_PHASE_C_PUSH.md` (push protocol), or confirm the Phase B push protocol applies.
+Then rerun the Phase C prompt; it resumes at C0 (re-verify) → C1.
