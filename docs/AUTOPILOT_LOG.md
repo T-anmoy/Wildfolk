@@ -27,7 +27,7 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | B3 | DONE | 2f5d572 | Header CTA (verified at 360/390/1440 via a temporary live link, reverted), drawer account link, footer brand |
 | B4 | DONE | 0f15c86 | Blog/article layer; only the empty blog is visible (0 articles) |
 | B5 | DONE | 9c8984a config, bff5a3f qa, review fixes + config follow-up | after-phase-b-final: 337 passed / 0 failed / 6 skipped (product-dependent). Theme Check 0 err / 9 warn (= baseline). Screenshot review by subagent (home all 10 viewports; our-story/blog/contact at 5) → 2 blockers + 7 majors fixed, re-verified |
-| PUSH-B | TODO | | |
+| PUSH-B | DONE | pushed dbc1c8d..438dfcd | origin/main == HEAD (438dfcd). No bot commit after 95s. Live theme wf-design-system.css + templates/index.json pulled read-only = local. Gate: Theme Check 0 err/no new; after-phase-b-final 337 pass/0 fail/6 skip; qa:quick 129 pass/6 skip; launch gate OK (password on) |
 
 ## Decisions
 
