@@ -33,10 +33,10 @@ for (const r of routes) {
           });
           if (offenders.length > 15) break;
         }
-        return { scrollWidth, offenders };
+        return { scrollWidth, offenders, doc: { title: document.title, main: !!document.querySelector('#MainContent'), text: document.body.innerText.slice(0, 200) } };
       }, vp.width);
       await context.close();
-      expect(result.scrollWidth, `Horizontal overflow on ${r.path}: ${JSON.stringify(result.offenders, null, 1)}`).toBeLessThanOrEqual(vp.width);
+      expect(result.scrollWidth, `Horizontal overflow on ${r.path}: ${JSON.stringify(result.offenders, null, 1)}\nDocument: ${JSON.stringify(result.doc)}`).toBeLessThanOrEqual(vp.width);
     });
   }
 }
