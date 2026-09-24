@@ -28,14 +28,14 @@ Resume rule: rerun the autopilot prompt; it resumes from the first milestone not
 | B4 | DONE | 0f15c86 | Blog/article layer; only the empty blog is visible (0 articles) |
 | B5 | DONE | 9c8984a config, bff5a3f qa, review fixes + config follow-up | after-phase-b-final: 337 passed / 0 failed / 6 skipped (product-dependent). Theme Check 0 err / 9 warn (= baseline). Screenshot review by subagent (home all 10 viewports; our-story/blog/contact at 5) → 2 blockers + 7 majors fixed, re-verified |
 | PUSH-B | DONE | pushed dbc1c8d..438dfcd | origin/main == HEAD (438dfcd). No bot commit after 95s. Live theme wf-design-system.css + templates/index.json pulled read-only = local. Gate: Theme Check 0 err/no new; after-phase-b-final 337 pass/0 fail/6 skip; qa:quick 129 pass/6 skip; launch gate OK (password on) |
-| C0 | DONE — **HARD STOP** | (log only) | Pre-flight run 2026-09-24. Product `honey` exists but is **not purchasable** (`available: false` on product and its only variant). Phase C stops after C0 per its rule. See "Phase C — C0 pre-flight". |
-| C1 | BLOCKED | | Needs a purchasable product |
-| C2 | BLOCKED | | |
-| C3 | BLOCKED | | |
-| C4 | BLOCKED | | |
-| C5 | BLOCKED | | |
-| C6 | BLOCKED | | |
-| PUSH-C | BLOCKED | | |
+| C0 | DONE | (log) | Attempt 3: `honey` now **available** (₹999, 1 variant, 1 image). Real add-to-cart via main button + sticky bar pass (5/5). Metafields `wildfolk.*` empty; description empty; our-story/faq 404; no gift-wrap product; INPUTS blank except RETURNS_SUMMARY. before-phase-c baseline = earlier run (379/4) + the 4 owner fixes (see resume attempt 2) |
+| C1 | IN PROGRESS | | |
+| C2 | TODO | | |
+| C3 | TODO | | |
+| C4 | TODO | | |
+| C5 | TODO | | |
+| C6 | TODO | | |
+| PUSH-C | TODO | | |
 
 ## Decisions
 
@@ -120,3 +120,7 @@ Then rerun the Phase C prompt; it resumes at C0 (re-verify) → C1.
   3. ✅ The tap-target classifier ignores `<body>`/`<html>` classes.
   4. ⛔ Commerce + sticky-bar specs now perform a **real** add to cart and **fail** when the product isn't purchasable (3 failing, correctly). They'll pass once Shopify reports the product available.
 - Targeted run: above-fold, keyboard, tap-targets pass (19); commerce ×2 + sticky real-add fail on `available: false`.
+
+### Phase C — resume attempt 3 (2026-09-24)
+- C0 passes: the product is purchasable. Decision D-C1: `docs/prompts/C2_PHASE_C_PUSH.md` does not exist, so PUSH-C follows `docs/prompts/02_PHASE_B_PUSH.md` steps plus the autopilot gates (live-theme safety, remote check, no force, no theme push/publish).
+- Decision D-C2: before-phase-c baseline is not re-run in full. The earlier run (379 pass / 4 fail, same theme code apart from the 4 owner-requested fixes) stands, and the fixes are verified by targeted runs. The after-phase-c full matrix is the regression gate.

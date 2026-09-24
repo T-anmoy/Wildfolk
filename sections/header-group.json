@@ -48,7 +48,7 @@
         "menu_color_scheme": "scheme-1",
         "wf_cta_label": "Shop Honey",
         "wf_cta_label_short": "Shop",
-        "wf_cta_link": "shopify://collections/all",
+        "wf_cta_link": "shopify://products/honey",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "margin_bottom": 0,
