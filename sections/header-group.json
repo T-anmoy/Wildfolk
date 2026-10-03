@@ -13,8 +13,6 @@
   "sections": {
     "wf-offer-band": {
       "type": "wf-offer-band",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "style": "letterpress",
         "product": "honey",
@@ -29,12 +27,12 @@
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
+        "wf_cta_label": "PRODUCTS",
+        "wf_cta_label_short": "Shop",
+        "wf_cta_link": "shopify://products/honey",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
-        "wf_cta_label": "Shop Honey",
-        "wf_cta_label_short": "Shop",
-        "wf_cta_link": "shopify://products/honey",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "margin_bottom": 0,
