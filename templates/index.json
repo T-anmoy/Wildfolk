@@ -269,9 +269,9 @@
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I store my honey?",
+            "heading": "Do you deliver across India?",
             "icon": "none",
-            "row_content": "<p>Keep the jar properly closed and store it in a cool, dry place away from direct heat and sunlight. Follow any storage guidance supplied with the product.</p>",
+            "row_content": "<p>Yes. Wildfolk currently offers free delivery across India.</p>",
             "page": ""
           }
         }
