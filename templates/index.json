@@ -109,8 +109,8 @@
         "bottle": {
           "type": "step",
           "settings": {
-            "title": "Bottle",
-            "text": "<p>The journey becomes something you can finally hold.</p><p>[CLIENT-CONFIRM: BOTTLING / PACKAGING DETAILS IF RELEVANT]</p>"
+            "title": "Prepare",
+            "text": "<p>After harvest, the honey is handled with care to preserve its natural character.</p>"
           }
         },
         "table": {
