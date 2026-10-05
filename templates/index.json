@@ -264,6 +264,7 @@
       "blocks": {
         "newsletter": {
           "type": "newsletter",
+          "disabled": true,
           "settings": {
             "heading": "Notes from the world around the hive.",
             "text": ""
