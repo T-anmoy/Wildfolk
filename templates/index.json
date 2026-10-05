@@ -251,9 +251,9 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is Wildfolk?",
+            "heading": "What’s the difference between Tended and Wildcrafted?",
             "icon": "none",
-            "row_content": "<p>Wildfolk is built around the journey behind honey — from the place where it begins to the table where it eventually arrives.</p>",
+            "row_content": "<p>Tended Harvest is lighter, floral and gently tangy. Wildcrafted is deeper, bolder and smoky-sweet in character.</p>",
             "page": ""
           }
         },
@@ -282,8 +282,8 @@
         "q3"
       ],
       "settings": {
-        "caption": "FAQ",
-        "heading": "Questions, answered",
+        "caption": "BEFORE YOU CHOOSE",
+        "heading": "Know Your Harvest",
         "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
