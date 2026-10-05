@@ -58,12 +58,12 @@
         "layout": "split",
         "image_position": "image-last",
         "mobile_order": "image-first",
-        "eyebrow": "Why This Honey",
-        "heading": "The jar is only part of the story.",
-        "text": "<p>Every honey carries something of where it begins.</p><p>The landscape around the hive. The flowers in bloom. The season. The work happening quietly beyond the bottle.</p><p>Wildfolk is built to keep that story visible — so the honey feels connected to its origin, its journey and the table it eventually reaches.</p>",
+        "eyebrow": "WHY WILDFOLK EXISTS",
+        "heading": "Food should have a name, a place and a story.",
+        "text": "<p>Wildfolk brings food closer to its source — connecting the landscape, the people behind each harvest, and the journey from origin to table.</p>",
         "stat_value": "",
         "stat_label": "",
-        "button_label": "Discover Our Story",
+        "button_label": "READ OUR STORY",
         "button_link": "/pages/our-story",
         "color_scheme": "scheme-1"
       }
