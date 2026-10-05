@@ -248,15 +248,6 @@
     "wf-faq": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_HtWMYc": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "What if my jar arrives damaged?",
-            "icon": "check_mark",
-            "row_content": "<p>Honey is not returnable, but if your jar arrives damaged, we’ll arrange a replacement according to our damage-replacement policy.</p><p></p>",
-            "page": ""
-          }
-        },
         "q1": {
           "type": "collapsible_row",
           "settings": {
@@ -283,13 +274,32 @@
             "row_content": "<p>Yes. Wildfolk currently offers free delivery across India.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_HtWMYc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if my jar arrives damaged?",
+            "icon": "check_mark",
+            "row_content": "<p>Honey is not returnable, but if your jar arrives damaged, we’ll arrange a replacement according to our damage-replacement policy.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6kGbeU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why can honey crystallise over time?",
+            "icon": "check_mark",
+            "row_content": "<p>Crystallisation is a natural change in texture that can occur in honey, especially in cooler conditions. It does not, by itself, indicate a problem with the product.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
-        "collapsible_row_HtWMYc",
         "q1",
         "q2",
-        "q3"
+        "q3",
+        "collapsible_row_HtWMYc",
+        "collapsible_row_6kGbeU"
       ],
       "settings": {
         "caption": "BEFORE YOU CHOOSE",
