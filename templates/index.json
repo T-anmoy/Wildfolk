@@ -13,12 +13,12 @@
       "type": "wf-hero",
       "settings": {
         "priority_load": true,
-        "eyebrow": "WILDFOLK HONEY",
-        "heading": "Two harvests. One remarkable landscape.",
-        "text": "<p>Mangrove honey shaped by the Sundarbans landscape — Tended Harvest for a lighter floral profile, Wildcrafted for a deeper, bolder character.</p>",
-        "button_label": "Shop Honey",
+        "eyebrow": "FROM THE SUNDARBANS",
+        "heading": "Two harvests. Two expressions of the mangroves.",
+        "text": "<p>Discover two distinct mangrove honeys shaped by place, season and tradition — Tended Harvest with a lighter floral character, and Wildcrafted with a deeper, bolder profile.</p>",
+        "button_label": "CHOOSE YOUR HARVEST",
         "button_link": "shopify://products/honey",
-        "button_label_secondary": "Meet the Story",
+        "button_label_secondary": "DISCOVER WILDFOLK",
         "button_link_secondary": "/pages/our-story",
         "color_scheme": "scheme-4"
       }
