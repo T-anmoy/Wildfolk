@@ -82,10 +82,10 @@
     "wf-hive": {
       "type": "wf-hive",
       "settings": {
-        "statement": "Leaving · Returning · Gathering · Tending · Storing",
-        "eyebrow": "The Hive",
-        "heading": "A living rhythm, built together.",
-        "text": "<p>A hive is more than a place where honey is kept.</p><p>It is a living system shaped by countless small movements — leaving, returning, gathering, tending, storing.</p><p>The work is quiet. The rhythm is constant.</p><p>And somewhere within that rhythm, the story of the honey begins.</p>",
+        "statement": "Place · Season · People · Harvest",
+        "eyebrow": "NAMED-ORIGIN, ALWAYS",
+        "heading": "Every jar begins somewhere worth naming.",
+        "text": "<p>Wildfolk believes provenance should never disappear into the supply chain. Each harvest is shaped by a place, a season and the people who bring it forward.</p><p></p>",
         "color_scheme": "scheme-6"
       }
     },
