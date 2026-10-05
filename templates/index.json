@@ -214,7 +214,7 @@
     "wf-how-to-use": {
       "type": "wf-story-panel",
       "settings": {
-        "layout": "inset",
+        "layout": "split",
         "image_position": "image-first",
         "mobile_order": "image-first",
         "eyebrow": "FROM THE FOUNDER",
