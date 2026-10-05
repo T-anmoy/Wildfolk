@@ -13,6 +13,32 @@
   "sections": {
     "wf-offer-band": {
       "type": "wf-offer-band",
+      "blocks": {
+        "offer_C6jAVB": {
+          "type": "offer",
+          "settings": {
+            "message": "FREE PAN-INDIA DELIVERY",
+            "link": "",
+            "discount_code": "",
+            "start_date": "",
+            "end_date": ""
+          }
+        },
+        "offer_TmLXN8": {
+          "type": "offer",
+          "settings": {
+            "message": "NAMED-ORIGIN, ALWAYS",
+            "link": "",
+            "discount_code": "",
+            "start_date": "",
+            "end_date": ""
+          }
+        }
+      },
+      "block_order": [
+        "offer_C6jAVB",
+        "offer_TmLXN8"
+      ],
       "settings": {
         "style": "letterpress",
         "product": "honey",
