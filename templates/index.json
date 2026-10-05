@@ -217,13 +217,13 @@
         "layout": "inset",
         "image_position": "image-first",
         "mobile_order": "image-first",
-        "eyebrow": "How To Use",
-        "heading": "Bring it to the table.",
-        "text": "<p>Honey doesn't need much introduction.</p><p>Spoon it over toast. Stir it into oats or yogurt. Drizzle it over fruit. Use it to finish a warm dish or round a dressing.</p><p>Or keep it simple. A spoonful on its own is sometimes enough.</p>",
+        "eyebrow": "FROM THE FOUNDER",
+        "heading": "Wildfolk began with a simple question: why should good food lose its story on the way to your table?",
+        "text": "<p>Wildfolk is being built around a closer relationship with origin — food connected to the landscapes, traditions and people behind it.</p><p></p>",
         "stat_value": "",
         "stat_label": "",
-        "button_label": "",
-        "button_link": "",
+        "button_label": "READ OUR STORY",
+        "button_link": "shopify://pages/our-story",
         "color_scheme": "scheme-3"
       }
     },
