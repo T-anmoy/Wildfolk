@@ -260,9 +260,9 @@
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Where does the honey come from?",
+            "heading": "Where does Wildfolk honey come from?",
             "icon": "none",
-            "row_content": "<p>The origin of the honey is shown with the product information and on the product packaging.</p><p>[CLIENT-CONFIRM: HONEY ORIGIN]</p>",
+            "row_content": "<p>Both harvests are rooted in the Sundarbans mangrove landscape of West Bengal, each shaped by a different harvesting tradition.</p>",
             "page": ""
           }
         },
