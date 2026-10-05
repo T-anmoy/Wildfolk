@@ -95,15 +95,15 @@
         "harvest": {
           "type": "step",
           "settings": {
-            "title": "Harvest",
-            "text": "<p>The journey begins when honey is gathered from the hive.</p><p>[CLIENT-CONFIRM: EXACT HARVEST METHOD]</p>"
+            "title": "Forage",
+            "text": "<p>Bees move through the mangrove landscape, gathering nectar from the season’s flowering flora.</p><p></p>"
           }
         },
         "process": {
           "type": "step",
           "settings": {
-            "title": "Process",
-            "text": "<p>From the hive to the next stage, the honey is handled according to the process behind the finished product.</p><p>[CLIENT-CONFIRM: EXACT PROCESS DETAILS]</p>"
+            "title": "Harvest",
+            "text": "<p>Each harvest follows its own tradition — tended hives at the forest edge or wild-comb gathering deeper within the mangrove landscape.</p><p></p>"
           }
         },
         "bottle": {
