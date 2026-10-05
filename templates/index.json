@@ -218,11 +218,11 @@
         "image_position": "image-first",
         "mobile_order": "image-first",
         "eyebrow": "FROM THE FOUNDER",
-        "heading": "Wildfolk began with a simple question: why should good food lose its story on the way to your table?",
-        "text": "<p>Wildfolk is being built around a closer relationship with origin — food connected to the landscapes, traditions and people behind it.</p><p></p>",
+        "heading": "Wildfolk began with a belief that origin should never be edited out.",
+        "text": "<p>We are building Wildfolk to keep food closer to the land, the season and the people behind it — preserving not only where it comes from, but why that place matters.</p><p></p>",
         "stat_value": "",
         "stat_label": "",
-        "button_label": "READ OUR STORY",
+        "button_label": "READ THE WILDFOLK STORY",
         "button_link": "shopify://pages/our-story",
         "color_scheme": "scheme-3"
       }
