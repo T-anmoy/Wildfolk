@@ -71,11 +71,11 @@
     "wf-origin": {
       "type": "wf-origin",
       "settings": {
-        "eyebrow": "Origin",
-        "heading": "Every jar begins somewhere.",
-        "text": "<p>Before honey reaches the table, it belongs to a place.</p><p>A landscape. A season. A living environment shaped by what grows, blooms and moves through it.</p><p>This is where the Wildfolk story begins.</p>",
-        "origin_name": "[CLIENT-CONFIRM: HONEY ORIGIN]",
-        "location_label": "[CLIENT-CONFIRM: EXACT LOCATION]",
+        "eyebrow": "THE ORIGIN",
+        "heading": "Where land meets tide.",
+        "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and generations of local knowledge. It is here that Wildfolk’s two honey harvests begin.</p>",
+        "origin_name": "Sundarbans Mangrove Landscape",
+        "location_label": "West Bengal, India",
         "color_scheme": ""
       }
     },
