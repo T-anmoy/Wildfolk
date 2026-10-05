@@ -18,7 +18,7 @@
           "type": "offer",
           "settings": {
             "message": "NAMED-ORIGIN, ALWAYS",
-            "link": "shopify://pages/our-story",
+            "link": "shopify://pages/how-we-source",
             "discount_code": "",
             "start_date": "",
             "end_date": ""
@@ -28,7 +28,7 @@
           "type": "offer",
           "settings": {
             "message": "HAND-PACKED BY RURAL WOMEN'S GROUPS",
-            "link": "",
+            "link": "shopify://pages/our-story",
             "discount_code": "",
             "start_date": "",
             "end_date": ""
