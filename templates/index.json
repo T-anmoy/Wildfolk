@@ -332,11 +332,11 @@
         "newsletter"
       ],
       "settings": {
-        "eyebrow": "Bring It to the Table",
-        "heading": "The story continues with you.",
-        "text": "<p>Explore the honey, discover where it begins, and bring a little of that world home.</p>",
-        "button_label": "Shop Honey",
-        "button_link": "shopify://products/honey",
+        "eyebrow": "BRING IT TO THE TABLE",
+        "heading": "Choose the harvest that speaks to you.",
+        "text": "<p>Two distinct mangrove honeys. One landscape. Start with the profile that feels most like yours.</p>",
+        "button_label": "SHOP THE HARVESTS",
+        "button_link": "shopify://collections/honey",
         "color_scheme": "scheme-4"
       }
     },
