@@ -119,13 +119,21 @@
             "title": "Pack",
             "text": "<p>Each jar is hand-packed by rural women’s groups in West Bengal.</p><p></p>"
           }
+        },
+        "step_F6PR7X": {
+          "type": "step",
+          "settings": {
+            "title": "Deliver",
+            "text": "<p>From origin to doorstep, Wildfolk keeps the journey simple, traceable and close to its source.</p>"
+          }
         }
       },
       "block_order": [
         "harvest",
         "process",
         "bottle",
-        "table"
+        "table",
+        "step_F6PR7X"
       ],
       "settings": {
         "eyebrow": "FROM BLOOM TO JAR",
