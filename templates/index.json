@@ -279,7 +279,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What if my jar arrives damaged?",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "<p>Honey is not returnable, but if your jar arrives damaged, we’ll arrange a replacement according to our damage-replacement policy.</p><p></p>",
             "page": ""
           }
@@ -288,7 +288,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Why can honey crystallise over time?",
-            "icon": "check_mark",
+            "icon": "none",
             "row_content": "<p>Crystallisation is a natural change in texture that can occur in honey, especially in cooler conditions. It does not, by itself, indicate a problem with the product.</p>",
             "page": ""
           }
