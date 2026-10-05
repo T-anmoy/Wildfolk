@@ -13,9 +13,9 @@
       "type": "wf-hero",
       "settings": {
         "priority_load": true,
-        "eyebrow": "Wildfolk Honey",
-        "heading": "A living journey from hive to table.",
-        "text": "<p>Honey begins long before the jar.</p><p>It begins in the landscape, in the bloom, and in the living world around the hive.</p><p>Wildfolk brings that journey closer — from where it begins to how it finds its place at the table.</p>",
+        "eyebrow": "WILDFOLK HONEY",
+        "heading": "Two harvests. One remarkable landscape.",
+        "text": "<p>Mangrove honey shaped by the Sundarbans landscape — Tended Harvest for a lighter floral profile, Wildcrafted for a deeper, bolder character.</p>",
         "button_label": "Shop Honey",
         "button_link": "shopify://products/honey",
         "button_label_secondary": "Meet the Story",
