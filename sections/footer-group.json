@@ -40,6 +40,13 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "link_list_ceq44D": {
+          "type": "link_list",
+          "settings": {
+            "heading": "DISCOVER",
+            "menu": "footer-discover"
+          }
+        },
         "link_list_6XWqQ7": {
           "type": "link_list",
           "settings": {
@@ -49,6 +56,7 @@
         }
       },
       "block_order": [
+        "link_list_ceq44D",
         "link_list_6XWqQ7"
       ],
       "settings": {
