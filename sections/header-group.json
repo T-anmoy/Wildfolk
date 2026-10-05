@@ -14,6 +14,16 @@
     "wf-offer-band": {
       "type": "wf-offer-band",
       "blocks": {
+        "offer_TmLXN8": {
+          "type": "offer",
+          "settings": {
+            "message": "NAMED-ORIGIN, ALWAYS",
+            "link": "shopify://pages/our-story",
+            "discount_code": "",
+            "start_date": "",
+            "end_date": ""
+          }
+        },
         "offer_HLdAna": {
           "type": "offer",
           "settings": {
@@ -33,22 +43,12 @@
             "start_date": "",
             "end_date": ""
           }
-        },
-        "offer_TmLXN8": {
-          "type": "offer",
-          "settings": {
-            "message": "NAMED-ORIGIN, ALWAYS",
-            "link": "",
-            "discount_code": "",
-            "start_date": "",
-            "end_date": ""
-          }
         }
       },
       "block_order": [
+        "offer_TmLXN8",
         "offer_HLdAna",
-        "offer_C6jAVB",
-        "offer_TmLXN8"
+        "offer_C6jAVB"
       ],
       "settings": {
         "style": "letterpress",
