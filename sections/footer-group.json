@@ -40,6 +40,13 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "link_list_6XWqQ7": {
+          "type": "link_list",
+          "settings": {
+            "heading": "SHOP",
+            "menu": "footer"
+          }
+        },
         "link_list_ceq44D": {
           "type": "link_list",
           "settings": {
@@ -47,17 +54,18 @@
             "menu": "footer-discover"
           }
         },
-        "link_list_6XWqQ7": {
+        "link_list_XGhWp3": {
           "type": "link_list",
           "settings": {
-            "heading": "SHOP",
-            "menu": "footer"
+            "heading": "HELP",
+            "menu": "footer-help"
           }
         }
       },
       "block_order": [
+        "link_list_6XWqQ7",
         "link_list_ceq44D",
-        "link_list_6XWqQ7"
+        "link_list_XGhWp3"
       ],
       "settings": {
         "color_scheme": "scheme-4",
