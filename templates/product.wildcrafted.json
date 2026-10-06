@@ -237,29 +237,29 @@
         "step_Fcy8fU": {
           "type": "step",
           "settings": {
-            "title": "Forage",
-            "text": "<p>Bees move freely through the surrounding mangrove flora, following the rhythm of the season.</p>"
+            "title": "Navigate",
+            "text": "<p>Traditional honey hunters move through the Sundarbans mangrove landscape using knowledge passed through generations.</p><p></p>"
           }
         },
         "step_3kt86r": {
           "type": "step",
           "settings": {
-            "title": "Tend",
-            "text": "<p>Local beekeepers care for managed hives positioned along the forest edge.</p><h3></h3>"
+            "title": "Locate",
+            "text": "<p>Wild combs are found within the forest landscape during the harvest season.</p><p></p>"
           }
         },
         "step_ci3VGH": {
           "type": "step",
           "settings": {
             "title": "Harvest",
-            "text": "<p>Honey is gathered from the tended hives with a focus on preserving the character of the harvest.</p><h3></h3>"
+            "text": "<p>Honey is gathered from the wild combs using traditional harvesting practices.</p><p></p>"
           }
         },
         "step_jALKeW": {
           "type": "step",
           "settings": {
             "title": "Pack",
-            "text": "<p>Each jar is carefully packed by rural women’s groups in West Bengal.</p><p></p>"
+            "text": "<p>Each jar is hand-packed by rural women’s groups in West Bengal.</p><h3></h3>"
           }
         }
       },
@@ -272,7 +272,7 @@
       "name": "Wildfolk process",
       "settings": {
         "eyebrow": "THE HARVEST",
-        "heading": "Wild forage. Tended hives.",
+        "heading": "Wild comb. Traditional knowledge.",
         "color_scheme": ""
       }
     },
@@ -282,8 +282,8 @@
         "column_xY9CYV": {
           "type": "column",
           "settings": {
-            "title": "<strong>MANGROVE ORIGIN</strong>",
-            "text": "<p>Rooted in the Sundarbans landscape of West Bengal.</p><p></p>",
+            "title": "<strong>WILD-COMB ORIGIN</strong>",
+            "text": "<p>Rooted in the Sundarbans mangrove landscape.</p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -291,8 +291,8 @@
         "column_H4J3w7": {
           "type": "column",
           "settings": {
-            "title": "<strong>TENDED HIVES</strong>",
-            "text": "<p>Managed hives cared for by local beekeepers along the forest edge.</p><p></p>",
+            "title": "<strong>TRADITIONAL KNOWLEDGE</strong>",
+            "text": "<p>Connected to generations of local honey-hunting practice.</p>",
             "link_label": "",
             "link": ""
           }
@@ -300,8 +300,8 @@
         "column_gAT6NE": {
           "type": "column",
           "settings": {
-            "title": "<strong>LIGHTER CHARACTER</strong>",
-            "text": "<p>A floral, smooth profile with a gentle tangy-saline finish.</p><p></p>",
+            "title": "<strong>BOLDER CHARACTER</strong>",
+            "text": "<p>Deep, smoky-sweet and richly aromatic.</p>",
             "link_label": "",
             "link": ""
           }
