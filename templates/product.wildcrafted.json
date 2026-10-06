@@ -392,7 +392,7 @@
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "mangrove-honey-wildcrafted",
+        "product": "honey",
         "color_scheme": "",
         "secondary_background": false,
         "media_size": "medium",
