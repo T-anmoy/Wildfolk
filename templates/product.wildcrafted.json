@@ -393,6 +393,7 @@
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "honey",
+        "view_details_label": "EXPLORE TENDED HARVEST",
         "color_scheme": "",
         "secondary_background": false,
         "media_size": "medium",
