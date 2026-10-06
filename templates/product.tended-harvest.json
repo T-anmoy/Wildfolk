@@ -184,7 +184,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FLAVOUR</strong>",
-            "text": "<p>Floral sweetness with a gently tangy-salty finish.</p><p></p>",
+            "text": "<p>Floral sweetness with a gentle tangy-salty finish.</p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -193,7 +193,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>TEXTURE</strong>",
-            "text": "<p>Naturally runny and smooth.</p><p></p>",
+            "text": "<p>Smooth, fluid and naturally runny.</p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -215,7 +215,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "The character of the harvest",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
