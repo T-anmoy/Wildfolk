@@ -305,12 +305,22 @@
             "link_label": "",
             "link": ""
           }
+        },
+        "column_CNXphX": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>PACKED WITH CARE</strong>",
+            "text": "<p>Hand-packed by rural women’s groups in West Bengal.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "column_xY9CYV",
         "column_H4J3w7",
-        "column_gAT6NE"
+        "column_gAT6NE",
+        "column_CNXphX"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
