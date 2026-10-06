@@ -339,6 +339,72 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "featured_product_wEmmBd": {
+      "type": "featured-product",
+      "blocks": {
+        "text_wYyWHE": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>THE OTHER HARVEST</strong>",
+            "text_style": "uppercase"
+          }
+        },
+        "title_nWGQ7A": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "text_TNeP9D": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>For those drawn to something deeper — bold, smoky-sweet and rooted in the wild-comb traditions of the Sundarbans.</strong>",
+            "text_style": "body"
+          }
+        },
+        "price_BbQbLi": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons_k7gHeK": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_FNBXhz": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_wYyWHE",
+        "title_nWGQ7A",
+        "text_TNeP9D",
+        "price_BbQbLi",
+        "buy_buttons_k7gHeK",
+        "share_FNBXhz"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "mangrove-honey-wildcrafted",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -348,6 +414,7 @@
     "related-products",
     "multicolumn_HnHyfY",
     "wf_process_yqtMn6",
-    "multicolumn_7eJWLg"
+    "multicolumn_7eJWLg",
+    "featured_product_wEmmBd"
   ]
 }
