@@ -37,7 +37,7 @@
         "tiktok": "TikTok"
       }
     },
-        "continue_shopping": "Explore the Honey",
+    "continue_shopping": "Explore the Honey",
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -188,7 +188,7 @@
       "taxes_included": "Taxes included.",
       "duties_included": "Duties included.",
       "duties_and_taxes_included": "Duties and taxes included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "shipping_policy_html": "Free pan-India delivery."
     },
     "modal": {
       "label": "Media gallery"
@@ -271,8 +271,8 @@
       }
     },
     "404": {
-            "title": "You wandered off the path.",
-            "subtext": "The page you're looking for isn't here."
+      "title": "You wandered off the path.",
+      "subtext": "The page you're looking for isn't here."
     }
   },
   "sections": {
@@ -299,7 +299,7 @@
       "new_estimated_total": "New estimated total",
       "note": "Gift message (optional)",
       "checkout": "Check out",
-            "empty": "Nothing here yet.",
+      "empty": "Nothing here yet.",
       "product_disclosure": "Product disclosure",
       "product_disclosures": "Product disclosures",
       "cart_error": "There was an error while updating your cart. Please try again.",
