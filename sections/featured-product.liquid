@@ -473,7 +473,11 @@
               {% endif %}
               class="link product__view-details animate-arrow"
             >
-              {{ 'products.product.view_full_details' | t }}
+              {%- if section.settings.view_details_label != blank -%}
+                {{ section.settings.view_details_label | escape }}
+              {%- else -%}
+                {{ 'products.product.view_full_details' | t }}
+              {%- endif -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
             </a>
           </section>
@@ -1401,6 +1405,12 @@
       "type": "product",
       "id": "product",
       "label": "t:sections.featured-product.settings.product.label"
+    },
+    {
+      "type": "text",
+      "id": "view_details_label",
+      "label": "View details link label",
+      "info": "Optional. Leave blank to use the theme default."
     },
     {
       "type": "color_scheme",
