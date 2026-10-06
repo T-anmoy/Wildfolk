@@ -230,6 +230,51 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "wf_process_yqtMn6": {
+      "type": "wf-process",
+      "blocks": {
+        "step_Fcy8fU": {
+          "type": "step",
+          "settings": {
+            "title": "Forage",
+            "text": "<p>Bees move freely through the surrounding mangrove flora, following the rhythm of the season.</p>"
+          }
+        },
+        "step_3kt86r": {
+          "type": "step",
+          "settings": {
+            "title": "Tend",
+            "text": "<p>Local beekeepers care for managed hives positioned along the forest edge.</p><h3></h3>"
+          }
+        },
+        "step_ci3VGH": {
+          "type": "step",
+          "settings": {
+            "title": "Harvest",
+            "text": "<p>Honey is gathered from the tended hives with a focus on preserving the character of the harvest.</p><h3></h3>"
+          }
+        },
+        "step_jALKeW": {
+          "type": "step",
+          "settings": {
+            "title": "Pack",
+            "text": "<p>Each jar is carefully packed by rural women’s groups in West Bengal.</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_Fcy8fU",
+        "step_3kt86r",
+        "step_ci3VGH",
+        "step_jALKeW"
+      ],
+      "name": "Wildfolk process",
+      "settings": {
+        "eyebrow": "THE HARVEST",
+        "heading": "Wild forage. Tended hives.",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
@@ -237,6 +282,7 @@
     "wf_story_panel_z7KtCr",
     "disclosures",
     "related-products",
-    "multicolumn_HnHyfY"
+    "multicolumn_HnHyfY",
+    "wf_process_yqtMn6"
   ]
 }
