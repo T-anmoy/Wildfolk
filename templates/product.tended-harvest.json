@@ -275,6 +275,60 @@
         "heading": "Wild forage. Tended hives.",
         "color_scheme": ""
       }
+    },
+    "multicolumn_7eJWLg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xY9CYV": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>MANGROVE ORIGIN</strong>",
+            "text": "<p>Rooted in the Sundarbans landscape of West Bengal.</p><p></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_H4J3w7": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>TENDED HIVES</strong>",
+            "text": "<p>Managed hives cared for by local beekeepers along the forest edge.</p><p></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gAT6NE": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>LIGHTER CHARACTER</strong>",
+            "text": "<p>A floral, smooth profile with a gentle tangy-saline finish.</p><p></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xY9CYV",
+        "column_H4J3w7",
+        "column_gAT6NE"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "<strong>What makes this harvest distinct</strong>",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -283,6 +337,7 @@
     "disclosures",
     "related-products",
     "multicolumn_HnHyfY",
-    "wf_process_yqtMn6"
+    "wf_process_yqtMn6",
+    "multicolumn_7eJWLg"
   ]
 }
