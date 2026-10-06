@@ -330,7 +330,7 @@
         "image_ratio": "adapt",
         "button_label": "Button label",
         "button_link": "",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "",
