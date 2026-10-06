@@ -97,11 +97,11 @@
         "newsletter"
       ],
       "settings": {
-        "eyebrow": "The Journey Continues",
+        "eyebrow": "THE JOURNEY CONTINUES",
         "heading": "Meet the honey. Follow the story.",
-        "text": "",
-        "button_label": "Shop Honey",
-        "button_link": "shopify://products/honey",
+        "text": "<p>Two mangrove harvests. Two different expressions of the same remarkable landscape.</p><p></p>",
+        "button_label": "SHOP THE HARVESTS",
+        "button_link": "shopify://collections/honey",
         "color_scheme": "scheme-4"
       }
     }
