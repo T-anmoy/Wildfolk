@@ -11,6 +11,25 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "17913245046b012318": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c39cc70_ikNbra": {
+          "type": "ai_gen_block_c39cc70",
+          "settings": {
+            "desktop_width_percent": 100,
+            "spacing": 20,
+            "mark_size": 36,
+            "accent_color": "#B87824"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c39cc70_ikNbra"
+      ],
+      "settings": {}
+    },
     "newsletter": {
       "type": "newsletter",
       "blocks": {
@@ -86,6 +105,7 @@
     }
   },
   "order": [
+    "17913245046b012318",
     "newsletter",
     "footer"
   ]
