@@ -184,7 +184,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FLAVOUR</strong>",
-            "text": "<p>Floral sweetness with a gentle tangy-salty finish.</p><p></p>",
+            "text": "<p>Bold, smoky-sweet and layered with a subtle herbal finish.</p><p></p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -193,7 +193,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>TEXTURE</strong>",
-            "text": "<p>Smooth, fluid and naturally runny.</p><p></p>",
+            "text": "<p>Rich, fluid and naturally expressive.</p><p></p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -202,7 +202,7 @@
           "type": "column",
           "settings": {
             "title": "AROMA",
-            "text": "<p>Fresh blossom with warm, earthy notes.</p><p></p>",
+            "text": "<p>Deep woodsy notes with tidal earth and wild blossom.</p><h3></h3><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -215,7 +215,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "<strong>A quieter expression of the mangroves</strong>",
+        "title": "<strong>The wilder side of the mangroves</strong>",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
