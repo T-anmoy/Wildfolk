@@ -159,11 +159,29 @@
         "padding_top": 36,
         "padding_bottom": 68
       }
+    },
+    "wf_story_panel_z7KtCr": {
+      "type": "wf-story-panel",
+      "name": "Why This Honey",
+      "settings": {
+        "layout": "split",
+        "image_position": "image-first",
+        "mobile_order": "image-first",
+        "eyebrow": "THE STORY",
+        "heading": "Where wild nature meets thoughtful stewardship.",
+        "text": "<p>Tended Harvest begins along the edge of the Sundarbans mangrove landscape, where managed hives allow bees to forage across the surrounding flora. The result is a lighter, floral expression shaped by place, season and careful tending.</p><p></p>",
+        "stat_value": "",
+        "stat_label": "",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "main",
     "disclosures",
-    "related-products"
+    "related-products",
+    "wf_story_panel_z7KtCr"
   ]
 }
