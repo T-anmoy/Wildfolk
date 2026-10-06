@@ -12,30 +12,41 @@
     "hero": {
       "type": "wf-hero",
       "settings": {
+        "priority_load": true,
         "eyebrow": "Our Story",
         "heading": "Honey is the product. The world around it is the story.",
-        "text": "<p>Wildfolk begins with a simple idea: a jar of honey should never feel disconnected from the life that made it.</p><p>The land. The bloom. The hive. The people. The bottle. The table.</p><p>We bring those pieces closer together so the journey is easier to see — and the honey easier to understand.</p>",
+        "text": "<p>Wildfolk begins with a simple belief: food becomes more meaningful when you know where it comes from.</p><p>The land. The season. The people. The harvest. The jar on your table.</p><p>We bring those pieces closer together — so origin stays visible, the journey stays understandable, and the product can speak for itself.</p>",
         "button_label": "",
+        "button_link": "",
         "button_label_secondary": "",
+        "button_link_secondary": "",
         "color_scheme": "scheme-4"
       }
     },
     "origin": {
       "type": "wf-origin",
       "settings": {
+        "eyebrow": "THE SUNDARBANS",
         "heading": "Every place leaves something behind.",
-        "text": "<p>The story begins with place.</p><p>The landscape surrounding the honey is not simply a point on a map. It is the beginning of the journey we want you to understand.</p><p>[CLIENT-CONFIRM: VERIFIED ORIGIN STORY]</p>",
-        "origin_name": "[CLIENT-CONFIRM: HONEY ORIGIN]",
-        "location_label": "[CLIENT-CONFIRM: EXACT LOCATION]"
+        "text": "<p>Wildfolk’s first harvests begin in the Sundarbans — a landscape shaped by mangrove forests, tidal waters and generations of local knowledge.</p><p>Place is not background information to us. It shapes the character of the harvest, the people involved and the story carried forward in every jar.</p>",
+        "origin_name": "Sundarbans Mangrove Landscape",
+        "location_label": "West Bengal, India",
+        "color_scheme": ""
       }
     },
     "people": {
       "type": "wf-story-panel",
       "settings": {
+        "layout": "split",
         "image_position": "image-first",
+        "mobile_order": "image-first",
         "eyebrow": "People & Process",
         "heading": "There are hands behind every bottle.",
         "text": "<p>Food has a human side.</p><p>This is where Wildfolk introduces the people, practices and decisions behind the product — clearly, honestly and without embellishment.</p><p>[CLIENT-CONFIRM: BEEKEEPER / PRODUCER / PROCESS STORY]</p>",
+        "stat_value": "",
+        "stat_label": "",
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "scheme-1"
       }
     },
@@ -44,9 +55,14 @@
       "settings": {
         "layout": "statement",
         "image_position": "image-last",
+        "mobile_order": "image-first",
         "eyebrow": "Values",
         "heading": "Keep it close to what matters.",
-        "text": "<p><strong>Respect the ingredient.</strong><br>Let the honey remain the focus.</p><p><strong>Let place matter.</strong><br>Where something begins is part of what makes it interesting.</p><p><strong>Clarity over clutter.</strong><br>Important details should be easy to find and easy to understand.</p><p><strong>Keep the story honest.</strong><br>No inflated claims. No borrowed credibility. Just what we can stand behind.</p>",
+        "text": "<p><strong>Respect the ingredient.</strong><br/>Let the honey remain the focus.</p><p><strong>Let place matter.</strong><br/>Where something begins is part of what makes it interesting.</p><p><strong>Clarity over clutter.</strong><br/>Important details should be easy to find and easy to understand.</p><p><strong>Keep the story honest.</strong><br/>No inflated claims. No borrowed credibility. Just what we can stand behind.</p>",
+        "stat_value": "",
+        "stat_label": "",
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "scheme-6"
       }
     },
@@ -55,32 +71,39 @@
       "settings": {
         "layout": "inset",
         "image_position": "image-first",
+        "mobile_order": "image-first",
         "eyebrow": "Product Philosophy",
         "heading": "Make the honey the hero.",
         "text": "<p>The product should never have to compete with the brand around it.</p><p>We keep the presentation quiet, the information clear and the journey visible — so when you reach the bottle, the honey itself gets the attention.</p>",
+        "stat_value": "",
+        "stat_label": "",
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "scheme-1"
       }
     },
     "cta": {
       "type": "wf-final-cta",
-      "settings": {
-        "eyebrow": "The Journey Continues",
-        "heading": "Meet the honey. Follow the story.",
-        "button_label": "Shop Honey",
-        "button_link": "shopify://products/honey",
-        "color_scheme": "scheme-4"
-      },
       "blocks": {
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "Notes from the world around the hive."
+            "heading": "Notes from the world around the hive.",
+            "text": ""
           }
         }
       },
       "block_order": [
         "newsletter"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The Journey Continues",
+        "heading": "Meet the honey. Follow the story.",
+        "text": "",
+        "button_label": "Shop Honey",
+        "button_link": "shopify://products/honey",
+        "color_scheme": "scheme-4"
+      }
     }
   },
   "order": [
