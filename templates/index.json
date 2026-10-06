@@ -143,6 +143,7 @@
     },
     "wf-quality": {
       "type": "wf-story-panel",
+      "disabled": true,
       "settings": {
         "layout": "statement",
         "image_position": "image-last",
@@ -196,6 +197,7 @@
         "quantity_selector",
         "buy_buttons"
       ],
+      "disabled": true,
       "settings": {
         "product": "honey",
         "color_scheme": "scheme-2",
@@ -229,6 +231,7 @@
     },
     "wf-reviews": {
       "type": "wf-reviews",
+      "disabled": true,
       "settings": {
         "eyebrow": "What People Say",
         "heading": "Real words from real tables",
@@ -237,6 +240,7 @@
     },
     "wf-journal": {
       "type": "wf-journal-feature",
+      "disabled": true,
       "settings": {
         "eyebrow": "The Journal",
         "heading": "Notes from the world around the hive.",
