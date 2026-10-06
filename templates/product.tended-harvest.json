@@ -184,7 +184,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FLAVOUR</strong>",
-            "text": "<p>Floral sweetness with a gentle tangy-salty finish.</p><p></p>",
+            "text": "<p>Delicate floral sweetness with a subtle tangy-saline finish.</p>",
             "link_label": "",
             "link": ""
           }
@@ -193,7 +193,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>TEXTURE</strong>",
-            "text": "<p>Smooth, fluid and naturally runny.</p><p></p>",
+            "text": "<p>Silky, fluid and naturally runny.</p>",
             "link_label": "",
             "link": ""
           }
@@ -202,7 +202,7 @@
           "type": "column",
           "settings": {
             "title": "AROMA",
-            "text": "<p>Fresh blossom with warm, earthy notes.</p><p></p>",
+            "text": "<p>Fresh blossom layered with soft, earthy warmth.</p>",
             "link_label": "",
             "link": ""
           }
