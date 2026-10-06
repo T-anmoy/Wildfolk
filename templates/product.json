@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_9VANDy": {
-          "type": "text",
-          "settings": {
-            "text": "250 g",
-            "text_style": "body"
-          }
-        },
         "text_9jXnNi": {
           "type": "text",
           "settings": {
@@ -34,12 +27,16 @@
           "type": "price",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
+        "text_9VANDy": {
+          "type": "text",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "text": "250 g",
+            "text_style": "body"
           }
+        },
+        "wf_purchase_notes": {
+          "type": "wf_purchase_notes",
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -51,10 +48,6 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
-        },
-        "wf_purchase_notes": {
-          "type": "wf_purchase_notes",
-          "settings": {}
         },
         "wf_trust_row": {
           "type": "wf_trust_row",
@@ -73,10 +66,6 @@
             "link_4": ""
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "wf_label_info": {
           "type": "wf_label_info",
           "settings": {}
@@ -88,26 +77,40 @@
             "link": "/pages/faq"
           }
         },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "text_9VANDy",
         "text_9jXnNi",
         "title",
         "price",
-        "variant_picker",
+        "text_9VANDy",
+        "wf_purchase_notes",
         "quantity_selector",
         "buy_buttons",
-        "wf_purchase_notes",
         "wf_trust_row",
-        "description",
         "wf_label_info",
         "wf_help_link",
+        "variant_picker",
+        "description",
         "share"
       ],
       "settings": {
@@ -128,6 +131,7 @@
     },
     "disclosures": {
       "type": "disclosures",
+      "disabled": true,
       "settings": {
         "heading": "Disclosures",
         "heading_size": "h2",
