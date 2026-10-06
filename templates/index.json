@@ -346,6 +346,7 @@
     },
     "wf-bee-guide": {
       "type": "wf-bee-guide",
+      "disabled": true,
       "settings": {
         "enabled": true
       }
