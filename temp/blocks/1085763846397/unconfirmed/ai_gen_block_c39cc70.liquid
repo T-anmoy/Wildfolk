@@ -1,0 +1,114 @@
+{% doc %}
+  @prompt
+    divider between section honey style
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-honey-divider-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: {{ block.settings.spacing }}px auto;
+    color: {{ block.settings.accent_color }};
+  }
+
+  .ai-honey-divider-{{ ai_gen_id }}__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .ai-honey-divider-{{ ai_gen_id }}__line {
+    height: 1px;
+    flex: 1 1 auto;
+    background-color: {{ block.settings.accent_color }};
+    opacity: 0.55;
+  }
+
+  .ai-honey-divider-{{ ai_gen_id }}__mark {
+    flex: 0 0 auto;
+    display: block;
+    width: {{ block.settings.mark_size }}px;
+    height: {{ block.settings.mark_size }}px;
+  }
+
+  .ai-honey-divider-{{ ai_gen_id }}__mark svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-honey-divider-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-honey-divider-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-honey-divider-{{ ai_gen_id }}__inner" aria-hidden="true">
+    <span class="ai-honey-divider-{{ ai_gen_id }}__line"></span>
+    <span class="ai-honey-divider-{{ ai_gen_id }}__mark">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 3.5 33 8.7v10.4L24 24.3l-9-5.2V8.7l9-5.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m15 24.3 9 5.2 9-5.2M24 29.5v10.4m-9-5.2 9 5.2 9-5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m24 3.5 9 5.2v10.4l-9 5.2-9-5.2V8.7l9-5.2Z" fill="currentColor" fill-opacity=".12"/>
+      </svg>
+    </span>
+    <span class="ai-honey-divider-{{ ai_gen_id }}__line"></span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Honey divider",
+  "settings": [
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Vertical spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mark_size",
+      "label": "Honeycomb size",
+      "min": 24,
+      "max": 56,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Honey color",
+      "default": "#B87824"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Honey divider"
+    }
+  ],
+  "tag": null,
+  "class": "honey-divider-block"
+}
+{% endschema %}
