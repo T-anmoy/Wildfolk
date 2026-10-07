@@ -64,8 +64,8 @@
           "settings": {
             "title": "<strong>WhatsApp</strong>",
             "text": "<p>Best for quick order, delivery and product questions.</p><p>+91 99323 53593</p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "MESSAGE ON WHATSAPP",
+            "link": "https://web.whatsapp.com/send?phone=919932353593&text=Hi%20Wildfolk%2C%20I%27d%20like%20to%20ask%20a%20question."
           }
         },
         "col2": {
@@ -73,8 +73,8 @@
           "settings": {
             "title": "<strong>EMAIL</strong>",
             "text": "<p>For sourcing questions, gifting, partnerships and detailed enquiries.</p><p></p>",
-            "link_label": "official.wildfolk@gmail.com",
-            "link": ""
+            "link_label": "EMAIL WILDFOLK",
+            "link": "mailto:official.wildfolk@gmail.com?subject=Wildfolk%20Enquiry"
           }
         },
         "col3": {
@@ -82,8 +82,8 @@
           "settings": {
             "title": "<strong>BUSINESS ADDRESS</strong>",
             "text": "<p>Nila, Chandkuri<br/>West Medinipur, West Bengal 721467<br/>India</p><p></p>",
-            "link_label": "For official correspondence.",
-            "link": ""
+            "link_label": "OPEN IN MAPS",
+            "link": "https://www.google.com/maps/search/?api=1&query=Nila%2C%20Chandkuri%2C%20West%20Medinipur%2C%20West%20Bengal%20721467%2C%20India"
           }
         }
       },
@@ -115,7 +115,7 @@
         "heading": "<strong>SEND A NOTE</strong>",
         "heading_size": "h1",
         "color_scheme": "scheme-2",
-        "padding_top": 40,
+        "padding_top": 52,
         "padding_bottom": 52
       }
     },
