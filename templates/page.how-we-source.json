@@ -195,7 +195,7 @@
         "statement": "Food should not lose its identity on the way to the shelf.",
         "eyebrow": "NAMED-ORIGIN, ALWAYS",
         "heading": "Place · Season · People · Harvest",
-        "text": "<p>Wildfolk keeps provenance visible — the place, the harvest method and the people behind the product.<br/><br/>Every batch carries a source and a harvest story. Ask us where yours came from.</p>",
+        "text": "<p>Wildfolk keeps provenance visible — the place, the harvest method and the people behind the product.</p><p>Every batch carries a source and a harvest story. Ask us where yours came from.</p><p></p>",
         "color_scheme": "scheme-6"
       }
     },
@@ -205,7 +205,7 @@
       "settings": {
         "eyebrow": "CHOOSE YOUR HARVEST",
         "heading": "Two paths. Two expressions of the mangroves.",
-        "text": "<p>Start with the lighter floral character of Tended Harvest, or explore the deeper, bolder profile of Wildcrafted.</p><p></p>",
+        "text": "<p>Start with the lighter, floral character of Tended Harvest — or explore the deeper, bolder profile of Wildcrafted.</p><p></p>",
         "button_label": "SHOP THE HARVESTS",
         "button_link": "shopify://collections/honey",
         "color_scheme": "scheme-4"
