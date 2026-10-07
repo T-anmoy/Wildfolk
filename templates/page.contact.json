@@ -166,7 +166,7 @@
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 24,
@@ -221,6 +221,58 @@
         "padding_top": 16,
         "padding_bottom": 68
       }
+    },
+    "rich_text_HGfnCK": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_C9Edaq": {
+          "type": "caption",
+          "settings": {
+            "caption": "NAMED-ORIGIN, ALWAYS",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_YEdFBg": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Curious about your jar ? Ask us.</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_C4hQqe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every Wildfolk harvest begins with a place, a season and the people who bring it forward.</p><p>If you want to know more about your batch, its origin or the harvest behind it, get in touch.</p><p></p>"
+          }
+        },
+        "button_BfQfkF": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_C9Edaq",
+        "heading_YEdFBg",
+        "text_C4hQqe",
+        "button_BfQfkF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-6",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -229,6 +281,7 @@
     "main",
     "categories",
     "rich_text_V79cK6",
-    "form"
+    "form",
+    "rich_text_HGfnCK"
   ]
 }
