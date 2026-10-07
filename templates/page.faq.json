@@ -133,7 +133,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How long does delivery take?",
-            "icon": "none",
+            "icon": "stopwatch",
             "row_content": "<p>Orders typically arrive within 7–10 days.</p><p></p>",
             "page": ""
           }
@@ -142,7 +142,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Is shipping free?",
-            "icon": "truck",
+            "icon": "price_tag",
             "row_content": "<p>Yes. Pan-India delivery is free.</p><p></p>",
             "page": ""
           }
@@ -151,7 +151,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Is there a minimum order?",
-            "icon": "none",
+            "icon": "box",
             "row_content": "<p>No. There is no minimum order.</p><p></p>",
             "page": ""
           }
@@ -160,7 +160,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What if my jar arrives damaged?",
-            "icon": "none",
+            "icon": "return",
             "row_content": "<p>If your order arrives damaged, contact us with your order details and photos of the damaged product. We’ll help arrange a replacement in line with our replacement policy.</p><p></p>",
             "page": ""
           }
@@ -169,7 +169,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can I return honey?",
-            "icon": "none",
+            "icon": "return",
             "row_content": "<p>Honey is not returnable. If the product arrives damaged, we can assist with a replacement according to our replacement policy.</p><p></p>",
             "page": ""
           }
@@ -178,17 +178,8 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What if my order is delayed or I need help with delivery?",
-            "icon": "none",
+            "icon": "truck",
             "row_content": "<p>Contact Wildfolk with your order number and we’ll help you check the status of your shipment.</p><h3></h3>",
-            "page": ""
-          }
-        },
-        "q7": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "What is your return or refund policy?",
-            "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: RETURN / REFUND POLICY]</p>",
             "page": ""
           }
         }
@@ -200,8 +191,7 @@
         "q3",
         "q4",
         "q5",
-        "q8",
-        "q7"
+        "q8"
       ],
       "settings": {
         "caption": "ORDERING",
@@ -225,35 +215,53 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Do you offer bulk or corporate gifting?",
-            "icon": "check_mark",
-            "row_content": "",
+            "icon": "box",
+            "row_content": "<p>Yes. Wildfolk accepts bulk and corporate gifting enquiries. Contact us with your requirements and we’ll help plan the order.</p>",
             "page": ""
           }
         },
         "collapsible_row_WPzQRm": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Can I ask where my batch came from?",
+            "icon": "map_pin",
+            "row_content": "<p>Yes. Wildfolk is built around keeping source and harvest information connected to the product. Contact us with the batch details from your jar and we’ll share the available source information.</p><p></p>",
             "page": ""
           }
         },
         "collapsible_row_w4VVT8": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Why does Wildfolk talk so much about origin?",
+            "icon": "leaf",
+            "row_content": "<p>Because where food comes from shapes the product, the people behind it and the story of the harvest. Wildfolk believes provenance should remain visible rather than disappear somewhere along the supply chain.</p><p></p>",
             "page": ""
           }
         },
         "collapsible_row_kKpc84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Does my purchase support the people behind the harvest?",
+            "icon": "heart",
+            "row_content": "<p>Wildfolk works with local beekeepers and rural women’s groups involved in bringing each harvest to the jar. More detailed impact information will be shared as those programmes are formally documented.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_iTKCbp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I ask a sourcing or product question before ordering?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Absolutely. If you want to know more about a harvest, sourcing method or product before ordering, contact Wildfolk and we’ll share the information available to us.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mT7DQi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I contact Wildfolk?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Use our Contact page for order support, sourcing questions, gifting enquiries or anything else you’d like to ask.</p><h3></h3>",
             "page": ""
           }
         }
@@ -262,7 +270,9 @@
         "collapsible_row_qGUdYW",
         "collapsible_row_WPzQRm",
         "collapsible_row_w4VVT8",
-        "collapsible_row_kKpc84"
+        "collapsible_row_kKpc84",
+        "collapsible_row_iTKCbp",
+        "collapsible_row_mT7DQi"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
