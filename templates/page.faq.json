@@ -46,12 +46,30 @@
             "page": ""
           }
         },
+        "collapsible_row_UAeJGy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who is involved in the harvest?",
+            "icon": "check_mark",
+            "row_content": "<p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge within the mangrove landscape.</p><p></p>",
+            "page": ""
+          }
+        },
         "q4": {
           "type": "collapsible_row",
           "settings": {
             "heading": "How is the honey handled after harvest?",
             "icon": "none",
             "row_content": "<p>After harvest, each batch is handled with care before packing. We avoid making processing claims we cannot verify, and we keep the focus on preserving the character of each harvest.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ECEynm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can the colour, flavour or texture vary between batches?",
+            "icon": "check_mark",
+            "row_content": "<p>Yes. Honey is an agricultural product, so natural variation can occur between harvests depending on season, floral sources and landscape conditions.</p>",
             "page": ""
           }
         },
@@ -78,7 +96,9 @@
         "q1",
         "q2",
         "q3",
+        "collapsible_row_UAeJGy",
         "q4",
+        "collapsible_row_ECEynm",
         "q5",
         "q6"
       ],
