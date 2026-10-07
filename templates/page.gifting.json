@@ -57,7 +57,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>BULK REQUIREMENTS</strong>",
-            "text": "<p>For larger quantities of Wildfolk honey for events, communities or organised gifting.</p><p></p>",
+            "text": "<p>For events, communities and larger gifting requirements built around Wildfolk honey.</p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -70,7 +70,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "<strong>Thoughtful gifting, for different occasions.</strong>",
+        "title": "<strong>Thoughtful gifting for different occasions.</strong>",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -136,24 +136,15 @@
         "text_mmJzak": {
           "type": "text",
           "settings": {
-            "text": "<p>Wildfolk keeps the landscape, harvest and people behind the product visible.</p><p>Tended Harvest comes from managed hives along the Sundarbans forest edge. Wildcrafted follows traditional wild-comb honey gathering within the mangrove landscape.</p><p>Each jar is packed by rural women’s groups in West Bengal.<br/><br/>Two harvests. One remarkable place behind both.</p><p></p>",
+            "text": "<p>The best gifts carry something worth sharing — a place, a story and a reason for choosing them.</p><p>Wildfolk’s two mangrove honeys begin in the Sundarbans: Tended Harvest from managed hives along the forest edge, and Wildcrafted from traditional wild-comb honey gathering within the mangrove landscape.</p><p>Each jar is packed by rural women’s groups in West Bengal.</p><p>Two harvests. One remarkable landscape behind both.</p>",
             "text_style": "body"
-          }
-        },
-        "button_FpUJdc": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "caption_tXkXbn",
         "heading_4FdFbT",
-        "text_mmJzak",
-        "button_FpUJdc"
+        "text_mmJzak"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -187,7 +178,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>CHOOSE YOUR HARVEST</strong>",
-            "text": "<p>We’ll help you choose between Tended Harvest, Wildcrafted or a suitable combination.</p><h3></h3>",
+            "text": "<p>Tell us whether you’re considering Tended Harvest, Wildcrafted or a combination of the two.</p><h3></h3>",
             "link_label": "",
             "link": ""
           }
@@ -213,7 +204,7 @@
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "button_label": "Button label",
+        "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
