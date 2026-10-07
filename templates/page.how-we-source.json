@@ -203,11 +203,11 @@
       "type": "wf-final-cta",
       "name": "Wildfolk final CTA",
       "settings": {
-        "eyebrow": "The Journey Ends Here",
-        "heading": "[CLOSING HEADLINE — client copy]",
-        "text": "",
-        "button_label": "Shop Honey",
-        "button_link": "",
+        "eyebrow": "CHOOSE YOUR HARVEST",
+        "heading": "Two paths. Two expressions of the mangroves.",
+        "text": "<p>Start with the lighter floral character of Tended Harvest, or explore the deeper, bolder profile of Wildcrafted.</p><p></p>",
+        "button_label": "SHOP THE HARVESTS",
+        "button_link": "shopify://collections/honey",
         "color_scheme": "scheme-4"
       }
     }
