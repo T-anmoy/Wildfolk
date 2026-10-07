@@ -109,20 +109,53 @@
         "padding_bottom": 48
       }
     },
+    "rich_text_V79cK6": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_Ehk6Th": {
+          "type": "caption",
+          "settings": {
+            "caption": "CONTACT FORM",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_D8Y3Vw": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Need something more specific?</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_yx7g7N": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tell us what you need below. If your message is about an existing order, include your order number.</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_Ehk6Th",
+        "heading_D8Y3Vw",
+        "text_yx7g7N"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 20
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
         "heading": "<strong>SEND A NOTE</strong>",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "color_scheme": "scheme-2",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
-    },
-    "seller-details": {
-      "type": "wf-seller-details",
-      "settings": {
-        "color_scheme": "scheme-1"
+        "padding_top": 16,
+        "padding_bottom": 68
       }
     }
   },
@@ -130,7 +163,7 @@
     "intro",
     "main",
     "categories",
-    "form",
-    "seller-details"
+    "rich_text_V79cK6",
+    "form"
   ]
 }
