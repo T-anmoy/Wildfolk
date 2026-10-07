@@ -16,9 +16,226 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "wf_hero_3zw9z8": {
+      "type": "wf-hero",
+      "name": "Wildfolk hero",
+      "settings": {
+        "priority_load": true,
+        "eyebrow": "WILDFOLK GIFTING",
+        "heading": "Give something with a place behind it.",
+        "text": "<p>Wildfolk offers bulk and corporate gifting built around our two mangrove honey harvests from the Sundarbans.</p><p>For teams, celebrations and thoughtful gestures — start with the harvest that fits the moment, and talk to us about your requirement.</p><p></p>",
+        "button_label": "START A GIFTING ENQUIRY",
+        "button_link": "shopify://pages/contact",
+        "button_label_secondary": "",
+        "button_link_secondary": "",
+        "color_scheme": ""
+      }
+    },
+    "multicolumn_PPHQnw": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_BcxH9G": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>CORPORATE & TEAMS</strong>",
+            "text": "<p>For employee gifting, client gestures and company occasions.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cYRMBg": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>FESTIVE GIFTING</strong>",
+            "text": "<p>For festive moments when you want to give something rooted in origin rather than another generic box.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CUcDt9": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>BULK REQUIREMENTS</strong>",
+            "text": "<p>For larger quantities of Wildfolk honey for events, communities or organised gifting.</p><p></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_BcxH9G",
+        "column_cYRMBg",
+        "column_CUcDt9"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "<strong>Thoughtful gifting, for different occasions.</strong>",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_d4eUgm": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "honey",
+        "products_to_show": 2,
+        "title": "<strong>Choose the harvest.</strong>",
+        "heading_size": "h1",
+        "description": "<p>Two expressions of the Sundarbans, each with its own character.</p><p></p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 2,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_feHMD3": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_4FdFbT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_mmJzak": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FpUJdc": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4FdFbT",
+        "text_mmJzak",
+        "button_FpUJdc"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_MMxFHF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_fPVQ3F": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NrBTMy": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WnaxPW": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_fPVQ3F",
+        "column_NrBTMy",
+        "column_WnaxPW"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "wf_final_cta_xeqXb4": {
+      "type": "wf-final-cta",
+      "name": "Wildfolk final CTA",
+      "settings": {
+        "eyebrow": "The Journey Ends Here",
+        "heading": "[CLOSING HEADLINE — client copy]",
+        "text": "",
+        "button_label": "Shop Honey",
+        "button_link": "",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "wf_hero_3zw9z8",
+    "multicolumn_PPHQnw",
+    "featured_collection_d4eUgm",
+    "image_with_text_feHMD3",
+    "multicolumn_MMxFHF",
+    "wf_final_cta_xeqXb4"
   ]
 }
