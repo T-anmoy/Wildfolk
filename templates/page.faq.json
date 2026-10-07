@@ -23,7 +23,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What is Wildfolk?",
-            "icon": "check_mark",
+            "icon": "leaf",
             "row_content": "<p>Wildfolk is built around keeping food connected to where it comes from — the landscape, the harvest, the people and the journey to your table.</p>",
             "page": ""
           }
@@ -32,7 +32,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Where does the honey come from?",
-            "icon": "check_mark",
+            "icon": "map_pin",
             "row_content": "<p>Wildfolk’s mangrove honeys come from the Sundarbans landscape in West Bengal, India.</p>",
             "page": ""
           }
@@ -41,7 +41,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What’s the difference between Tended Harvest and Wildcrafted?",
-            "icon": "check_mark",
+            "icon": "ruler",
             "row_content": "<p>Tended Harvest comes from managed hives along the forest edge and has a lighter, floral character. Wildcrafted follows traditional wild-comb honey gathering and has a deeper, bolder, smoky-sweet profile.</p><p></p>",
             "page": ""
           }
@@ -50,7 +50,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Who is involved in the harvest?",
-            "icon": "check_mark",
+            "icon": "silhouette",
             "row_content": "<p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge within the mangrove landscape.</p><p></p>",
             "page": ""
           }
@@ -59,7 +59,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How is the honey handled after harvest?",
-            "icon": "check_mark",
+            "icon": "box",
             "row_content": "<p>After harvest, each batch is handled with care before packing. We avoid making processing claims we cannot verify, and we keep the focus on preserving the character of each harvest.</p><p></p>",
             "page": ""
           }
@@ -68,7 +68,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can the colour, flavour or texture vary between batches?",
-            "icon": "check_mark",
+            "icon": "eye",
             "row_content": "<p>Yes. Honey is an agricultural product, so natural variation can occur between harvests depending on season, floral sources and landscape conditions.</p>",
             "page": ""
           }
@@ -77,7 +77,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can honey crystallise over time?",
-            "icon": "check_mark",
+            "icon": "snowflake",
             "row_content": "<p>Yes. Crystallisation is a natural process that can happen to honey over time, especially in cooler conditions. It does not mean the honey has spoiled. If you prefer a more fluid texture, place the closed jar in gently warm water.</p><p></p>",
             "page": ""
           }
@@ -86,7 +86,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How should I store my honey?",
-            "icon": "check_mark",
+            "icon": "bottle",
             "row_content": "<p>Keep the jar tightly closed in a cool, dry place away from direct sunlight. There is no need to refrigerate it.</p><p></p>",
             "page": ""
           }
@@ -124,7 +124,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Where do you deliver?",
-            "icon": "none",
+            "icon": "truck",
             "row_content": "<p>Wildfolk offers free pan-India delivery.</p><p></p>",
             "page": ""
           }
@@ -135,6 +135,15 @@
             "heading": "How long does delivery take?",
             "icon": "none",
             "row_content": "<p>Orders typically arrive within 7–10 days.</p><p></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wHtUgf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is shipping free?",
+            "icon": "truck",
+            "row_content": "<p>Yes. Pan-India delivery is free.</p><p></p>",
             "page": ""
           }
         },
@@ -165,12 +174,12 @@
             "page": ""
           }
         },
-        "q6": {
+        "q8": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What if my order arrives damaged?",
+            "heading": "What if my order is delayed or I need help with delivery?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: DAMAGED-ORDER PROCESS]</p>",
+            "row_content": "<p>Contact Wildfolk with your order number and we’ll help you check the status of your shipment.</p><h3></h3>",
             "page": ""
           }
         },
@@ -182,26 +191,17 @@
             "row_content": "<p>[CLIENT-CONFIRM: RETURN / REFUND POLICY]</p>",
             "page": ""
           }
-        },
-        "q8": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How can I contact Wildfolk?",
-            "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: EMAIL / WHATSAPP / PHONE]</p>",
-            "page": ""
-          }
         }
       },
       "block_order": [
         "q1",
         "q2",
+        "collapsible_row_wHtUgf",
         "q3",
         "q4",
         "q5",
-        "q6",
-        "q7",
-        "q8"
+        "q8",
+        "q7"
       ],
       "settings": {
         "caption": "ORDERING",
@@ -217,11 +217,74 @@
         "padding_top": 48,
         "padding_bottom": 96
       }
+    },
+    "collapsible_content_wxXHeX": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_qGUdYW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer bulk or corporate gifting?",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_WPzQRm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_w4VVT8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_kKpc84": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_qGUdYW",
+        "collapsible_row_WPzQRm",
+        "collapsible_row_w4VVT8",
+        "collapsible_row_kKpc84"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "MORE FROM WILDFOLK",
+        "heading": "<strong>Gifting, sourcing & support</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "product-faq",
-    "order-faq"
+    "order-faq",
+    "collapsible_content_wxXHeX"
   ]
 }
