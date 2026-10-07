@@ -9,43 +9,51 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 88
-      }
-    },
     "intro": {
       "type": "rich-text",
       "blocks": {
+        "caption_ENnzhY": {
+          "type": "caption",
+          "settings": {
+            "caption": "GET IN TOUCH",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_NPGgGk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Questions, orders or something worth talking about?",
+            "heading_size": "h1"
+          }
+        },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Questions about the honey? Need help with an order? Want to work with Wildfolk?</p><p>Send us a note and we'll point you in the right direction.</p>"
+            "text": "<p>Whether you’re curious about a harvest, need help with an order, planning a gifting requirement or want to work with Wildfolk, send us a note. We’ll point you in the right direction.<br/></p>"
           }
         }
       },
       "block_order": [
+        "caption_ENnzhY",
+        "heading_NPGgGk",
         "text"
       ],
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-4",
         "full_width": true,
         "padding_top": 48,
         "padding_bottom": 24
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "categories": {
@@ -55,28 +63,36 @@
           "type": "column",
           "settings": {
             "title": "PRODUCT",
-            "text": "<p>Questions about the honey, origin or product details.</p>"
+            "text": "<p>Questions about the honey, origin or product details.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "col2": {
           "type": "column",
           "settings": {
             "title": "ORDERS",
-            "text": "<p>Help with an existing order or delivery.</p>"
+            "text": "<p>Help with an existing order or delivery.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "col3": {
           "type": "column",
           "settings": {
             "title": "COLLABORATIONS",
-            "text": "<p>Press, editorial, partnerships or brand collaborations.</p>"
+            "text": "<p>Press, editorial, partnerships or brand collaborations.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "col4": {
           "type": "column",
           "settings": {
             "title": "GENERAL",
-            "text": "<p>Something else? We're listening.</p>"
+            "text": "<p>Something else? We're listening.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
@@ -91,14 +107,26 @@
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
-        "columns_desktop": 4,
-        "columns_mobile": "1",
-        "button_label": "",
         "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 24,
         "padding_bottom": 48
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 88
       }
     },
     "seller-details": {
@@ -109,8 +137,8 @@
     }
   },
   "order": [
-    "main",
     "intro",
+    "main",
     "categories",
     "form",
     "seller-details"
