@@ -118,17 +118,25 @@
     "image_with_text_feHMD3": {
       "type": "image-with-text",
       "blocks": {
+        "caption_tXkXbn": {
+          "type": "caption",
+          "settings": {
+            "caption": "WHY WILDFOLK",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
         "heading_4FdFbT": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "<strong>A gift should have more than a label.</strong>",
             "heading_size": "h1"
           }
         },
         "text_mmJzak": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Wildfolk keeps the landscape, harvest and people behind the product visible.</p><p>Tended Harvest comes from managed hives along the Sundarbans forest edge. Wildcrafted follows traditional wild-comb honey gathering within the mangrove landscape.</p><p>Each jar is packed by rural women’s groups in West Bengal.<br/><br/>Two harvests. One remarkable place behind both.</p><p></p>",
             "text_style": "body"
           }
         },
@@ -142,6 +150,7 @@
         }
       },
       "block_order": [
+        "caption_tXkXbn",
         "heading_4FdFbT",
         "text_mmJzak",
         "button_FpUJdc"
@@ -151,7 +160,7 @@
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
-        "image_behavior": "none",
+        "image_behavior": "zoom-in",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -168,8 +177,8 @@
         "column_fPVQ3F": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "<strong>TELL US THE OCCASION</strong>",
+            "text": "<p>Share the occasion, approximate quantity and when you need the order.</p><h3></h3>",
             "link_label": "",
             "link": ""
           }
@@ -177,8 +186,8 @@
         "column_NrBTMy": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "<strong>CHOOSE YOUR HARVEST</strong>",
+            "text": "<p>We’ll help you choose between Tended Harvest, Wildcrafted or a suitable combination.</p><h3></h3>",
             "link_label": "",
             "link": ""
           }
@@ -186,8 +195,8 @@
         "column_WnaxPW": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "<strong>PLAN THE ORDER</strong>",
+            "text": "<p>We’ll discuss the available options and next steps for your gifting requirement.</p><p></p>",
             "link_label": "",
             "link": ""
           }
@@ -200,7 +209,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "<strong>Start with what you need.</strong>",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -209,7 +218,7 @@
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -220,12 +229,12 @@
       "type": "wf-final-cta",
       "name": "Wildfolk final CTA",
       "settings": {
-        "eyebrow": "The Journey Ends Here",
-        "heading": "[CLOSING HEADLINE — client copy]",
-        "text": "",
-        "button_label": "Shop Honey",
-        "button_link": "",
-        "color_scheme": ""
+        "eyebrow": "GIFTING ENQUIRIES",
+        "heading": "Tell us what you have in mind.",
+        "text": "<p>Share your occasion, approximate quantity and timeline. We’ll help you take it from there.</p><p></p>",
+        "button_label": "START A GIFTING ENQUIRY",
+        "button_link": "shopify://pages/contact",
+        "color_scheme": "scheme-4"
       }
     }
   },
