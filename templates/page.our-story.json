@@ -53,7 +53,7 @@
     "values": {
       "type": "wf-story-panel",
       "settings": {
-        "layout": "statement",
+        "layout": "split",
         "image_position": "image-last",
         "mobile_order": "image-first",
         "eyebrow": "Values",
