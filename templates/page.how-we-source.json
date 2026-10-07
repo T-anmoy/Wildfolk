@@ -94,29 +94,36 @@
         "step_XEFJMF": {
           "type": "step",
           "settings": {
-            "title": "Harvest",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "title": "Forage",
+            "text": "<p>Bees move through the mangrove landscape, gathering nectar from the season’s flowering flora.</p><p></p>"
           }
         },
         "step_UMRgtT": {
           "type": "step",
           "settings": {
-            "title": "Process",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "title": "Harvest",
+            "text": "<p>Each honey follows its own path — tended hives along the forest edge or traditional wild-comb gathering within the mangrove landscape.</p><p></p>"
           }
         },
         "step_C8X8xR": {
           "type": "step",
           "settings": {
-            "title": "Bottle",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "title": "Handle",
+            "text": "<p>After harvest, the honey is carefully handled and prepared for packing while preserving the character of the harvest.</p><p></p>"
           }
         },
         "step_Xgfzra": {
           "type": "step",
           "settings": {
-            "title": "Table",
-            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+            "title": "Pack",
+            "text": "<p>Each jar is carefully packed by rural women’s groups in West Bengal.</p><p></p>"
+          }
+        },
+        "step_Yg8qfF": {
+          "type": "step",
+          "settings": {
+            "title": "Deliver",
+            "text": "<p>From source to doorstep, Wildfolk keeps the journey simple, traceable and close to its origin.</p>"
           }
         }
       },
@@ -124,12 +131,13 @@
         "step_XEFJMF",
         "step_UMRgtT",
         "step_C8X8xR",
-        "step_Xgfzra"
+        "step_Xgfzra",
+        "step_Yg8qfF"
       ],
       "name": "Wildfolk process",
       "settings": {
-        "eyebrow": "From Hive to Bottle",
-        "heading": "",
+        "eyebrow": "FROM BLOOM TO JAR",
+        "heading": "A journey worth keeping visible.",
         "color_scheme": ""
       }
     }
