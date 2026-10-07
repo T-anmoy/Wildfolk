@@ -227,6 +227,46 @@
         "button_link": "shopify://pages/contact",
         "color_scheme": "scheme-4"
       }
+    },
+    "rich_text_QbfUrY": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_V4XAtG": {
+          "type": "caption",
+          "settings": {
+            "caption": "NAMED-ORIGIN, ALWAYS",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_qwHWLi": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>A gift with somewhere to point back to.</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_j4VHxn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every Wildfolk harvest begins with a place, a season and the people who bring it forward.</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_V4XAtG",
+        "heading_qwHWLi",
+        "text_j4VHxn"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -236,6 +276,7 @@
     "featured_collection_d4eUgm",
     "image_with_text_feHMD3",
     "multicolumn_MMxFHF",
-    "wf_final_cta_xeqXb4"
+    "wf_final_cta_xeqXb4",
+    "rich_text_QbfUrY"
   ]
 }
