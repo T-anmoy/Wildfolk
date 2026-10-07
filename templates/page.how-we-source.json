@@ -165,21 +165,12 @@
             "text": "<p>Every harvest depends on people, knowledge and practices shaped around the landscape.</p><p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge.</p><p>After harvest, each jar is carefully packed by rural women’s groups in West Bengal.</p><p>Wildfolk exists to keep those people visible rather than allowing the product to become anonymous somewhere along the supply chain.</p>",
             "text_style": "body"
           }
-        },
-        "button_68NV87": {
-          "type": "button",
-          "settings": {
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
         "caption_G7emmV",
         "heading_qfzzza",
-        "text_XzbKRN",
-        "button_68NV87"
+        "text_XzbKRN"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -188,11 +179,11 @@
         "layout": "image_first",
         "image_behavior": "zoom-in",
         "content_layout": "no-overlap",
-        "desktop_content_position": "top",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-4",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -205,7 +196,19 @@
         "eyebrow": "NAMED-ORIGIN, ALWAYS",
         "heading": "Place · Season · People · Harvest",
         "text": "<p>Wildfolk keeps provenance visible — the place, the harvest method and the people behind the product.<br/><br/>Every batch carries a source and a harvest story. Ask us where yours came from.</p>",
-        "color_scheme": ""
+        "color_scheme": "scheme-6"
+      }
+    },
+    "wf_final_cta_MCzJQf": {
+      "type": "wf-final-cta",
+      "name": "Wildfolk final CTA",
+      "settings": {
+        "eyebrow": "The Journey Ends Here",
+        "heading": "[CLOSING HEADLINE — client copy]",
+        "text": "",
+        "button_label": "Shop Honey",
+        "button_link": "",
+        "color_scheme": "scheme-4"
       }
     }
   },
@@ -216,6 +219,7 @@
     "multicolumn_qtWNjY",
     "wf_process_czFBXC",
     "image_with_text_4Gy9an",
-    "wf_hive_QyN4HU"
+    "wf_hive_QyN4HU",
+    "wf_final_cta_MCzJQf"
   ]
 }
