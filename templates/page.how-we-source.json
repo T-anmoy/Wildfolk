@@ -16,11 +16,23 @@
         "priority_load": true,
         "eyebrow": "HOW WE SOURCE",
         "heading": "Two harvests. One landscape. Different ways of reaching the jar.",
-        "text": "<p>Wildfolk’s mangrove honeys begin in the Sundarbans, but each follows a different path — one through tended hives along the forest edge, the other through traditional wild-comb honey gathering within the mangrove landscape.</p><p>Different methods. Different character. One commitment to keeping origin visible.</p><p></p>",
+        "text": "<p>Wildfolk’s mangrove honeys begin in the Sundarbans, but each follows a different path — one through tended hives along the forest edge, the other through traditional wild-comb honey gathering within the mangrove landscape.</p><p></p>",
         "button_label": "",
         "button_link": "",
         "button_label_secondary": "",
         "button_link_secondary": "",
+        "color_scheme": ""
+      }
+    },
+    "wf_origin_AMwJj7": {
+      "type": "wf-origin",
+      "name": "Wildfolk origin",
+      "settings": {
+        "eyebrow": "THE SOURCE LANDSCAPE",
+        "heading": "It starts with the Sundarbans.",
+        "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and seasonal flowering flora.</p><p></p>",
+        "origin_name": "Sundarbans Mangrove Landscape",
+        "location_label": "West Bengal, India",
         "color_scheme": ""
       }
     },
@@ -31,10 +43,112 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_qtWNjY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3P3H6Y": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BXPjFy": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YXXB8k": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3P3H6Y",
+        "column_BXPjFy",
+        "column_YXXB8k"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "wf_process_czFBXC": {
+      "type": "wf-process",
+      "blocks": {
+        "step_XEFJMF": {
+          "type": "step",
+          "settings": {
+            "title": "Harvest",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+          }
+        },
+        "step_UMRgtT": {
+          "type": "step",
+          "settings": {
+            "title": "Process",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+          }
+        },
+        "step_C8X8xR": {
+          "type": "step",
+          "settings": {
+            "title": "Bottle",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+          }
+        },
+        "step_Xgfzra": {
+          "type": "step",
+          "settings": {
+            "title": "Table",
+            "text": "<p>[STEP DESCRIPTION — client-confirmed process detail]</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_XEFJMF",
+        "step_UMRgtT",
+        "step_C8X8xR",
+        "step_Xgfzra"
+      ],
+      "name": "Wildfolk process",
+      "settings": {
+        "eyebrow": "From Hive to Bottle",
+        "heading": "",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "wf_hero_LhXHCa",
-    "main"
+    "wf_origin_AMwJj7",
+    "main",
+    "multicolumn_qtWNjY",
+    "wf_process_czFBXC"
   ]
 }
