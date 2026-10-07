@@ -103,9 +103,9 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Where do you ship?",
+            "heading": "Where do you deliver?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: SHIPPING REGIONS]</p>",
+            "row_content": "<p>Wildfolk offers free pan-India delivery.</p><p></p>",
             "page": ""
           }
         },
@@ -114,34 +114,34 @@
           "settings": {
             "heading": "How long does delivery take?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: DELIVERY WINDOW]</p>",
+            "row_content": "<p>Orders typically arrive within 7–10 days.</p><p></p>",
             "page": ""
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What payment methods do you accept?",
+            "heading": "Is there a minimum order?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: PAYMENT METHODS]</p>",
+            "row_content": "<p>No. There is no minimum order.</p><p></p>",
             "page": ""
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Do you offer Cash on Delivery?",
+            "heading": "What if my jar arrives damaged?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: COD AVAILABILITY]</p>",
+            "row_content": "<p>If your order arrives damaged, contact us with your order details and photos of the damaged product. We’ll help arrange a replacement in line with our replacement policy.</p><p></p>",
             "page": ""
           }
         },
         "q5": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I change or cancel my order?",
+            "heading": "Can I return honey?",
             "icon": "none",
-            "row_content": "<p>[CLIENT-CONFIRM: CANCELLATION POLICY]</p>",
+            "row_content": "<p>Honey is not returnable. If the product arrives damaged, we can assist with a replacement according to our replacement policy.</p><p></p>",
             "page": ""
           }
         },
@@ -184,8 +184,8 @@
         "q8"
       ],
       "settings": {
-        "caption": "Ordering",
-        "heading": "Shipping, payment &amp; returns",
+        "caption": "ORDERING",
+        "heading": "<strong>Shipping & orders</strong>",
         "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
