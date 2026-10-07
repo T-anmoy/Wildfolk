@@ -140,6 +140,62 @@
         "heading": "A journey worth keeping visible.",
         "color_scheme": "scheme-6"
       }
+    },
+    "image_with_text_4Gy9an": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_G7emmV": {
+          "type": "caption",
+          "settings": {
+            "caption": "PEOPLE BEHIND THE HARVEST",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_qfzzza": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>A landscape is only part of the story.</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_XzbKRN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every harvest depends on people, knowledge and practices shaped around the landscape.</p><p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge.</p><p>After harvest, each jar is carefully packed by rural women’s groups in West Bengal.</p><p>Wildfolk exists to keep those people visible rather than allowing the product to become anonymous somewhere along the supply chain.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_68NV87": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_G7emmV",
+        "heading_qfzzza",
+        "text_XzbKRN",
+        "button_68NV87"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "zoom-in",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -147,6 +203,7 @@
     "wf_origin_AMwJj7",
     "main",
     "multicolumn_qtWNjY",
-    "wf_process_czFBXC"
+    "wf_process_czFBXC",
+    "image_with_text_4Gy9an"
   ]
 }
