@@ -16,7 +16,7 @@
         "priority_load": true,
         "eyebrow": "HOW WE SOURCE",
         "heading": "Two harvests. One landscape. Different ways of reaching the jar.",
-        "text": "<p>Wildfolk’s mangrove honeys begin in the Sundarbans, but each follows a different path — one through tended hives along the forest edge, the other through traditional wild-comb honey gathering within the mangrove landscape.</p><p></p>",
+        "text": "<p>Wildfolk’s mangrove honeys begin in the Sundarbans, but each follows a different path — one through tended hives along the forest edge, the other through traditional wild-comb honey gathering within the mangrove landscape.</p><p>Different methods. Different character. One commitment to keeping origin visible.</p><p></p>",
         "button_label": "",
         "button_link": "",
         "button_label_secondary": "",
@@ -30,7 +30,7 @@
       "settings": {
         "eyebrow": "THE SOURCE LANDSCAPE",
         "heading": "It starts with the Sundarbans.",
-        "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and seasonal flowering flora.</p><p></p>",
+        "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and seasonal flowering flora.</p><p>For Wildfolk, origin is not background information. It shapes how each harvest is gathered and the character carried forward in every jar.</p><p></p>",
         "origin_name": "Sundarbans Mangrove Landscape",
         "location_label": "West Bengal, India",
         "color_scheme": ""
@@ -60,7 +60,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>Wildcrafted</strong>",
-            "text": "<p>Wild comb. Traditional knowledge.</p><p>Traditional Mouley honey hunters gather honey from wild combs within the Sundarbans during the harvest season.</p><p>Bold · Smoky-sweet · Full-bodied</p>",
+            "text": "<p>Wild comb. Traditional knowledge.</p><p>Traditional Mouley honey hunters gather honey from wild combs across the Sundarbans during the harvest season.</p><p>Bold · Smoky-sweet · Full-bodied</p>",
             "link_label": "EXPLORE WILDCRAFTED",
             "link": "shopify://products/mangrove-honey-wildcrafted"
           }
@@ -162,7 +162,7 @@
         "text_XzbKRN": {
           "type": "text",
           "settings": {
-            "text": "<p>Every harvest depends on people, knowledge and practices shaped around the landscape.</p><p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge.</p><p>After harvest, each jar is carefully packed by rural women’s groups in West Bengal.</p><p>Wildfolk exists to keep those people visible rather than allowing the product to become anonymous somewhere along the supply chain.</p>",
+            "text": "<p>Every harvest depends on people, knowledge and practices shaped around the landscape.</p><p>Tended Harvest involves local beekeepers caring for managed hives along the forest edge. Wildcrafted draws on traditional Mouley honey-hunting knowledge.</p><p>After harvest, each jar is packed by rural women’s groups in West Bengal. Keeping those people visible is part of keeping the product connected to its origin.</p>",
             "text_style": "body"
           }
         }
