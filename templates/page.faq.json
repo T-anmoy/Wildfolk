@@ -23,7 +23,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What is Wildfolk?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>Wildfolk is built around keeping food connected to where it comes from — the landscape, the harvest, the people and the journey to your table.</p>",
             "page": ""
           }
@@ -32,7 +32,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Where does the honey come from?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>Wildfolk’s mangrove honeys come from the Sundarbans landscape in West Bengal, India.</p>",
             "page": ""
           }
@@ -41,7 +41,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What’s the difference between Tended Harvest and Wildcrafted?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>Tended Harvest comes from managed hives along the forest edge and has a lighter, floral character. Wildcrafted follows traditional wild-comb honey gathering and has a deeper, bolder, smoky-sweet profile.</p><p></p>",
             "page": ""
           }
@@ -59,7 +59,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How is the honey handled after harvest?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>After harvest, each batch is handled with care before packing. We avoid making processing claims we cannot verify, and we keep the focus on preserving the character of each harvest.</p><p></p>",
             "page": ""
           }
@@ -77,7 +77,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can honey crystallise over time?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>Yes. Crystallisation is a natural process that can happen to honey over time, especially in cooler conditions. It does not mean the honey has spoiled. If you prefer a more fluid texture, place the closed jar in gently warm water.</p><p></p>",
             "page": ""
           }
@@ -86,7 +86,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How should I store my honey?",
-            "icon": "none",
+            "icon": "check_mark",
             "row_content": "<p>Keep the jar tightly closed in a cool, dry place away from direct sunlight. There is no need to refrigerate it.</p><p></p>",
             "page": ""
           }
