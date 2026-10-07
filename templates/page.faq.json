@@ -23,48 +23,54 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What is Wildfolk?",
-            "row_content": "<p>Wildfolk is built around the journey behind honey — from the place where it begins to the table where it eventually arrives.</p>",
-            "icon": "none"
+            "icon": "none",
+            "row_content": "<p>Wildfolk is built around keeping food connected to where it comes from — the landscape, the harvest, the people and the journey to your table.</p>",
+            "page": ""
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Where does the honey come from?",
-            "row_content": "<p>The origin of the honey is shown with the product information and on the product packaging.</p><p>[CLIENT-CONFIRM: HONEY ORIGIN]</p>",
-            "icon": "none"
+            "icon": "none",
+            "row_content": "<p>Wildfolk’s mangrove honeys come from the Sundarbans landscape in West Bengal, India.</p>",
+            "page": ""
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What type of honey is this?",
-            "row_content": "<p>[CLIENT-CONFIRM: HONEY TYPE / FLORAL SOURCE]</p>",
-            "icon": "none"
+            "heading": "What’s the difference between Tended Harvest and Wildcrafted?",
+            "icon": "none",
+            "row_content": "<p>Tended Harvest comes from managed hives along the forest edge and has a lighter, floral character. Wildcrafted follows traditional wild-comb honey gathering and has a deeper, bolder, smoky-sweet profile.</p><p></p>",
+            "page": ""
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How is the honey processed?",
-            "row_content": "<p>[CLIENT-CONFIRM: PROCESS]</p>",
-            "icon": "none"
+            "heading": "How is the honey handled after harvest?",
+            "icon": "none",
+            "row_content": "<p>After harvest, each batch is handled with care before packing. We avoid making processing claims we cannot verify, and we keep the focus on preserving the character of each harvest.</p><p></p>",
+            "page": ""
           }
         },
         "q5": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can honey crystallize?",
-            "row_content": "<p>Honey can naturally change in texture over time, including crystallizing. This does not automatically mean that the honey has gone bad.</p><p>[CLIENT-CONFIRM: PRODUCT-SPECIFIC GUIDANCE IF NEEDED]</p>",
-            "icon": "none"
+            "heading": "Can honey crystallise over time?",
+            "icon": "none",
+            "row_content": "<p>Yes. Crystallisation is a natural process that can happen to honey over time, especially in cooler conditions. It does not mean the honey has spoiled. If you prefer a more fluid texture, place the closed jar in gently warm water.</p><p></p>",
+            "page": ""
           }
         },
         "q6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I store it?",
-            "row_content": "<p>Keep the jar properly closed and store it in a cool, dry place away from direct heat and sunlight. Follow any storage guidance supplied with the product.</p>",
-            "icon": "none"
+            "heading": "How should I store my honey?",
+            "icon": "none",
+            "row_content": "<p>Keep the jar tightly closed in a cool, dry place away from direct sunlight. There is no need to refrigerate it.</p><p></p>",
+            "page": ""
           }
         }
       },
@@ -78,11 +84,12 @@
       ],
       "settings": {
         "caption": "The Honey",
-        "heading": "Product &amp; origin",
+        "heading": "<strong>Product & origin</strong>",
+        "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
-        "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
         "open_first_collapsible_row": true,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
@@ -97,64 +104,72 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Where do you ship?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: SHIPPING REGIONS]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
             "heading": "How long does delivery take?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: DELIVERY WINDOW]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
             "heading": "What payment methods do you accept?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: PAYMENT METHODS]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Do you offer Cash on Delivery?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: COD AVAILABILITY]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q5": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Can I change or cancel my order?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: CANCELLATION POLICY]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q6": {
           "type": "collapsible_row",
           "settings": {
             "heading": "What if my order arrives damaged?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: DAMAGED-ORDER PROCESS]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q7": {
           "type": "collapsible_row",
           "settings": {
             "heading": "What is your return or refund policy?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: RETURN / REFUND POLICY]</p>",
-            "icon": "none"
+            "page": ""
           }
         },
         "q8": {
           "type": "collapsible_row",
           "settings": {
             "heading": "How can I contact Wildfolk?",
+            "icon": "none",
             "row_content": "<p>[CLIENT-CONFIRM: EMAIL / WHATSAPP / PHONE]</p>",
-            "icon": "none"
+            "page": ""
           }
         }
       },
@@ -171,10 +186,11 @@
       "settings": {
         "caption": "Ordering",
         "heading": "Shipping, payment &amp; returns",
+        "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
-        "color_scheme": "scheme-2",
         "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
