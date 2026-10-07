@@ -20,7 +20,7 @@
             "desktop_width_percent": 100,
             "spacing": 20,
             "mark_size": 36,
-            "accent_color": "#B87824"
+            "accent_color": "#b87824"
           },
           "blocks": {}
         }
@@ -91,7 +91,7 @@
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": false,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
