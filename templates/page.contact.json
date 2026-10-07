@@ -48,6 +48,70 @@
         "padding_bottom": 48
       }
     },
+    "multicolumn_HQMkhK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VrjBgc": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>PRODUCT & SOURCING</strong>",
+            "text": "<p>Questions about a harvest, its origin, sourcing method or product details.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RYy9HR": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>ORDERS & DELIVERY</strong>",
+            "text": "<p>Help with an existing order, delivery or a product that arrived damaged.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RV99NL": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>GIFTING & BULK</strong>",
+            "text": "<p>Bulk requirements, corporate gifting and festive gifting enquiries.</p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XgHwEU": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>PARTNERSHIPS & PRESS</strong>",
+            "text": "<p>Editorial, partnerships, collaborations and brand enquiries.</p><p></p><h3></h3>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VrjBgc",
+        "column_RYy9HR",
+        "column_RV99NL",
+        "column_XgHwEU"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "<strong>How can we help?</strong>",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -93,7 +157,7 @@
         "col3"
       ],
       "settings": {
-        "title": "",
+        "title": "<strong>Choose how to reach us.</strong>",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -161,6 +225,7 @@
   },
   "order": [
     "intro",
+    "multicolumn_HQMkhK",
     "main",
     "categories",
     "rich_text_V79cK6",
