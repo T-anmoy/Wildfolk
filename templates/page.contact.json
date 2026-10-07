@@ -81,17 +81,8 @@
           "type": "column",
           "settings": {
             "title": "<strong>BUSINESS ADDRESS</strong>",
-            "text": "<p>Festive gifting, corporate orders or larger requirements.<br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "col4": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>PARTNERSHIPS & PRESS</strong>",
-            "text": "<p>Editorial, partnerships, collaborations or brand enquiries.</p>",
-            "link_label": "",
+            "text": "<p>Nila, Chandkuri<br/>West Medinipur, West Bengal 721467<br/>India</p><p></p>",
+            "link_label": "For official correspondence.",
             "link": ""
           }
         }
@@ -99,8 +90,7 @@
       "block_order": [
         "col1",
         "col2",
-        "col3",
-        "col4"
+        "col3"
       ],
       "settings": {
         "title": "",
@@ -109,7 +99,7 @@
         "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
         "color_scheme": "scheme-1",
@@ -122,11 +112,11 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "SEND A NOTE",
+        "heading": "<strong>SEND A NOTE</strong>",
         "heading_size": "h1",
         "color_scheme": "scheme-2",
-        "padding_top": 0,
-        "padding_bottom": 88
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "seller-details": {
