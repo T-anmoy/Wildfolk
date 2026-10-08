@@ -200,3 +200,202 @@ cart-items .cart__empty-text {
     min-height: 4.4rem;
   }
 }
+/* =========================================================
+   WILDFOLK CART — SUMMARY / CHECKOUT
+   ========================================================= */
+
+#main-cart-footer {
+  --wf-cart-rule: rgba(var(--color-foreground), 0.14);
+  --wf-cart-muted: rgba(var(--color-foreground), 0.62);
+}
+
+#main-cart-footer .page-width {
+  max-width: 124rem;
+}
+
+#main-cart-footer .cart__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(3rem, 6vw, 8rem);
+  padding-top: 3.2rem;
+  border-top: 0;
+}
+
+#main-cart-footer .cart__note {
+  width: min(100%, 46rem);
+}
+
+#main-cart-footer .cart__blocks {
+  width: min(100%, 46rem);
+  margin-left: auto;
+}
+
+
+/* Delivery */
+
+#main-cart-footer .wf-cart-delivery {
+  margin: 0 0 2.2rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--wf-cart-rule);
+  border-bottom: 1px solid var(--wf-cart-rule);
+}
+
+#main-cart-footer .wf-cart-delivery__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#main-cart-footer .wf-cart-delivery__text {
+  margin: 0.45rem 0 0;
+  color: var(--wf-cart-muted);
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+
+/* Gift wrap */
+
+#main-cart-footer .wf-gift-wrap {
+  display: block;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--wf-cart-rule);
+}
+
+#main-cart-footer .wf-gift-wrap__label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+
+/* Discounts */
+
+#main-cart-footer .discounts {
+  margin-bottom: 1.6rem;
+}
+
+
+/* Total */
+
+#main-cart-footer .totals {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 0;
+}
+
+#main-cart-footer .totals__total {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+#main-cart-footer .totals__total-value {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.4rem;
+  line-height: 1.15;
+}
+
+
+/* Tax / shipping policy */
+
+#main-cart-footer .wf-cart-summary__tax {
+  display: block;
+  margin: 0.9rem 0 0;
+  color: var(--wf-cart-muted);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+#main-cart-footer .wf-cart-summary__tax a {
+  color: inherit;
+  margin-left: 0.35rem;
+  text-underline-offset: 0.3rem;
+}
+
+
+/* Checkout */
+
+#main-cart-footer .cart__ctas {
+  margin-top: 2rem;
+}
+
+#main-cart-footer .cart__checkout-button {
+  width: 100%;
+  min-height: 5.4rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#main-cart-footer .cart__dynamic-checkout-buttons {
+  margin-top: 1rem;
+}
+
+
+/* Returns */
+
+#main-cart-footer .wf-returns-line {
+  margin: 1.5rem 0 0;
+  color: var(--wf-cart-muted);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+#main-cart-footer .wf-returns-line__link {
+  color: inherit;
+  margin-left: 0.25rem;
+  text-underline-offset: 0.3rem;
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 749px) {
+  #main-cart-footer .page-width {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #main-cart-footer .cart__footer {
+    display: block;
+    padding-top: 2.4rem;
+  }
+
+  #main-cart-footer .cart__blocks {
+    width: 100%;
+    max-width: none;
+  }
+
+  #main-cart-footer .wf-cart-delivery {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  #main-cart-footer .totals__total-value {
+    font-size: 2.1rem;
+  }
+
+  #main-cart-footer .cart__checkout-button {
+    min-height: 5.2rem;
+  }
+
+  #main-cart-footer .wf-returns-line {
+    margin-top: 1.25rem;
+  }
+}
