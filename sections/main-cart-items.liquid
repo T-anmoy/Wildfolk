@@ -120,6 +120,16 @@
                           modal_id: cart_disclosure_modal_id
                         -%}
                       </div>
+                      {%- liquid
+                        assign wf_cart_net_weight_g = item.variant.metafields.wildfolk.net_weight_g.value
+                        if wf_cart_net_weight_g == blank
+                        assign wf_cart_net_weight_g = item.product.metafields.wildfolk.net_weight_g.value
+                        endif
+                        -%}
+
+{%- if wf_cart_net_weight_g != blank -%}
+  <p class="wf-cart-item__weight">{{ wf_cart_net_weight_g }} g</p>
+{%- endif -%}
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
