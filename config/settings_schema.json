@@ -1522,6 +1522,24 @@
         "info": "Must match your free-shipping rate in Settings → Shipping. Blank hides the Filling Jar."
       },
       {
+  "type": "text",
+  "id": "wf_cart_delivery_title",
+  "label": "Cart delivery heading",
+  "default": "Free pan-India delivery"
+},
+{
+  "type": "text",
+  "id": "wf_cart_delivery_text",
+  "label": "Cart delivery text",
+  "default": "Typically delivered within 7–10 days."
+},
+{
+  "type": "text",
+  "id": "wf_cart_checkout_label",
+  "label": "Cart checkout button label",
+  "default": "Proceed to checkout"
+},
+      {
         "type": "text",
         "id": "wf_multi_jar_offer_text",
         "label": "Multi-jar offer text",
