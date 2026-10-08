@@ -45,33 +45,23 @@
           "settings": {
             "title": "<strong>01 / TENDED HARVEST</strong>",
             "text": "<h4>For the lighter palate.</h4><p>Floral sweetness, a gentle tangy-saline finish and a silky, fluid texture.</p><p>Managed hives · Forest-edge forage</p>",
-            "link_label": "Explore Tended Harvest →",
+            "link_label": "Explore Tended Harvest",
             "link": "shopify://products/honey"
           }
         },
         "column_XhBbjf": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_6zkRXG": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "title": "<strong>02 / WILDCRAFTED</strong>",
+            "text": "<h4>For the bolder palate.</h4><p>A deeper, smoky-sweet character with a subtle herbal finish and fuller body.</p><p>Wild comb · Traditional knowledge</p>",
+            "link_label": "Explore Wildcrafted",
+            "link": "shopify://products/mangrove-honey-wildcrafted"
           }
         }
       },
       "block_order": [
         "column_d3B8eJ",
-        "column_XhBbjf",
-        "column_6zkRXG"
+        "column_XhBbjf"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
