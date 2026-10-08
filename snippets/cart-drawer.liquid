@@ -370,23 +370,24 @@
                                 </quantity-input>
                               </div>
                               <cart-remove-button
-                                id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                                data-index="{{ item.index | plus: 1 }}"
-                              >
-                                <button
-                                  type="button"
-                                  class="button button--tertiary cart-remove-button"
-                                  aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                  data-variant-id="{{ item.variant.id }}"
-                                  {% if item.instructions and item.instructions.can_remove == false %}
-                                    class="hidden"
-                                  {% endif %}
-                                >
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-remove.svg' | inline_asset_content -}}
-                                  </span>
-                                </button>
-                              </cart-remove-button>
+  id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+  data-index="{{ item.index | plus: 1 }}"
+>
+  <button
+    type="button"
+    class="button button--tertiary cart-remove-button{% if item.instructions and item.instructions.can_remove == false %} hidden{% endif %}"
+    aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+    data-variant-id="{{ item.variant.id }}"
+  >
+    <span class="svg-wrapper">
+      {{- 'icon-remove.svg' | inline_asset_content -}}
+    </span>
+
+    <span class="wf-cart-drawer__remove-label">
+      Remove
+    </span>
+  </button>
+</cart-remove-button>
                             </div>
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
@@ -572,7 +573,7 @@
               disabled
             {% endif %}
           >
-            {{ 'sections.cart.checkout' | t }}
+            {{ settings.wf_cart_checkout_label | default: 'Proceed to checkout' | escape }}
           </button>
         </div>
         {%- render 'wf-cart-extras', position: 'end', context: 'drawer' -%}
