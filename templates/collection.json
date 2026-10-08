@@ -11,6 +11,10 @@
   "sections": {
     "main-collection-banner": {
       "type": "main-collection-banner",
+      "custom_css": [
+        ".collection-hero__description {display: block !important; columns: 1 !important; max-width: 680px; font-style: normal !important; text-align: left; line-height: 1.65;}",
+        ".collection-hero__description > * {display: block !important; width: 100% !important; float: none !important; font-style: normal !important; border: 0 !important; padding: 0 !important; margin: 0 0 12px !important;}"
+      ],
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
