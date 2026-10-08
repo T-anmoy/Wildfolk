@@ -88,7 +88,7 @@
                   {% endif %}
                   form="cart"
                 >
-                  {{ 'sections.cart.checkout' | t }}
+                  {{ settings.wf_cart_checkout_label | default: 'Proceed to checkout' | escape }}
                 </button>
               </div>
 
