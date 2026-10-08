@@ -1512,16 +1512,16 @@
         "info": "Must match Settings → Taxes and duties. Adds “Inclusive of all taxes” to the label information."
       },
       {
-        "type": "header",
-        "content": "Cart"
-      },
-      {
-        "type": "number",
-        "id": "wf_free_shipping_threshold",
-        "label": "Free-shipping threshold (₹)",
-        "info": "Must match your free-shipping rate in Settings → Shipping. Blank hides the Filling Jar."
-      },
-      {
+  "type": "header",
+  "content": "Cart"
+},
+{
+  "type": "number",
+  "id": "wf_free_shipping_threshold",
+  "label": "Free-shipping threshold (₹)",
+  "info": "Must match your free-shipping rate in Settings → Shipping. Blank hides the Filling Jar."
+},
+{
   "type": "text",
   "id": "wf_cart_delivery_title",
   "label": "Cart delivery heading",
@@ -1539,12 +1539,12 @@
   "label": "Cart checkout button label",
   "default": "Proceed to checkout"
 },
-      {
-        "type": "text",
-        "id": "wf_multi_jar_offer_text",
-        "label": "Multi-jar offer text",
-        "info": "Exact wording of an automatic discount that exists in Discounts. Blank hides the nudge."
-      },
+{
+  "type": "text",
+  "id": "wf_multi_jar_offer_text",
+  "label": "Multi-jar offer text",
+  "info": "Exact wording of an automatic discount that exists in Discounts. Blank hides the nudge."
+},
       {
         "type": "number",
         "id": "wf_multi_jar_min_qty",
