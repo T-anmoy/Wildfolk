@@ -43,7 +43,7 @@
             {%- when '@app' -%}
               {% render block %}
             {%- when 'subtotal' -%}
-              <div class="js-contents" {{ block.shopify_attributes }}>
+              <div class="js-contents wf-cart-summary" {{ block.shopify_attributes }}>
                 {%- render 'wf-cart-extras', position: 'footer', context: 'page' -%}
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
