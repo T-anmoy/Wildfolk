@@ -1,19 +1,42 @@
 /* =========================================================
-   WILDFOLK CART — ITEMS
-   Scoped to the full cart page.
+   WILDFOLK CART
+   Full cart-page visual system
+   ---------------------------------------------------------
+   Scope:
+   - Full /cart page only
+   - Does not style the cart drawer
+   - Shopify cart mechanics remain untouched
    ========================================================= */
 
-cart-items {
+
+/* =========================================================
+   1. SHARED TOKENS
+   ========================================================= */
+
+cart-items,
+#main-cart-footer {
   --wf-cart-rule: rgba(var(--color-foreground), 0.14);
+  --wf-cart-rule-strong: rgba(var(--color-foreground), 0.22);
   --wf-cart-muted: rgba(var(--color-foreground), 0.62);
+  --wf-cart-soft: rgba(var(--color-foreground), 0.48);
+  --wf-cart-max-width: 124rem;
 }
 
-/* Container */
-cart-items .page-width {
-  max-width: 124rem;
+
+/* =========================================================
+   2. CART PAGE CONTAINER
+   ========================================================= */
+
+cart-items .page-width,
+#main-cart-footer .page-width {
+  max-width: var(--wf-cart-max-width);
 }
 
-/* Header */
+
+/* =========================================================
+   3. CART HEADER
+   ========================================================= */
+
 cart-items .title-wrapper-with-link {
   align-items: flex-end;
   gap: 2rem;
@@ -30,29 +53,53 @@ cart-items .title--primary {
 cart-items .title-wrapper-with-link .underlined-link {
   color: rgb(var(--color-foreground));
   font-size: 1.1rem;
-  letter-spacing: 0.1em;
   line-height: 1.4;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-underline-offset: 0.4rem;
 }
 
-/* Table headings */
+
+/* =========================================================
+   4. TABLE HEADINGS
+   ========================================================= */
+
 cart-items .cart-items thead th {
   padding-bottom: 1.4rem;
   border-bottom: 1px solid var(--wf-cart-rule);
   color: var(--wf-cart-muted);
   font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-/* Product row */
+
+/* =========================================================
+   5. PRODUCT ROW
+   ========================================================= */
+
 cart-items .cart-item > td {
   padding-top: 2.8rem;
   padding-bottom: 2.8rem;
   border-bottom: 1px solid var(--wf-cart-rule);
 }
 
-/* Product image */
+cart-items .cart-item__details {
+  min-width: 0;
+}
+
+cart-items .cart-item__quantity,
+cart-items .cart-item__totals {
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   6. PRODUCT IMAGE
+   ========================================================= */
+
 cart-items .cart-item__image-container {
   width: 11rem;
   overflow: hidden;
@@ -61,11 +108,16 @@ cart-items .cart-item__image-container {
 }
 
 cart-items .cart-item__image {
+  display: block;
   width: 100%;
   height: auto;
 }
 
-/* Product information */
+
+/* =========================================================
+   7. PRODUCT INFORMATION
+   ========================================================= */
+
 cart-items .cart-item__name {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
@@ -73,6 +125,7 @@ cart-items .cart-item__name {
   font-size: 1.8rem;
   line-height: 1.25;
   text-underline-offset: 0.3rem;
+  overflow-wrap: anywhere;
 }
 
 cart-items .wf-cart-item__weight {
@@ -88,12 +141,27 @@ cart-items .cart-item__details .product-option {
   margin-top: 0.55rem;
   color: var(--wf-cart-muted);
   font-size: 1.25rem;
+  line-height: 1.4;
 }
 
-/* Quantity + remove */
+cart-items .cart-item__details .price {
+  color: var(--wf-cart-muted);
+}
+
+cart-items .cart-item__totals .price {
+  color: rgb(var(--color-foreground));
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   8. QUANTITY + REMOVE
+   ========================================================= */
+
 cart-items .cart-item__quantity-wrapper {
   align-items: center;
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 cart-items .cart-quantity {
@@ -101,17 +169,29 @@ cart-items .cart-quantity {
   min-height: 4.6rem;
 }
 
+cart-items cart-remove-button {
+  flex-shrink: 0;
+}
+
 cart-items cart-remove-button .button {
-  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+
   width: auto;
   min-width: 0;
   min-height: 4.4rem;
+
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+
+  color: rgb(var(--color-foreground));
   background: transparent;
   box-shadow: none;
 }
 
+cart-items cart-remove-button .button::before,
 cart-items cart-remove-button .button::after {
   box-shadow: none;
 }
@@ -119,105 +199,53 @@ cart-items cart-remove-button .button::after {
 cart-items .wf-cart-remove__label {
   font-size: 1.1rem;
   line-height: 1;
+  white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }
 
-/* Empty cart */
+
+/* =========================================================
+   9. EMPTY CART
+   ========================================================= */
+
 cart-items.is-empty .cart__warnings {
+  width: min(100%, 52rem);
+  margin-left: auto;
+  margin-right: auto;
   padding: 7rem 0 9rem;
+  text-align: center;
 }
 
 cart-items .cart__empty-text {
+  margin-bottom: 2.8rem;
   font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: 1.1;
 }
 
-/* Mobile */
-@media screen and (max-width: 749px) {
-  cart-items .page-width {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  cart-items .title-wrapper-with-link {
-    align-items: flex-end;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  cart-items .title--primary {
-    font-size: 3.2rem;
-  }
-
-  cart-items .title-wrapper-with-link .underlined-link {
-    font-size: 1rem;
-    letter-spacing: 0.07em;
-  }
-
-  cart-items .cart-items thead {
-    display: none;
-  }
-
-  cart-items .cart-item {
-    margin-bottom: 0;
-    padding-top: 2rem;
-    padding-bottom: 2.4rem;
-    border-bottom: 1px solid var(--wf-cart-rule);
-    column-gap: 1.2rem;
-    row-gap: 0.8rem;
-  }
-
-  cart-items .cart-item > td {
-    padding-top: 0;
-    padding-bottom: 0;
-    border: 0;
-  }
-
-  cart-items .cart-item__media,
-  cart-items .cart-item__image-container {
-    width: 8.8rem;
-  }
-
-  cart-items .cart-item__name {
-    font-size: 1.65rem;
-    line-height: 1.25;
-  }
-
-  cart-items .wf-cart-item__weight {
-    margin-top: 0.4rem;
-  }
-
-  cart-items .cart-item__quantity {
-    padding-top: 0.7rem;
-  }
-
-  cart-items .cart-quantity {
-    width: 11.8rem;
-    min-height: 4.4rem;
-  }
-
-  cart-items cart-remove-button .button {
-    min-height: 4.4rem;
-  }
+cart-items.is-empty .cart__login-title {
+  margin-top: 5rem;
 }
+
+cart-items.is-empty .cart__login-paragraph {
+  margin-top: 0.8rem;
+}
+
+
 /* =========================================================
-   WILDFOLK CART — SUMMARY / CHECKOUT
+   10. EMPTY CART — HIDE CHECKOUT SUMMARY
    ========================================================= */
 
-#main-cart-footer {
-  --wf-cart-rule: rgba(var(--color-foreground), 0.14);
-  --wf-cart-muted: rgba(var(--color-foreground), 0.62);
+#main-cart-footer.is-empty {
+  display: none;
 }
 
-#main-cart-footer .page-width {
-  max-width: 124rem;
-}
+
+/* =========================================================
+   11. CART FOOTER BASE
+   ========================================================= */
 
 #main-cart-footer .cart__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: clamp(3rem, 6vw, 8rem);
   padding-top: 3.2rem;
   border-top: 0;
 }
@@ -232,7 +260,9 @@ cart-items .cart__empty-text {
 }
 
 
-/* Delivery */
+/* =========================================================
+   12. DELIVERY REASSURANCE
+   ========================================================= */
 
 #main-cart-footer .wf-cart-delivery {
   margin: 0 0 2.2rem;
@@ -258,12 +288,15 @@ cart-items .cart__empty-text {
 }
 
 
-/* Gift wrap */
+/* =========================================================
+   13. GIFT WRAP
+   Hidden automatically when no product is configured.
+   ========================================================= */
 
 #main-cart-footer .wf-gift-wrap {
   display: block;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin: 0 0 2rem;
+  padding: 0 0 2rem;
   border-bottom: 1px solid var(--wf-cart-rule);
 }
 
@@ -275,26 +308,31 @@ cart-items .cart__empty-text {
 }
 
 
-/* Discounts */
+/* =========================================================
+   14. DISCOUNTS
+   ========================================================= */
 
 #main-cart-footer .discounts {
-  margin-bottom: 1.6rem;
+  margin: 0 0 1.6rem;
 }
 
 
-/* Total */
+/* =========================================================
+   15. ESTIMATED TOTAL
+   ========================================================= */
 
 #main-cart-footer .totals {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 0;
+  margin: 0;
 }
 
 #main-cart-footer .totals__total {
   margin: 0;
   font-size: 1.15rem;
+  font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -310,7 +348,9 @@ cart-items .cart__empty-text {
 }
 
 
-/* Tax / shipping policy */
+/* =========================================================
+   16. TAX / SHIPPING POLICY
+   ========================================================= */
 
 #main-cart-footer .wf-cart-summary__tax {
   display: block;
@@ -328,7 +368,9 @@ cart-items .cart__empty-text {
 }
 
 
-/* Checkout */
+/* =========================================================
+   17. CHECKOUT CTA
+   ========================================================= */
 
 #main-cart-footer .cart__ctas {
   margin-top: 2rem;
@@ -337,7 +379,10 @@ cart-items .cart__empty-text {
 #main-cart-footer .cart__checkout-button {
   width: 100%;
   min-height: 5.4rem;
+
   font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -347,7 +392,9 @@ cart-items .cart__empty-text {
 }
 
 
-/* Returns */
+/* =========================================================
+   18. RETURNS / DAMAGE MESSAGE
+   ========================================================= */
 
 #main-cart-footer .wf-returns-line {
   margin: 1.5rem 0 0;
@@ -364,38 +411,344 @@ cart-items .cart__empty-text {
 }
 
 
-/* Mobile */
+/* =========================================================
+   19. DESKTOP SUMMARY LAYOUT
+   ---------------------------------------------------------
+   Left:
+   - delivery
+   - returns
+
+   Right:
+   - discounts
+   - total
+   - tax
+   - checkout
+
+   Uses the existing Liquid structure.
+   No additional markup required.
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+  #main-cart-footer .cart__footer {
+    display: block;
+    padding-top: 3.6rem;
+  }
+
+  #main-cart-footer .cart__blocks {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(36rem, 46rem);
+
+    column-gap: clamp(6rem, 9vw, 12rem);
+    row-gap: 0;
+
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  /*
+   * The subtotal block itself contains:
+   * delivery
+   * optional gift wrap
+   * discounts
+   * total
+   * tax text
+   */
+  #main-cart-footer .wf-cart-summary {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(36rem, 46rem);
+
+    column-gap: clamp(6rem, 9vw, 12rem);
+    align-items: start;
+  }
+
+  /* Left column */
+  #main-cart-footer .wf-cart-delivery {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+
+    width: 100%;
+    max-width: 48rem;
+    margin: 0;
+    padding: 1.8rem 0;
+  }
+
+  #main-cart-footer .wf-gift-wrap {
+    grid-column: 1;
+    width: 100%;
+    max-width: 48rem;
+  }
+
+  /*
+   * Empty wrapper that contains cart-level discounts
+   * when Shopify has any.
+   */
+  #main-cart-footer
+    .wf-cart-summary
+    > div:not(.wf-cart-delivery):not(.totals) {
+    grid-column: 2;
+  }
+
+  /* Right column */
+  #main-cart-footer .wf-cart-summary .totals {
+    grid-column: 2;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--wf-cart-rule);
+  }
+
+  #main-cart-footer .wf-cart-summary__tax {
+    grid-column: 2;
+    margin-top: 0.9rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--wf-cart-rule);
+  }
+
+  /* Checkout stays right */
+  #main-cart-footer .cart__ctas {
+    grid-column: 2;
+    margin-top: 2rem;
+  }
+
+  #main-cart-footer .cart__dynamic-checkout-buttons {
+    grid-column: 2;
+  }
+
+  /*
+   * Returns line moves naturally into the lower-left area.
+   */
+  #main-cart-footer .wf-returns-line {
+    grid-column: 1;
+    grid-row: 2;
+
+    width: 100%;
+    max-width: 48rem;
+
+    margin: 1.8rem 0 0;
+  }
+
+  #main-cart-footer #cart-errors {
+    grid-column: 2;
+  }
+}
+
+
+/* =========================================================
+   20. TABLET
+   ========================================================= */
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  #main-cart-footer .cart__blocks {
+    width: min(100%, 46rem);
+    margin-left: auto;
+  }
+}
+
+
+/* =========================================================
+   21. MOBILE — CART ITEMS
+   ========================================================= */
 
 @media screen and (max-width: 749px) {
+  cart-items .page-width,
   #main-cart-footer .page-width {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
+  /* Header */
+  cart-items .title-wrapper-with-link {
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  cart-items .title--primary {
+    font-size: 3.2rem;
+  }
+
+  cart-items .title-wrapper-with-link .underlined-link {
+    font-size: 1rem;
+    letter-spacing: 0.07em;
+  }
+
+  /* Hide desktop headings */
+  cart-items .cart-items thead {
+    display: none;
+  }
+
+  /* Product row */
+  cart-items .cart-item {
+    margin-bottom: 0;
+    padding-top: 2rem;
+    padding-bottom: 2.4rem;
+
+    border-bottom: 1px solid var(--wf-cart-rule);
+
+    column-gap: 1.2rem;
+    row-gap: 0.8rem;
+  }
+
+  cart-items .cart-item > td {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 0;
+  }
+
+  /* Image */
+  cart-items .cart-item__media,
+  cart-items .cart-item__image-container {
+    width: 8.8rem;
+  }
+
+  /* Product information */
+  cart-items .cart-item__name {
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  cart-items .wf-cart-item__weight {
+    margin-top: 0.4rem;
+    font-size: 1.05rem;
+  }
+
+  cart-items .cart-item__details .product-option {
+    font-size: 1.15rem;
+  }
+
+  /* Quantity */
+  cart-items .cart-item__quantity {
+    padding-top: 0.7rem;
+  }
+
+  cart-items .cart-item__quantity-wrapper {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  cart-items .cart-quantity {
+    width: 11.8rem;
+    min-height: 4.4rem;
+  }
+
+  /* Remove */
+  cart-items cart-remove-button .button {
+    min-height: 4.4rem;
+  }
+
+  cart-items .wf-cart-remove__label {
+    font-size: 1.05rem;
+  }
+
+  /* Empty state */
+  cart-items.is-empty .cart__warnings {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  cart-items.is-empty .cart__login-title {
+    margin-top: 4rem;
+  }
+}
+
+
+/* =========================================================
+   22. MOBILE — SUMMARY / CHECKOUT
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
   #main-cart-footer .cart__footer {
     display: block;
     padding-top: 2.4rem;
   }
 
   #main-cart-footer .cart__blocks {
+    display: block;
     width: 100%;
     max-width: none;
+    margin-left: 0;
   }
 
+  #main-cart-footer .wf-cart-summary {
+    display: block;
+  }
+
+  /* Delivery */
   #main-cart-footer .wf-cart-delivery {
-    margin-bottom: 2rem;
+    margin: 0 0 2rem;
     padding: 1.5rem 0;
   }
 
+  /* Total */
+  #main-cart-footer .totals {
+    gap: 1.5rem;
+  }
+
   #main-cart-footer .totals__total-value {
+    flex-shrink: 0;
     font-size: 2.1rem;
+  }
+
+  /* Tax */
+  #main-cart-footer .wf-cart-summary__tax {
+    margin-top: 0.8rem;
+  }
+
+  /* Checkout */
+  #main-cart-footer .cart__ctas {
+    margin-top: 1.8rem;
   }
 
   #main-cart-footer .cart__checkout-button {
     min-height: 5.2rem;
   }
 
+  /* Returns */
   #main-cart-footer .wf-returns-line {
     margin-top: 1.25rem;
+  }
+}
+
+
+/* =========================================================
+   23. VERY SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 374px) {
+  cart-items .page-width,
+  #main-cart-footer .page-width {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  cart-items .title--primary {
+    font-size: 2.9rem;
+  }
+
+  cart-items .cart-item__media,
+  cart-items .cart-item__image-container {
+    width: 8rem;
+  }
+
+  cart-items .cart-item__name {
+    font-size: 1.55rem;
+  }
+
+  cart-items .cart-quantity {
+    width: 11rem;
+  }
+
+  #main-cart-footer .totals__total {
+    font-size: 1.05rem;
+  }
+
+  #main-cart-footer .totals__total-value {
+    font-size: 1.9rem;
   }
 }
