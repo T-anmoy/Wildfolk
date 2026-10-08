@@ -1,0 +1,18 @@
+{%- comment -%}
+  Wildfolk cart delivery reassurance.
+  Customer-facing wording comes from Wildfolk commerce settings.
+{%- endcomment -%}
+
+{%- if settings.wf_cart_delivery_title != blank -%}
+  <div class="wf-cart-delivery wf-cart-delivery--{{ context | default: 'page' }}" role="note">
+    <p class="wf-cart-delivery__title">
+      {{ settings.wf_cart_delivery_title | escape }}
+    </p>
+
+    {%- if settings.wf_cart_delivery_text != blank -%}
+      <p class="wf-cart-delivery__text">
+        {{ settings.wf_cart_delivery_text | escape }}
+      </p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
