@@ -141,78 +141,6 @@
         "color_scheme": ""
       }
     },
-    "wf-quality": {
-      "type": "wf-story-panel",
-      "disabled": true,
-      "settings": {
-        "layout": "statement",
-        "image_position": "image-last",
-        "mobile_order": "image-first",
-        "eyebrow": "Quality",
-        "heading": "Clarity is part of quality.",
-        "text": "<p>We believe good product information should be easy to find and easy to understand.</p><p>Where it comes from. What it is. How it is handled. How to store it. How to use it.</p><p>No unnecessary mystery. No inflated language.</p><p>Just the details that help you know what you are bringing home.</p>",
-        "stat_value": "",
-        "stat_label": "",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-4"
-      }
-    },
-    "featured-product": {
-      "type": "featured-product",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        }
-      },
-      "block_order": [
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons"
-      ],
-      "disabled": true,
-      "settings": {
-        "product": "honey",
-        "color_scheme": "scheme-2",
-        "secondary_background": false,
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
     "wf-how-to-use": {
       "type": "wf-story-panel",
       "settings": {
@@ -227,26 +155,6 @@
         "button_label": "READ THE WILDFOLK STORY",
         "button_link": "shopify://pages/our-story",
         "color_scheme": "scheme-3"
-      }
-    },
-    "wf-reviews": {
-      "type": "wf-reviews",
-      "disabled": true,
-      "settings": {
-        "eyebrow": "What People Say",
-        "heading": "Real words from real tables",
-        "color_scheme": "scheme-6"
-      }
-    },
-    "wf-journal": {
-      "type": "wf-journal-feature",
-      "disabled": true,
-      "settings": {
-        "eyebrow": "The Journal",
-        "heading": "Notes from the world around the hive.",
-        "blog": "news",
-        "show_view_all": true,
-        "color_scheme": ""
       }
     },
     "wf-faq": {
@@ -343,13 +251,6 @@
         "button_link": "shopify://collections/honey",
         "color_scheme": "scheme-4"
       }
-    },
-    "wf-bee-guide": {
-      "type": "wf-bee-guide",
-      "disabled": true,
-      "settings": {
-        "enabled": true
-      }
     }
   },
   "order": [
@@ -359,13 +260,8 @@
     "wf-origin",
     "wf-hive",
     "wf-process",
-    "wf-quality",
-    "featured-product",
     "wf-how-to-use",
-    "wf-reviews",
-    "wf-journal",
     "wf-faq",
-    "wf-final-cta",
-    "wf-bee-guide"
+    "wf-final-cta"
   ]
 }
