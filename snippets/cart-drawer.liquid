@@ -8,7 +8,6 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'wf-cart-drawer.css' | asset_url | stylesheet_tag }}
-
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
@@ -165,18 +164,16 @@
                             -%}
                           </div>
                           {%- liquid
-  assign wf_drawer_net_weight_g = item.variant.metafields.wildfolk.net_weight_g.value
-
-  if wf_drawer_net_weight_g == blank
-    assign wf_drawer_net_weight_g = item.product.metafields.wildfolk.net_weight_g.value
-  endif
--%}
-
-{%- if wf_drawer_net_weight_g != blank -%}
-  <p class="wf-cart-drawer__weight">
-    {{ wf_drawer_net_weight_g }} g
-  </p>
-{%- endif -%}
+                            assign wf_drawer_net_weight_g = item.variant.metafields.wildfolk.net_weight_g.value
+                            if wf_drawer_net_weight_g == blank
+                            assign wf_drawer_net_weight_g = item.product.metafields.wildfolk.net_weight_g.value
+                            endif
+                            -%}
+                            {%- if wf_drawer_net_weight_g != blank -%}
+                              <p class="wf-cart-drawer__weight">
+                                {{ wf_drawer_net_weight_g }} g
+                              </p>
+                            {%- endif -%}
 
                           {%- if item.original_price != item.final_price -%}
                             <div class="cart-item__discounted-prices">

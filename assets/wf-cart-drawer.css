@@ -1,17 +1,20 @@
 /* =========================================================
    WILDFOLK CART DRAWER
-   Custom presentation for Shopify's cart drawer.
-   Native Shopify cart mechanics remain untouched.
+   ---------------------------------------------------------
+   Custom presentation layer for the Shopify cart drawer.
+   Keeps Craft's native cart mechanics intact.
    ========================================================= */
 
 
 /* =========================================================
-   1. TOKENS
+   1. DRAWER TOKENS
    ========================================================= */
 
 .cart-drawer {
   --wf-drawer-rule: rgba(var(--color-foreground), 0.14);
+  --wf-drawer-rule-strong: rgba(var(--color-foreground), 0.22);
   --wf-drawer-muted: rgba(var(--color-foreground), 0.62);
+  --wf-drawer-soft: rgba(var(--color-foreground), 0.48);
 }
 
 
@@ -60,7 +63,7 @@
 
 
 /* =========================================================
-   4. PRODUCT ROW
+   4. PRODUCT TABLE
    ========================================================= */
 
 .cart-drawer .cart-items thead {
@@ -75,10 +78,13 @@
   display: grid;
   grid-template-columns: 8.6rem minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
+
   column-gap: 1.2rem;
   row-gap: 0.8rem;
+
   margin: 0;
   padding: 1.8rem 0;
+
   border-bottom: 1px solid var(--wf-drawer-rule);
 }
 
@@ -102,6 +108,7 @@
 .cart-drawer .cart-item__media {
   grid-column: 1;
   grid-row: 1 / 3;
+
   width: 8.6rem;
   min-width: 0;
 }
@@ -115,12 +122,13 @@
 
 
 /* =========================================================
-   6. PRODUCT INFORMATION
+   6. PRODUCT DETAILS
    ========================================================= */
 
 .cart-drawer .cart-item__details {
   grid-column: 2;
   grid-row: 1;
+
   width: auto;
   min-width: 0;
 }
@@ -133,24 +141,31 @@
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
+
   font-size: 1.55rem;
   line-height: 1.25;
+
   text-underline-offset: 0.3rem;
   overflow-wrap: anywhere;
 }
 
 .cart-drawer .wf-cart-drawer__weight {
   margin: 0.45rem 0 0;
+
   color: var(--wf-drawer-muted);
+
   font-size: 1.05rem;
   line-height: 1.3;
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 }
 
 .cart-drawer .product-option {
   margin-top: 0.45rem;
+
   color: var(--wf-drawer-muted);
+
   font-size: 1.15rem;
   line-height: 1.4;
 }
@@ -163,13 +178,16 @@
 .cart-drawer .cart-item__totals {
   grid-column: 3;
   grid-row: 1;
+
   min-width: max-content;
+
   align-items: flex-start;
   justify-content: flex-end;
 }
 
 .cart-drawer .cart-item__totals .price {
   color: rgb(var(--color-foreground));
+
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.2;
@@ -183,6 +201,7 @@
 .cart-drawer .cart-items .cart-item__quantity {
   grid-column: 2 / 4;
   grid-row: 2;
+
   padding-top: 0;
 }
 
@@ -190,6 +209,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
   gap: 0.8rem;
 }
 
@@ -211,6 +231,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 0.45rem;
 
   width: auto;
@@ -233,19 +254,23 @@
 .cart-drawer .wf-cart-drawer__remove-label {
   font-size: 1.05rem;
   line-height: 1;
+
   white-space: nowrap;
+
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }
 
 
 /* =========================================================
-   9. FOOTER
+   9. DRAWER FOOTER
    ========================================================= */
 
 .cart-drawer .drawer__footer {
   flex-shrink: 0;
+
   padding: 1.6rem 0 1.8rem;
+
   border-top: 1px solid var(--wf-drawer-rule);
 }
 
@@ -261,21 +286,26 @@
 .cart-drawer .wf-cart-delivery {
   margin: 0 0 1.4rem;
   padding: 0 0 1.4rem;
+
   border-bottom: 1px solid var(--wf-drawer-rule);
 }
 
 .cart-drawer .wf-cart-delivery__title {
   margin: 0;
+
   font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.11em;
+
   text-transform: uppercase;
 }
 
 .cart-drawer .wf-cart-delivery__text {
   margin: 0.4rem 0 0;
+
   color: var(--wf-drawer-muted);
+
   font-size: 1.15rem;
   line-height: 1.5;
 }
@@ -288,6 +318,7 @@
 .cart-drawer .wf-gift-wrap {
   margin: 0 0 1.4rem;
   padding: 0 0 1.4rem;
+
   border-bottom: 1px solid var(--wf-drawer-rule);
 }
 
@@ -309,37 +340,46 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+
   gap: 1.5rem;
+
   margin: 0;
 }
 
 .cart-drawer .totals__total {
   margin: 0;
+
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 }
 
 .cart-drawer .totals__total-value {
   margin: 0;
+
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
+
   font-size: 2.1rem;
   line-height: 1.15;
 }
 
 
 /* =========================================================
-   14. TAX + SHIPPING
+   14. TAX + SHIPPING POLICY
    ========================================================= */
 
 .cart-drawer .wf-cart-drawer__tax {
   display: block;
+
   margin: 0.75rem 0 0;
+
   color: var(--wf-drawer-muted);
+
   font-size: 1.05rem;
   line-height: 1.5;
   text-align: left;
@@ -347,7 +387,9 @@
 
 .cart-drawer .wf-cart-drawer__tax a {
   color: inherit;
+
   margin-left: 0.3rem;
+
   text-underline-offset: 0.3rem;
 }
 
@@ -372,6 +414,7 @@
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
 }
 
@@ -382,7 +425,9 @@
 
 .cart-drawer .wf-returns-line {
   margin: 1.3rem 0 0;
+
   color: var(--wf-drawer-muted);
+
   font-size: 1.05rem;
   line-height: 1.5;
   text-align: left;
@@ -390,7 +435,9 @@
 
 .cart-drawer .wf-returns-line__link {
   color: inherit;
+
   margin-left: 0.25rem;
+
   text-underline-offset: 0.3rem;
 }
 
@@ -407,8 +454,10 @@ cart-drawer.is-empty .drawer__inner-empty {
 cart-drawer.is-empty .cart-drawer__empty-content {
   width: 100%;
   max-width: 32rem;
+
   margin-left: auto;
   margin-right: auto;
+
   text-align: center;
 }
 
@@ -436,6 +485,7 @@ cart-drawer.is-empty .cart-drawer__empty-content > .button {
   .cart-drawer .drawer__inner {
     width: calc(100vw - 1.2rem);
     max-width: none;
+
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -451,7 +501,9 @@ cart-drawer.is-empty .cart-drawer__empty-content > .button {
 
   .cart-drawer .cart-item {
     grid-template-columns: 7.6rem minmax(0, 1fr) auto;
+
     column-gap: 1rem;
+
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;
   }
@@ -486,6 +538,7 @@ cart-drawer.is-empty .cart-drawer__empty-content > .button {
 @media screen and (max-width: 374px) {
   .cart-drawer .drawer__inner {
     width: calc(100vw - 0.8rem);
+
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
