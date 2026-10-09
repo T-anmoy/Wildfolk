@@ -134,6 +134,7 @@
       "name": "Why This Honey",
       "settings": {
         "layout": "split",
+        "image": "shopify://shop_images/wildcraft_page.webp",
         "image_position": "image-first",
         "mobile_order": "image-first",
         "eyebrow": "THE STORY",
