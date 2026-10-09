@@ -1,0 +1,512 @@
+/* =========================================================
+   WILDFOLK CART DRAWER
+   Custom presentation for Shopify's cart drawer.
+   Native Shopify cart mechanics remain untouched.
+   ========================================================= */
+
+
+/* =========================================================
+   1. TOKENS
+   ========================================================= */
+
+.cart-drawer {
+  --wf-drawer-rule: rgba(var(--color-foreground), 0.14);
+  --wf-drawer-muted: rgba(var(--color-foreground), 0.62);
+}
+
+
+/* =========================================================
+   2. DRAWER SHELL
+   ========================================================= */
+
+.cart-drawer .drawer__inner {
+  width: 44rem;
+  max-width: calc(100vw - 2rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-left: 1px solid var(--wf-drawer-rule);
+  border-right: 0;
+}
+
+.cart-drawer cart-drawer-items {
+  min-height: 0;
+}
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+.cart-drawer .drawer__header {
+  flex-shrink: 0;
+  padding: 2rem 0 1.6rem;
+  border-bottom: 1px solid var(--wf-drawer-rule);
+}
+
+.cart-drawer .drawer__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.7rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cart-drawer .drawer__close {
+  top: 1.2rem;
+  right: -0.8rem;
+}
+
+
+/* =========================================================
+   4. PRODUCT ROW
+   ========================================================= */
+
+.cart-drawer .cart-items thead {
+  display: none;
+}
+
+.cart-drawer .drawer__cart-items-wrapper {
+  padding: 0;
+}
+
+.cart-drawer .cart-item {
+  display: grid;
+  grid-template-columns: 8.6rem minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 1.2rem;
+  row-gap: 0.8rem;
+  margin: 0;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--wf-drawer-rule);
+}
+
+.cart-drawer .cart-item:last-child {
+  margin-bottom: 0;
+}
+
+.cart-drawer .cart-items td {
+  padding-top: 0;
+}
+
+.cart-drawer .cart-item > td + td {
+  padding-left: 0;
+}
+
+
+/* =========================================================
+   5. PRODUCT IMAGE
+   ========================================================= */
+
+.cart-drawer .cart-item__media {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 8.6rem;
+  min-width: 0;
+}
+
+.cart-drawer .cart-item__image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   6. PRODUCT INFORMATION
+   ========================================================= */
+
+.cart-drawer .cart-item__details {
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  min-width: 0;
+}
+
+.cart-drawer .cart-item__title {
+  margin: 0;
+}
+
+.cart-drawer .cart-item__name {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 1.55rem;
+  line-height: 1.25;
+  text-underline-offset: 0.3rem;
+  overflow-wrap: anywhere;
+}
+
+.cart-drawer .wf-cart-drawer__weight {
+  margin: 0.45rem 0 0;
+  color: var(--wf-drawer-muted);
+  font-size: 1.05rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cart-drawer .product-option {
+  margin-top: 0.45rem;
+  color: var(--wf-drawer-muted);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   7. LINE TOTAL
+   ========================================================= */
+
+.cart-drawer .cart-item__totals {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: max-content;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.cart-drawer .cart-item__totals .price {
+  color: rgb(var(--color-foreground));
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   8. QUANTITY + REMOVE
+   ========================================================= */
+
+.cart-drawer .cart-items .cart-item__quantity {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  padding-top: 0;
+}
+
+.cart-drawer .cart-item__quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.cart-drawer .quantity-popover-container {
+  padding: 0;
+}
+
+.cart-drawer .cart-quantity {
+  width: 11.5rem;
+  min-height: 4.2rem;
+}
+
+.cart-drawer cart-remove-button {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.cart-drawer cart-remove-button .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  width: auto;
+  min-width: 0;
+  min-height: 4.2rem;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  color: rgb(var(--color-foreground));
+  background: transparent;
+  box-shadow: none;
+}
+
+.cart-drawer cart-remove-button .button::before,
+.cart-drawer cart-remove-button .button::after {
+  box-shadow: none;
+}
+
+.cart-drawer .wf-cart-drawer__remove-label {
+  font-size: 1.05rem;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+
+/* =========================================================
+   9. FOOTER
+   ========================================================= */
+
+.cart-drawer .drawer__footer {
+  flex-shrink: 0;
+  padding: 1.6rem 0 1.8rem;
+  border-top: 1px solid var(--wf-drawer-rule);
+}
+
+.cart-drawer .cart-drawer__footer {
+  padding: 0;
+}
+
+
+/* =========================================================
+   10. DELIVERY
+   ========================================================= */
+
+.cart-drawer .wf-cart-delivery {
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px solid var(--wf-drawer-rule);
+}
+
+.cart-drawer .wf-cart-delivery__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.cart-drawer .wf-cart-delivery__text {
+  margin: 0.4rem 0 0;
+  color: var(--wf-drawer-muted);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   11. GIFT WRAP
+   ========================================================= */
+
+.cart-drawer .wf-gift-wrap {
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px solid var(--wf-drawer-rule);
+}
+
+
+/* =========================================================
+   12. DISCOUNTS
+   ========================================================= */
+
+.cart-drawer .discounts {
+  margin-bottom: 1.2rem;
+}
+
+
+/* =========================================================
+   13. TOTAL
+   ========================================================= */
+
+.cart-drawer .totals {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.cart-drawer .totals__total {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cart-drawer .totals__total-value {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.1rem;
+  line-height: 1.15;
+}
+
+
+/* =========================================================
+   14. TAX + SHIPPING
+   ========================================================= */
+
+.cart-drawer .wf-cart-drawer__tax {
+  display: block;
+  margin: 0.75rem 0 0;
+  color: var(--wf-drawer-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.cart-drawer .wf-cart-drawer__tax a {
+  color: inherit;
+  margin-left: 0.3rem;
+  text-underline-offset: 0.3rem;
+}
+
+
+/* =========================================================
+   15. CHECKOUT
+   ========================================================= */
+
+.cart-drawer .cart__ctas {
+  margin-top: 1.6rem;
+}
+
+.cart-drawer .cart__checkout-button {
+  --color-button: var(--color-foreground);
+  --color-button-text: var(--color-background);
+
+  width: 100%;
+  max-width: none;
+  min-height: 5.2rem;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   16. RETURNS
+   ========================================================= */
+
+.cart-drawer .wf-returns-line {
+  margin: 1.3rem 0 0;
+  color: var(--wf-drawer-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.cart-drawer .wf-returns-line__link {
+  color: inherit;
+  margin-left: 0.25rem;
+  text-underline-offset: 0.3rem;
+}
+
+
+/* =========================================================
+   17. EMPTY DRAWER
+   ========================================================= */
+
+cart-drawer.is-empty .drawer__inner-empty {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+cart-drawer.is-empty .cart-drawer__empty-content {
+  width: 100%;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+cart-drawer.is-empty .cart__empty-text {
+  margin-bottom: 2.4rem;
+
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+cart-drawer.is-empty .cart-drawer__empty-content > .button {
+  min-height: 5rem;
+}
+
+
+/* =========================================================
+   18. MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+  .cart-drawer .drawer__inner {
+    width: calc(100vw - 1.2rem);
+    max-width: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .cart-drawer .drawer__header {
+    padding-top: 1.7rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .cart-drawer .drawer__heading {
+    font-size: 2.4rem;
+  }
+
+  .cart-drawer .cart-item {
+    grid-template-columns: 7.6rem minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .cart-drawer .cart-item__media {
+    width: 7.6rem;
+  }
+
+  .cart-drawer .cart-item__name {
+    font-size: 1.45rem;
+  }
+
+  .cart-drawer .cart-quantity {
+    width: 10.8rem;
+  }
+
+  .cart-drawer .drawer__footer {
+    padding-top: 1.4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .cart-drawer .totals__total-value {
+    font-size: 1.9rem;
+  }
+}
+
+
+/* =========================================================
+   19. VERY SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 374px) {
+  .cart-drawer .drawer__inner {
+    width: calc(100vw - 0.8rem);
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .cart-drawer .cart-item {
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+  }
+
+  .cart-drawer .cart-item__media {
+    width: 7rem;
+  }
+
+  .cart-drawer .cart-item__name {
+    font-size: 1.38rem;
+  }
+
+  .cart-drawer .cart-quantity {
+    width: 10.4rem;
+  }
+
+  .cart-drawer .wf-cart-drawer__remove-label {
+    font-size: 1rem;
+  }
+}

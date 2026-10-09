@@ -7,6 +7,7 @@
 
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'wf-cart-drawer.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
@@ -163,6 +164,19 @@
                               modal_id: cart_disclosure_modal_id
                             -%}
                           </div>
+                          {%- liquid
+  assign wf_drawer_net_weight_g = item.variant.metafields.wildfolk.net_weight_g.value
+
+  if wf_drawer_net_weight_g == blank
+    assign wf_drawer_net_weight_g = item.product.metafields.wildfolk.net_weight_g.value
+  endif
+-%}
+
+{%- if wf_drawer_net_weight_g != blank -%}
+  <p class="wf-cart-drawer__weight">
+    {{ wf_drawer_net_weight_g }} g
+  </p>
+{%- endif -%}
 
                           {%- if item.original_price != item.final_price -%}
                             <div class="cart-item__discounted-prices">
@@ -359,23 +373,24 @@
                                 </quantity-input>
                               </div>
                               <cart-remove-button
-                                id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                                data-index="{{ item.index | plus: 1 }}"
-                              >
-                                <button
-                                  type="button"
-                                  class="button button--tertiary cart-remove-button"
-                                  aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                                  data-variant-id="{{ item.variant.id }}"
-                                  {% if item.instructions and item.instructions.can_remove == false %}
-                                    class="hidden"
-                                  {% endif %}
-                                >
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-remove.svg' | inline_asset_content -}}
-                                  </span>
-                                </button>
-                              </cart-remove-button>
+  id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+  data-index="{{ item.index | plus: 1 }}"
+>
+  <button
+    type="button"
+    class="button button--tertiary cart-remove-button{% if item.instructions and item.instructions.can_remove == false %} hidden{% endif %}"
+    aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+    data-variant-id="{{ item.variant.id }}"
+  >
+    <span class="svg-wrapper">
+      {{- 'icon-remove.svg' | inline_asset_content -}}
+    </span>
+
+    <span class="wf-cart-drawer__remove-label">
+      Remove
+    </span>
+  </button>
+</cart-remove-button>
                             </div>
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button
@@ -533,45 +548,19 @@
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <small class="tax-note caption-large rte">
-            {%- if cart.duties_included and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- endif -%}
-          </small>
+          <small class="tax-note caption-large rte wf-cart-drawer__tax">
+  {%- if cart.taxes_included -%}
+    Taxes included.
+  {%- else -%}
+    Taxes calculated at checkout.
+  {%- endif -%}
+
+  {%- if shop.shipping_policy.body != blank -%}
+    <a href="{{ shop.shipping_policy.url }}">
+      Shipping policy
+    </a>
+  {%- endif -%}
+</small>
         </div>
 
         <!-- CTAs -->
@@ -587,7 +576,7 @@
               disabled
             {% endif %}
           >
-            {{ 'sections.cart.checkout' | t }}
+            {{ settings.wf_cart_checkout_label | default: 'Proceed to checkout' | escape }}
           </button>
         </div>
         {%- render 'wf-cart-extras', position: 'end', context: 'drawer' -%}
