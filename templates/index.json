@@ -72,6 +72,7 @@
     "wf-origin": {
       "type": "wf-origin",
       "settings": {
+        "image_mobile": "shopify://shop_images/wildfolk_origin_mobile.webp",
         "eyebrow": "THE ORIGIN",
         "heading": "Where land meets tide.",
         "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and generations of local knowledge. It is here that Wildfolk’s two honey harvests begin.</p>",
