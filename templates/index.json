@@ -82,6 +82,7 @@
     "wf-hive": {
       "type": "wf-hive",
       "settings": {
+        "image_mobile": "shopify://shop_images/Wildfolkhivemobile.webp",
         "statement": "Place · Season · People · Harvest",
         "eyebrow": "NAMED-ORIGIN, ALWAYS",
         "heading": "Every jar begins somewhere worth naming.",
