@@ -56,6 +56,7 @@
       "type": "wf-story-panel",
       "settings": {
         "layout": "split",
+        "image": "shopify://shop_images/why_wildfolk_exist.webp",
         "image_position": "image-last",
         "mobile_order": "image-first",
         "eyebrow": "WHY WILDFOLK EXISTS",
