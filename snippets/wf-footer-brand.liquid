@@ -1,21 +1,57 @@
+
 {%- comment -%}
-  Brand-led footer opening: the wordmark (logo when set, else the shop name) and
-  the merchant's own brand statement from Theme settings → Brand information.
-  Nothing is invented: the statement lines are hidden while those settings are empty.
+  Wildfolk footer identity.
+  Uses the independent footer logo selected in the Footer section.
+  Falls back to the global logo if no footer logo is selected.
 {%- endcomment -%}
-<div class="wf-footer-brand page-width">
-  <a href="{{ routes.root_url }}" class="wf-footer-brand__wordmark">
-    {%- if settings.logo != blank -%}
-      {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-      {{ settings.logo | image_url: width: 400 | image_tag: class: 'wf-footer-brand__logo', widths: '200, 400', alt: logo_alt, loading: 'lazy' }}
+
+{%- liquid
+  assign wf_footer_image = footer_logo
+
+  if wf_footer_image == blank
+    assign wf_footer_image = settings.logo
+  endif
+
+  assign wf_footer_alt = wf_footer_image.alt | default: shop.name
+-%}
+
+<div
+  class="wf-footer-identity"
+  style="
+    --wf-footer-logo-desktop: {{ desktop_width | default: 320 }}px;
+    --wf-footer-logo-mobile: {{ mobile_width | default: 240 }}px;
+  "
+>
+  <a
+    href="{{ routes.root_url }}"
+    class="wf-footer-identity__link"
+  >
+    {%- if wf_footer_image != blank -%}
+      {{
+        wf_footer_image
+        | image_url: width: 1000
+        | image_tag:
+          class: 'wf-footer-identity__logo',
+          widths: '240, 360, 480, 720, 1000',
+          alt: wf_footer_alt,
+          loading: 'lazy'
+      }}
     {%- else -%}
-      {{ shop.name | escape }}
+      <span class="wf-footer-identity__text">
+        {{ shop.name | escape }}
+      </span>
     {%- endif -%}
   </a>
+
   {%- if settings.brand_headline != blank -%}
-    <p class="wf-footer-brand__headline">{{ settings.brand_headline }}</p>
+    <p class="wf-footer-identity__headline">
+      {{ settings.brand_headline }}
+    </p>
   {%- endif -%}
+
   {%- if settings.brand_description != blank -%}
-    <div class="wf-footer-brand__description rte">{{ settings.brand_description }}</div>
+    <div class="wf-footer-identity__description rte">
+      {{ settings.brand_description }}
+    </div>
   {%- endif -%}
 </div>
