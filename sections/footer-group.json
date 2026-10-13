@@ -65,7 +65,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WILDFOLKWHITELOGO.svg",
-            "image_width": 550,
+            "image_width": 380,
             "alignment": "center"
           }
         },
