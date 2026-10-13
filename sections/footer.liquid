@@ -25,10 +25,155 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Wildfolk — independent footer identity */
+
+  .footer .wf-footer-identity-slot {
+    min-width: 0;
+  }
+
+  .footer .wf-footer-identity {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer .wf-footer-identity__link {
+    display: block;
+    width: min(100%, var(--wf-footer-logo-desktop, 320px));
+    max-width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer .wf-footer-identity__link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  .footer .wf-footer-identity__logo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .footer .wf-footer-identity__text {
+    font-family: var(--font-heading-family);
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  .footer .wf-footer-identity__headline {
+    margin: 1.2rem 0 0;
+    line-height: 1.5;
+  }
+
+  .footer .wf-footer-identity__description {
+    margin-top: 0.8rem;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer .wf-footer-identity__link {
+      width: min(100%, var(--wf-footer-logo-mobile, 240px));
+    }
+  }
+
+  /* ===========================================
+     WILDFOLK — REFINED FOOTER LAYOUT
+     Brand-first, responsive four-column system
+     =========================================== */
+
+  /* Give the footer generous vertical breathing room */
+  .footer .footer__content-top {
+    padding-top: clamp(5.6rem, 5.5vw, 7.6rem);
+    padding-bottom: clamp(4.8rem, 4.5vw, 6.4rem);
+  }
+
+  /* Reset the original flex-grid constraints */
+  .footer .footer__blocks-wrapper.grid {
+    display: grid;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: start;
+  }
+
+  .footer .footer__blocks-wrapper > .footer-block.grid__item {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Footer logo should not stretch beyond its column */
+  .footer .wf-footer-identity-slot {
+    min-width: 0;
+    align-self: start;
+  }
+
+  .footer .wf-footer-identity__link {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .footer .wf-footer-identity__logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Desktop: wider brand column + three equal menus */
+  @media screen and (min-width: 990px) {
+    .footer .footer__blocks-wrapper.grid {
+      grid-template-columns:
+        minmax(0, 1.8fr)
+        repeat(3, minmax(0, 1fr));
+      column-gap: clamp(2.4rem, 3vw, 4.4rem);
+      row-gap: 3.2rem;
+    }
+  }
+
+  /* Tablet: brand across the top, three menus below */
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .footer .footer__blocks-wrapper.grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 2.8rem;
+      row-gap: 3.2rem;
+    }
+
+    .footer .wf-footer-identity-slot {
+      grid-column: 1 / -1;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  /* Mobile: logo first, navigation in two columns */
+  @media screen and (max-width: 749px) {
+    .footer .footer__content-top {
+      padding-top: 4.8rem;
+      padding-bottom: 4.8rem;
+    }
+
+    .footer .footer__blocks-wrapper.grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2rem;
+      row-gap: 3.2rem;
+    }
+
+    .footer .wf-footer-identity-slot {
+      grid-column: 1 / -1;
+      margin-bottom: 0.8rem;
+    }
+  }
+
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  
+
   {%- liquid
     assign has_social_icons = true
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -67,7 +212,32 @@
               data-cascade
             {% endif %}
           >
+
+{%- liquid
+  assign wf_footer_logo_image = section.settings.wf_footer_logo
+  assign wf_legacy_logo_block = section.blocks | first
+
+  if wf_footer_logo_image == blank and wf_legacy_logo_block.type == 'image'
+    assign wf_footer_logo_image = wf_legacy_logo_block.settings.image
+  endif
+-%}
+
+<div class="footer-block grid__item wf-footer-identity-slot">
+  {%- render 'wf-footer-brand',
+    footer_logo: wf_footer_logo_image,
+    desktop_width: section.settings.wf_footer_logo_width,
+    mobile_width: section.settings.wf_footer_logo_mobile_width
+  -%}
+</div>
+
             {%- for block in section.blocks -%}
+
+
+{%- if forloop.first and block.type == 'image' -%}
+  {%- continue -%}
+{%- endif -%}
+
+
               <div
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
@@ -424,14 +594,46 @@
         }
       ]
     }
+
   ],
   "settings": [
+    {
+      "type": "header",
+      "content": "Wildfolk footer branding"
+    },
+    {
+      "type": "image_picker",
+      "id": "wf_footer_logo",
+      "label": "Footer logo",
+      "info": "Select the footer logo independently of the header logo."
+    },
+    {
+      "type": "range",
+      "id": "wf_footer_logo_width",
+      "min": 180,
+      "max": 460,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop logo width",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "wf_footer_logo_mobile_width",
+      "min": 140,
+      "max": 320,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile logo width",
+      "default": 240
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
     },
+
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__1.content",

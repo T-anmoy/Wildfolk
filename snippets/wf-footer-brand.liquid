@@ -1,16 +1,13 @@
 
 {%- comment -%}
   Wildfolk footer identity.
-  Uses the independent footer logo selected in the Footer section.
-  Falls back to the global logo if no footer logo is selected.
+  Receives its logo from the Footer section.
+  Displays the shop name when no footer logo is available.
 {%- endcomment -%}
 
 {%- liquid
   assign wf_footer_image = footer_logo
 
-  if wf_footer_image == blank
-    assign wf_footer_image = settings.logo
-  endif
 
   assign wf_footer_alt = wf_footer_image.alt | default: shop.name
 -%}
