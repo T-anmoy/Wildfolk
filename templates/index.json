@@ -20,7 +20,7 @@
         "button_link": "shopify://collections/honey",
         "button_label_secondary": "DISCOVER WILDFOLK",
         "button_link_secondary": "/pages/our-story",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     },
     "featured_collection_Hk4ecA": {
@@ -39,7 +39,7 @@
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -79,7 +79,7 @@
         "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and generations of local knowledge. It is here that Wildfolk’s two honey harvests begin.</p>",
         "origin_name": "Sundarbans Mangrove Landscape",
         "location_label": "West Bengal, India",
-        "color_scheme": ""
+        "color_scheme": "scheme-3"
       }
     },
     "wf-hive": {
@@ -143,7 +143,7 @@
       "settings": {
         "eyebrow": "FROM BLOOM TO JAR",
         "heading": "A thoughtful journey, shaped by place.",
-        "color_scheme": ""
+        "color_scheme": "scheme-4"
       }
     },
     "wf-how-to-use": {
@@ -159,7 +159,7 @@
         "stat_label": "",
         "button_label": "READ THE WILDFOLK STORY",
         "button_link": "shopify://pages/our-story",
-        "color_scheme": "scheme-3"
+        "color_scheme": "scheme-1"
       }
     },
     "wf-faq": {
