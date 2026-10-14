@@ -12,7 +12,6 @@
     "hero": {
       "type": "wf-hero",
       "settings": {
-        "image": "shopify://shop_images/our_story_hero.webp",
         "priority_load": true,
         "eyebrow": "Our Story",
         "heading": "Honey is the product. The world around it is the story.",
@@ -27,6 +26,8 @@
     "origin": {
       "type": "wf-origin",
       "settings": {
+        "image": "shopify://shop_images/our_story_hero.webp",
+        "image_mobile": "shopify://shop_images/our_story_origin_mob.webp",
         "eyebrow": "THE SUNDARBANS",
         "heading": "Every place leaves something behind.",
         "text": "<p>Wildfolk’s first harvests begin in the Sundarbans — a landscape shaped by mangrove forests, tidal waters and generations of local knowledge.</p><p>Place is not background information to us. It shapes the character of the harvest, the people involved and the story carried forward in every jar.</p>",
@@ -39,6 +40,7 @@
       "type": "wf-story-panel",
       "settings": {
         "layout": "split",
+        "image": "shopify://shop_images/our_story_people_and_process.webp",
         "image_position": "image-first",
         "mobile_order": "image-first",
         "eyebrow": "People & Process",

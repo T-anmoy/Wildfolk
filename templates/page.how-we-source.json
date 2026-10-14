@@ -28,6 +28,7 @@
       "type": "wf-origin",
       "name": "Wildfolk origin",
       "settings": {
+        "image": "shopify://shop_images/how_we_source_landscape.webp",
         "eyebrow": "THE SOURCE LANDSCAPE",
         "heading": "It starts with the Sundarbans.",
         "text": "<p>The Sundarbans is a landscape shaped by mangrove forests, tidal waters and seasonal flowering flora.</p><p>For Wildfolk, origin is not background information. It shapes how each harvest is gathered and the character carried forward in every jar.</p><p></p>",
