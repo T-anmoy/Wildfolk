@@ -224,8 +224,8 @@
         "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
-        "container_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-6",
+        "color_scheme": "scheme-6",
         "open_first_collapsible_row": true,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
@@ -254,7 +254,7 @@
         "text": "<p>Two distinct mangrove honeys. One landscape. Start with the profile that feels most like yours.</p>",
         "button_label": "SHOP THE HARVESTS",
         "button_link": "shopify://collections/honey",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     }
   },
