@@ -78,7 +78,7 @@
         "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -131,7 +131,7 @@
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
-        "color_scheme": "scheme-6",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 48,
         "padding_bottom": 48
