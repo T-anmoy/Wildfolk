@@ -12,6 +12,7 @@
     "hero": {
       "type": "wf-hero",
       "settings": {
+        "image": "shopify://shop_images/our_story_hero.webp",
         "priority_load": true,
         "eyebrow": "Our Story",
         "heading": "Honey is the product. The world around it is the story.",
@@ -20,7 +21,7 @@
         "button_link": "",
         "button_label_secondary": "",
         "button_link_secondary": "",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     },
     "origin": {
@@ -54,6 +55,7 @@
       "type": "wf-story-panel",
       "settings": {
         "layout": "split",
+        "image": "shopify://shop_images/our_story_values.webp",
         "image_position": "image-last",
         "mobile_order": "image-first",
         "eyebrow": "Values",
