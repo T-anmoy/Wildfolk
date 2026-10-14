@@ -115,7 +115,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -144,7 +144,7 @@
         "stat_label": "",
         "button_label": "",
         "button_link": "",
-        "color_scheme": ""
+        "color_scheme": "scheme-6"
       }
     },
     "disclosures": {
@@ -274,7 +274,7 @@
       "settings": {
         "eyebrow": "THE HARVEST",
         "heading": "Wild comb. Traditional knowledge.",
-        "color_scheme": ""
+        "color_scheme": "scheme-3"
       }
     },
     "multicolumn_7eJWLg": {
@@ -334,7 +334,7 @@
         "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -395,7 +395,7 @@
       "settings": {
         "product": "honey",
         "view_details_label": "EXPLORE TENDED HARVEST",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
