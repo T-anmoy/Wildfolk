@@ -47,7 +47,7 @@
         "stat_label": "",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-2"
       }
     },
     "values": {
@@ -103,7 +103,7 @@
         "text": "<p>Two mangrove harvests. Two different expressions of the same remarkable landscape.</p><p></p>",
         "button_label": "SHOP THE HARVESTS",
         "button_link": "shopify://collections/honey",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     }
   },
