@@ -21,7 +21,7 @@
         "button_link": "",
         "button_label_secondary": "",
         "button_link_secondary": "",
-        "color_scheme": ""
+        "color_scheme": "scheme-1"
       }
     },
     "wf_origin_AMwJj7": {
@@ -81,7 +81,7 @@
         "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -138,7 +138,7 @@
       "settings": {
         "eyebrow": "FROM BLOOM TO JAR",
         "heading": "A journey worth keeping visible.",
-        "color_scheme": "scheme-2"
+        "color_scheme": "scheme-4"
       }
     },
     "image_with_text_4Gy9an": {
@@ -182,8 +182,8 @@
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3",
-        "color_scheme": "scheme-4",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -208,7 +208,7 @@
         "text": "<p>Start with the lighter, floral character of Tended Harvest — or explore the deeper, bolder profile of Wildcrafted.</p><p></p>",
         "button_label": "SHOP THE HARVESTS",
         "button_link": "shopify://collections/honey",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     }
   },
