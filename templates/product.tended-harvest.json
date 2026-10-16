@@ -225,7 +225,7 @@
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "scheme-6",
+        "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -274,7 +274,7 @@
       "settings": {
         "eyebrow": "THE HARVEST",
         "heading": "Wild forage. Tended hives.",
-        "color_scheme": "scheme-4"
+        "color_scheme": "scheme-3"
       }
     },
     "multicolumn_7eJWLg": {
@@ -334,7 +334,7 @@
         "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "",
+        "color_scheme": "scheme-6",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
